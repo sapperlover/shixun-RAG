@@ -1,4 +1,4 @@
-"""POST /feedback —— 四类反馈，按 request_id 可在后台查到（文档-2 §6.3）。
+"""POST /feedback —— 四类反馈，按 request_id 可在后台查到（V1.2 §6.2 D4：请求 ID 与反馈）。
 
 TODO(BE, D4)：写入 feedback 表；request_id 必须存在于 qa_logs。
 """

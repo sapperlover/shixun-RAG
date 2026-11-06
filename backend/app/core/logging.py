@@ -1,4 +1,4 @@
-"""日志：每行带 request_id；对密码、token 等做脱敏（文档-2 §1.3 安全）。"""
+"""日志：每行带 request_id；对密码、token 等做脱敏（V1.2 §5 日志脱敏）。"""
 
 from __future__ import annotations
 

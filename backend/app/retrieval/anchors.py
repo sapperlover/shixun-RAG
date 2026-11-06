@@ -1,4 +1,4 @@
-"""锚点匹配（文档-2 §4.2(2) 第 2 步）。
+"""锚点匹配（V1.2 §4.2：解析 anchors；实体词典 + 可选 FAISS）。
 
 输入：Intent、knowledge_batch。
 输出：最多 retrieval.max_anchors 个 Anchor，按 score 降序。空列表 → pipeline 返回 ANCHOR_NOT_FOUND。

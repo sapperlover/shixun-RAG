@@ -1,4 +1,4 @@
-"""证据约束生成（V1.2 §4.3；文档-2 §4.2(3)）。
+"""证据约束生成（V1.2 §4.3）。
 
 输入：问题、FactRecord 列表。
 输出：Draft（answer、claims、answer_mode）。

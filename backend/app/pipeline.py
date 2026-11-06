@@ -1,6 +1,6 @@
 """★ 多跳问答主流程：在线问答（api/qa.py）与评测（eval/runner.py）共用的唯一入口。
 
-流程（文档-2 §4.1 八步，V1.2 §4.2/§4.3）：
+流程（V1.2 §4.2/§4.3）：
   固定 batch → 解析问题 → [缺范围 → needs_context]
   → 锚点 → [无锚点 → insufficient/ANCHOR_NOT_FOUND]
   → 逐跳扩展 → 完整路径判定 → [不完整/未核验/冲突 → insufficient]

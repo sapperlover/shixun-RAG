@@ -37,7 +37,7 @@ class Anchor:
 
 @dataclass
 class HopLogEntry:
-    """跳级日志（文档-2 §4.2(2)）：每跳候选数、保留数、剪枝原因 → 失败归因的依据。"""
+    """跳级日志（V1.2 §4.3 记录断链跳次、§6.1 失败分析）：每跳候选数、保留数、剪枝原因 → 失败归因的依据。"""
 
     hop: int
     candidates_in: int

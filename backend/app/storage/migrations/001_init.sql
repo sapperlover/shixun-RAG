@@ -1,6 +1,6 @@
 -- 元数据库初始结构。★ 冻结契约：只追加新的迁移文件（002_xxx.sql），不修改本文件。
 -- 来源：V1.2 附录 B.1（Document/Chunk/RelationEvidence/BuildBatch/ActiveSnapshot）
---     + 文档-2 §4.3(2)（users/qa_logs/feedback/评测结果）。
+--     + 本项目约定（users/qa_logs/feedback/评测结果，见 docs/ADR.md ADR-002）。
 -- 测试题本身以冻结的 JSONL 文件为准（V1.2 附录 D.1），不入库。
 
 CREATE TABLE users (
