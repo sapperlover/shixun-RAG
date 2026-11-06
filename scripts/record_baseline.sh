@@ -21,5 +21,5 @@ for f in backend/requirements.lock backend/requirements-dev.lock frontend/packag
 done
 echo
 echo "## 硬件"
-echo "- CPU：$(nproc) 核；内存：$(free -h | awk '/Mem:/{print $2}')"
+echo "- CPU：$(nproc) 核；内存：$(awk '/MemTotal/{printf "%.1f GB", $2/1048576}' /proc/meminfo)"
 echo "- GPU：$(nvidia-smi --query-gpu=name,memory.total --format=csv,noheader 2>/dev/null || echo 无)"

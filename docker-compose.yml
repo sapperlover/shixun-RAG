@@ -79,7 +79,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: ${NEO4J_MEM_LIMIT:-2g}
+          memory: ${NEO4J_MEM_LIMIT:-3g}
     restart: unless-stopped
 
   ollama:
