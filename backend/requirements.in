@@ -1,0 +1,9 @@
+# 运行时直接依赖（骨架阶段只放轻量依赖）。改动后执行 `make lock`。
+# D2/D3 再加入：pymupdf python-docx jieba faiss-cpu sentence-transformers
+fastapi>=0.115,<1
+uvicorn[standard]>=0.32,<1
+pydantic>=2.9,<3
+pydantic-settings>=2.6,<3
+pyyaml>=6,<7
+neo4j>=5.26,<6
+httpx>=0.27,<1

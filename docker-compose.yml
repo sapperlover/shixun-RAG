@@ -1,0 +1,107 @@
+# 交付基线（V1.2 附录 D.2/D.3）：web / api / neo4j / ollama 四个容器。
+# 只有 web 对宿主机暴露端口；Neo4j、Ollama、SQLite、FAISS 只在 Compose 内网可见。
+# 开发叠加：docker-compose.dev.yml；GPU 叠加：docker-compose.gpu.yml。
+name: campus-graphrag
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      target: prod
+      args:
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmjs.org}
+    image: campus-graphrag-web:${APP_VERSION:-dev}
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      target: prod
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
+        GIT_COMMIT: ${GIT_COMMIT:-unknown}
+    image: campus-graphrag-api:${APP_VERSION:-dev}
+    env_file: .env
+    environment:
+      APP_ENV: ${APP_ENV:-prod}
+      ROOT_PATH: /api
+      NEO4J_URI: bolt://neo4j:7687
+      NEO4J_USER: neo4j
+      OLLAMA_BASE_URL: http://ollama:11434
+      SQLITE_PATH: /data/app/app.db
+      FAISS_DIR: /data/faiss
+      MODEL_CACHE_DIR: /data/model_cache
+      UPLOAD_DIR: /data/uploads
+    volumes:
+      - app_data:/data/app
+      - faiss_indexes:/data/faiss
+      - model_cache:/data/model_cache
+      - doc_uploads:/data/uploads
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/health/live', timeout=3).status == 200 else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    depends_on:
+      neo4j:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+    deploy:
+      resources:
+        limits:
+          memory: ${API_MEM_LIMIT:-3g}
+    restart: unless-stopped
+
+  neo4j:
+    image: neo4j:${NEO4J_IMAGE_TAG:-5.26.0-community}
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:?请在 .env 中设置 NEO4J_PASSWORD（至少 8 位）}
+      NEO4J_server_memory_heap_initial__size: ${NEO4J_HEAP:-1g}
+      NEO4J_server_memory_heap_max__size: ${NEO4J_HEAP:-1g}
+      NEO4J_server_memory_pagecache_size: ${NEO4J_PAGECACHE:-512m}
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p \"$${NEO4J_AUTH#neo4j/}\" 'RETURN 1' >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: ${NEO4J_MEM_LIMIT:-2g}
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:${OLLAMA_IMAGE_TAG:-0.5.7}
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          memory: ${OLLAMA_MEM_LIMIT:-6g}
+    restart: unless-stopped
+
+volumes:
+  neo4j_data:
+  ollama_data:
+  app_data:
+  faiss_indexes:
+  model_cache:
+  doc_uploads:

@@ -1,0 +1,106 @@
+{
+  "request_id": "req-demo-001",
+  "status": "success",
+  "knowledge_batch": "batch-demo-01",
+  "retrieval_mode": "hybrid",
+  "degraded_mode": false,
+  "degradation_reason": null,
+  "answer_mode": "llm",
+  "answer": "【模拟答案】2024 级计算机科学与技术专业培养方案中的专业选修课，其跨院系课程认定按《学籍管理规定》第十二条执行 [cit-1][cit-2][cit-3]。具体认定条件以原文为准。",
+  "claims": [
+    {
+      "claim_id": "claim-1",
+      "text": "【模拟】2024 级计算机科学与技术专业的专业选修课，跨院系课程认定按学籍管理规定第十二条执行。",
+      "path_ids": [
+        "p-1"
+      ],
+      "citation_ids": [
+        "cit-1",
+        "cit-2",
+        "cit-3"
+      ]
+    }
+  ],
+  "paths": [
+    {
+      "path_id": "p-1",
+      "hop_count": 3,
+      "nodes": [
+        {
+          "node_id": "major:DEMO01",
+          "label": "Professional",
+          "name": "【模拟】计算机科学与技术"
+        },
+        {
+          "node_id": "plan:DEMO01:2024:r1",
+          "label": "ProgramPlan",
+          "name": "【模拟】2024 级本科培养方案"
+        },
+        {
+          "node_id": "category:plan-DEMO01-2024-r1:PE",
+          "label": "CourseCategory",
+          "name": "【模拟】专业选修课"
+        },
+        {
+          "node_id": "rule:doc-demo-rules:v1:s12",
+          "label": "RuleClause",
+          "name": "【模拟】第十二条 跨院系课程认定"
+        }
+      ],
+      "edges": [
+        {
+          "relation_id": "rel-demo-0001",
+          "type": "APPLIES_TO",
+          "from": "plan:DEMO01:2024:r1",
+          "to": "major:DEMO01"
+        },
+        {
+          "relation_id": "rel-demo-0002",
+          "type": "CONTAINS",
+          "from": "plan:DEMO01:2024:r1",
+          "to": "category:plan-DEMO01-2024-r1:PE"
+        },
+        {
+          "relation_id": "rel-demo-0003",
+          "type": "CITES",
+          "from": "category:plan-DEMO01-2024-r1:PE",
+          "to": "rule:doc-demo-rules:v1:s12"
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "citation_id": "cit-1",
+      "relation_id": "rel-demo-0001",
+      "chunk_id": "chunk-demo-plan-001",
+      "doc_id": "doc-demo-plan",
+      "doc_version": "2024-demo",
+      "section": "一、适用专业",
+      "page": 1,
+      "excerpt": "【模拟原文】本培养方案适用于计算机科学与技术专业 2024 级本科生。"
+    },
+    {
+      "citation_id": "cit-2",
+      "relation_id": "rel-demo-0002",
+      "chunk_id": "chunk-demo-plan-007",
+      "doc_id": "doc-demo-plan",
+      "doc_version": "2024-demo",
+      "section": "三、课程设置",
+      "page": 5,
+      "excerpt": "【模拟原文】课程体系包括……专业选修课……"
+    },
+    {
+      "citation_id": "cit-3",
+      "relation_id": "rel-demo-0003",
+      "chunk_id": "chunk-demo-plan-009",
+      "doc_id": "doc-demo-plan",
+      "doc_version": "2024-demo",
+      "section": "三、课程设置（说明）",
+      "page": 6,
+      "excerpt": "【模拟原文】专业选修课的跨院系课程认定按《学籍管理规定》第十二条执行。"
+    }
+  ],
+  "missing_fields": [],
+  "error": null
+}

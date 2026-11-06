@@ -1,0 +1,17 @@
+{
+  "request_id": "req-demo-002",
+  "status": "needs_context",
+  "knowledge_batch": "batch-demo-01",
+  "retrieval_mode": null,
+  "degraded_mode": false,
+  "degradation_reason": null,
+  "answer_mode": null,
+  "answer": null,
+  "claims": [],
+  "paths": [],
+  "citations": [],
+  "missing_fields": [
+    "entry_year"
+  ],
+  "error": null
+}

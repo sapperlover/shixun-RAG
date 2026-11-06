@@ -1,0 +1,479 @@
+{
+  "$comment": "由 backend/scripts/export_schema.py 生成，请勿手改",
+  "request": {
+    "$defs": {
+      "Scope": {
+        "additionalProperties": false,
+        "properties": {
+          "major_code": {
+            "anyOf": [
+              {
+                "maxLength": 32,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Major Code"
+          },
+          "entry_year": {
+            "anyOf": [
+              {
+                "maximum": 2100,
+                "minimum": 2000,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Entry Year"
+          }
+        },
+        "title": "Scope",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "question": {
+        "maxLength": 500,
+        "minLength": 1,
+        "title": "Question",
+        "type": "string"
+      },
+      "scope": {
+        "$ref": "#/$defs/Scope"
+      },
+      "session_id": {
+        "anyOf": [
+          {
+            "maxLength": 64,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "FR-07 预留",
+        "title": "Session Id"
+      }
+    },
+    "required": [
+      "question"
+    ],
+    "title": "QARequest",
+    "type": "object"
+  },
+  "response": {
+    "$defs": {
+      "Citation": {
+        "additionalProperties": false,
+        "properties": {
+          "citation_id": {
+            "title": "Citation Id",
+            "type": "string"
+          },
+          "relation_id": {
+            "title": "Relation Id",
+            "type": "string"
+          },
+          "chunk_id": {
+            "title": "Chunk Id",
+            "type": "string"
+          },
+          "doc_id": {
+            "title": "Doc Id",
+            "type": "string"
+          },
+          "doc_version": {
+            "title": "Doc Version",
+            "type": "string"
+          },
+          "section": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Section"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Page"
+          },
+          "excerpt": {
+            "title": "Excerpt",
+            "type": "string"
+          }
+        },
+        "required": [
+          "citation_id",
+          "relation_id",
+          "chunk_id",
+          "doc_id",
+          "doc_version",
+          "excerpt"
+        ],
+        "title": "Citation",
+        "type": "object"
+      },
+      "Claim": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_id": {
+            "title": "Claim Id",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "path_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Path Ids",
+            "type": "array"
+          },
+          "citation_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Citation Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "claim_id",
+          "text",
+          "path_ids",
+          "citation_ids"
+        ],
+        "title": "Claim",
+        "type": "object"
+      },
+      "ErrorCode": {
+        "enum": [
+          "ANCHOR_NOT_FOUND",
+          "PATH_INCOMPLETE",
+          "EVIDENCE_UNVERIFIED",
+          "VERSION_CONFLICT",
+          "CITATION_INVALID",
+          "GRAPH_UNAVAILABLE",
+          "METADATA_UNAVAILABLE",
+          "NO_ACTIVE_BATCH",
+          "LLM_UNAVAILABLE",
+          "INTERNAL_ERROR",
+          "VALIDATION_ERROR",
+          "FORBIDDEN",
+          "NOT_FOUND",
+          "NOT_IMPLEMENTED"
+        ],
+        "title": "ErrorCode",
+        "type": "string"
+      },
+      "ErrorInfo": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "$ref": "#/$defs/ErrorCode"
+          },
+          "failed_hop": {
+            "anyOf": [
+              {
+                "maximum": 3,
+                "minimum": 1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Failed Hop"
+          },
+          "retryable": {
+            "title": "Retryable",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "code",
+          "retryable"
+        ],
+        "title": "ErrorInfo",
+        "type": "object"
+      },
+      "Path": {
+        "additionalProperties": false,
+        "properties": {
+          "path_id": {
+            "title": "Path Id",
+            "type": "string"
+          },
+          "hop_count": {
+            "maximum": 3,
+            "minimum": 2,
+            "title": "Hop Count",
+            "type": "integer"
+          },
+          "nodes": {
+            "items": {
+              "$ref": "#/$defs/PathNode"
+            },
+            "title": "Nodes",
+            "type": "array"
+          },
+          "edges": {
+            "items": {
+              "$ref": "#/$defs/PathEdge"
+            },
+            "title": "Edges",
+            "type": "array"
+          }
+        },
+        "required": [
+          "path_id",
+          "hop_count",
+          "nodes",
+          "edges"
+        ],
+        "title": "Path",
+        "type": "object"
+      },
+      "PathEdge": {
+        "additionalProperties": false,
+        "properties": {
+          "relation_id": {
+            "title": "Relation Id",
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "BELONGS_TO",
+              "CONTAINS",
+              "APPLIES_TO",
+              "CITES",
+              "PREREQUISITE_OF"
+            ],
+            "title": "Type",
+            "type": "string"
+          },
+          "from": {
+            "description": "起点 node_id（存储方向）",
+            "title": "From",
+            "type": "string"
+          },
+          "to": {
+            "description": "终点 node_id（存储方向）",
+            "title": "To",
+            "type": "string"
+          }
+        },
+        "required": [
+          "relation_id",
+          "type",
+          "from",
+          "to"
+        ],
+        "title": "PathEdge",
+        "type": "object"
+      },
+      "PathNode": {
+        "additionalProperties": false,
+        "properties": {
+          "node_id": {
+            "description": "业务实体 ID（entity_id），不含 batch 前缀",
+            "title": "Node Id",
+            "type": "string"
+          },
+          "label": {
+            "enum": [
+              "College",
+              "Professional",
+              "ProgramPlan",
+              "CourseCategory",
+              "Course",
+              "RuleClause"
+            ],
+            "title": "Label",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "node_id",
+          "label",
+          "name"
+        ],
+        "title": "PathNode",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "request_id": {
+        "title": "Request Id",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "success",
+          "needs_context",
+          "insufficient",
+          "error"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "knowledge_batch": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Knowledge Batch"
+      },
+      "retrieval_mode": {
+        "anyOf": [
+          {
+            "enum": [
+              "hybrid",
+              "graph_only"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Retrieval Mode"
+      },
+      "degraded_mode": {
+        "title": "Degraded Mode",
+        "type": "boolean"
+      },
+      "degradation_reason": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Degradation Reason"
+      },
+      "answer_mode": {
+        "anyOf": [
+          {
+            "enum": [
+              "llm",
+              "template"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Answer Mode"
+      },
+      "answer": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Answer"
+      },
+      "claims": {
+        "items": {
+          "$ref": "#/$defs/Claim"
+        },
+        "title": "Claims",
+        "type": "array"
+      },
+      "paths": {
+        "items": {
+          "$ref": "#/$defs/Path"
+        },
+        "title": "Paths",
+        "type": "array"
+      },
+      "citations": {
+        "items": {
+          "$ref": "#/$defs/Citation"
+        },
+        "title": "Citations",
+        "type": "array"
+      },
+      "missing_fields": {
+        "items": {
+          "enum": [
+            "major_code",
+            "entry_year"
+          ],
+          "type": "string"
+        },
+        "title": "Missing Fields",
+        "type": "array"
+      },
+      "error": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/ErrorInfo"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "required": [
+      "request_id",
+      "status",
+      "knowledge_batch",
+      "retrieval_mode",
+      "degraded_mode",
+      "degradation_reason",
+      "answer_mode",
+      "answer",
+      "claims",
+      "paths",
+      "citations",
+      "missing_fields",
+      "error"
+    ],
+    "title": "QAResponse",
+    "type": "object"
+  }
+}

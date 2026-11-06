@@ -1,0 +1,19 @@
+{
+  "request_id": "req-demo-003",
+  "status": "insufficient",
+  "knowledge_batch": "batch-demo-01",
+  "retrieval_mode": "graph_only",
+  "degraded_mode": true,
+  "degradation_reason": "faiss_unavailable",
+  "answer_mode": null,
+  "answer": null,
+  "claims": [],
+  "paths": [],
+  "citations": [],
+  "missing_fields": [],
+  "error": {
+    "code": "PATH_INCOMPLETE",
+    "failed_hop": 2,
+    "retryable": false
+  }
+}

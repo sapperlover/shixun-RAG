@@ -1,0 +1,20 @@
+[project]
+name = "campus-graphrag-api"
+version = "0.1.0"
+requires-python = ">=3.11,<3.12"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003"]  # 允许中文全角标点出现在字符串/注释中
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 120  # 中文按双宽计算，注释/文档字符串放宽；代码由 formatter 控制在 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["integration: 需要 Neo4j/Ollama 等外部服务，默认不运行"]

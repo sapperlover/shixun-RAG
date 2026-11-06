@@ -1,0 +1,20 @@
+{
+  "name": "campus-graphrag · api",
+  "dockerComposeFile": ["../docker-compose.yml", "../docker-compose.dev.yml"],
+  "service": "api",
+  "runServices": ["api", "neo4j", "ollama"],
+  "workspaceFolder": "/app",
+  "shutdownAction": "none",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-python.debugpy", "charliermarsh.ruff", "Vue.volar"],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.testing.pytestEnabled": true,
+        "python.testing.cwd": "/app/backend",
+        "python.testing.pytestArgs": ["tests"],
+        "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" }
+      }
+    }
+  }
+}

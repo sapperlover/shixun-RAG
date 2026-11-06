@@ -1,0 +1,19 @@
+{
+  "request_id": "req-demo-004",
+  "status": "error",
+  "knowledge_batch": null,
+  "retrieval_mode": null,
+  "degraded_mode": false,
+  "degradation_reason": null,
+  "answer_mode": null,
+  "answer": null,
+  "claims": [],
+  "paths": [],
+  "citations": [],
+  "missing_fields": [],
+  "error": {
+    "code": "GRAPH_UNAVAILABLE",
+    "failed_hop": null,
+    "retryable": true
+  }
+}

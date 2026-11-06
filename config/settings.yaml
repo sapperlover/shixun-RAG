@@ -1,0 +1,38 @@
+# 算法与业务参数（V1.2 §4.2/§4.3、文档-2 §4.2）。部署相关的值（密码、模型名、端口）在 .env。
+# 修改本文件属于“契约变更”：需架构师同意，并记录到 docs/ADR.md。
+
+pipeline:
+  # 骨架阶段：列表中的模块返回 contracts/mocks/success.json 中的模拟数据。
+  # 某模块的真实实现合入后，由负责人把它从列表中移除；列表清空即骨架阶段结束。
+  # /health/ready 会如实报告当前仍处于 stub 的模块。
+  stub_modules: [snapshot, anchors, expand, path_check, rank, facts, generate]
+
+retrieval:
+  min_hops: 2
+  max_hops: 3
+  max_anchors: 5
+  per_hop_candidates: 10
+  max_paths: 20
+  top_k_paths: 3
+  vector_anchor_min_score: 0.6   # 向量锚点召回阈值（D3 实测后调整）
+
+evidence:
+  token_budget: 3000
+
+generation:
+  temperature: 0.1
+  max_tokens: 512
+  timeout_s: 60
+  max_retries: 1       # 校验不过最多重试 1 次
+  fallback: template   # 模型不可用时的降级方式：template | none
+
+ingest:
+  allowed_extensions: [pdf, docx, txt]
+  max_upload_mb: 20
+  relation_min_confidence: 0.8   # 低于此值的候选关系不进入预核验清单的“建议通过”
+
+eval:
+  scorer_version: "0.1.0"
+  dataset_file: data/eval/questions_v1.jsonl
+  dataset_sha256_file: data/eval/questions_v1.sha256
+  runs_dir: data/eval/runs

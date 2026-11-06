@@ -1,0 +1,12 @@
+# GPU 加速叠加（可选）。默认基线必须在纯 CPU 下可运行（V1.2 附录 D.2）。
+# 需要宿主机已安装 NVIDIA 驱动与 NVIDIA Container Toolkit。
+# 用法：make up GPU=1   或   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
+services:
+  ollama:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

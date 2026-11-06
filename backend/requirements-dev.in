@@ -1,0 +1,5 @@
+# 开发/测试依赖，版本受运行时锁文件约束
+-c requirements.lock
+pytest>=8,<9
+ruff>=0.8,<1
+debugpy>=1.8,<2

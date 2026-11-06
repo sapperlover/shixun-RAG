@@ -1,0 +1,59 @@
+# 图谱 Schema 白名单（V1.2 附录 A.1 / A.2）。
+# 入库、检索、路径校验都以本文件为唯一依据；不在白名单内的标签、关系或端点组合一律丢弃。
+version: 1
+
+common_node_props: [entity_id, batch_id, node_key, name]   # node_key = batch_id + ":" + entity_id
+common_relation_props: [relation_id, batch_id, verified, evidence_chunk_ids]
+
+nodes:
+  College:
+    zh: 学院
+    required: [college_code]
+    id_format: "college:<college_code>"
+  Professional:
+    zh: 专业
+    required: [major_code, college_code]
+    id_format: "major:<major_code>"
+  ProgramPlan:
+    zh: 培养方案
+    required: [major_id, entry_year, plan_revision]
+    id_format: "plan:<major>:<year>:<rev>"
+  CourseCategory:
+    zh: 课程类别
+    required: [plan_id, category_code]
+    id_format: "category:<plan>:<code>"
+  Course:
+    zh: 课程
+    required: [course_code]
+    id_format: "course:<code>"
+  RuleClause:
+    zh: 规则条款
+    required: [doc_id, doc_version, section]
+    id_format: "rule:<doc>:<ver>:<section>"
+
+# 存储方向固定；反向遍历只改变查询方向，不改变语义。
+relations:
+  BELONGS_TO:
+    zh: 所属
+    endpoints:
+      - [Professional, College]
+      - [Course, CourseCategory]
+  CONTAINS:
+    zh: 包含
+    endpoints:
+      - [ProgramPlan, CourseCategory]
+      - [CourseCategory, Course]
+  APPLIES_TO:
+    zh: 适用
+    endpoints:
+      - [ProgramPlan, Professional]
+      - [RuleClause, ProgramPlan]
+  CITES:
+    zh: 引用
+    endpoints:
+      - [CourseCategory, RuleClause]
+      - [ProgramPlan, RuleClause]
+  PREREQUISITE_OF:
+    zh: 先修
+    endpoints:
+      - [Course, Course]   # A -> B 表示 A 是 B 的先修课

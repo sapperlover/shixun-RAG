@@ -1,0 +1,37 @@
+# 开发叠加：make dev  (= docker compose -f docker-compose.yml -f docker-compose.dev.yml up)
+# - api：挂载整个仓库到 /app，uvicorn --reload；开放 8000（/docs）与 5678（debugpy）
+# - web：Vite 开发服务器，开放 5173，/api 代理到 api:8000
+# - neo4j：开发时开放 7474/7687 便于用 Neo4j Browser 查看；交付基线中不开放
+services:
+  api:
+    build:
+      target: dev
+      args:
+        APP_UID: ${APP_UID:-1000}
+    image: campus-graphrag-api:dev-tools
+    environment:
+      APP_ENV: dev
+      ROOT_PATH: ""
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+      - "5678:5678"
+
+  web:
+    build:
+      target: dev
+    image: campus-graphrag-web:dev-tools
+    environment:
+      VITE_API_TARGET: http://api:8000
+    volumes:
+      - ./frontend:/repo/frontend
+      - ./contracts:/repo/contracts:ro
+      - /repo/frontend/node_modules
+    ports:
+      - "5173:5173"
+
+  neo4j:
+    ports:
+      - "7474:7474"
+      - "7687:7687"
