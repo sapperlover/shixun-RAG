@@ -1,7 +1,7 @@
-"""骨架阶段的模拟数据来源：contracts/mocks/*.json。
+"""契约 mock：contracts/mocks/*.json。
 
-处于 stub 状态的模块（settings.yaml → pipeline.stub_modules）从这里取数据，
-保证整条链路在没有真实实现时也能端到端跑通，且输出始终符合契约。
+用途仅限：开发环境的 X-Debug-Force-Status 联调、mock 批次的原文读回、契约测试。
+生产链路不读取这里的任何数据。
 """
 
 from __future__ import annotations

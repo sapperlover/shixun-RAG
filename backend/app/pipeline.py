@@ -14,7 +14,7 @@
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 
 from app.answer import facts as facts_mod
 from app.answer import generate as gen_mod
@@ -54,73 +54,67 @@ def _run(req: QARequest, request_id: str) -> PipelineResult:
     if intent.missing_fields:
         return PipelineResult(QAResponse.needs_context(request_id, batch, intent.missing_fields))
 
-    anchors = anchors_mod.match(intent, batch)[: settings.retrieval.max_anchors]
+    found = anchors_mod.match(intent, batch)
+    intent = replace(intent, mentions=[a.entity_id for a in found if a.match != "scope"])
+    anchors = found[: settings.retrieval.max_anchors]
     if not anchors:
         return PipelineResult(
             QAResponse.insufficient(request_id, batch, ErrorCode.ANCHOR_NOT_FOUND)
         )
 
     exp = expand_mod.expand(anchors, intent, batch)
-    degraded = exp.degradation_reason
-    if not exp.candidates:
-        return PipelineResult(
-            QAResponse.insufficient(
-                request_id,
-                batch,
-                ErrorCode.PATH_INCOMPLETE,
-                exp.failed_hop,
-                retrieval_mode=exp.retrieval_mode,
-                degradation_reason=degraded,
-            ),
-            exp.hop_log,
+    mode, degraded = exp.retrieval_mode, exp.degradation_reason
+
+    def refuse(code: ErrorCode, hop: int | None, paths=None) -> PipelineResult:
+        resp = QAResponse.insufficient(
+            request_id,
+            batch,
+            code,
+            hop,
+            retrieval_mode=mode,
+            degradation_reason=degraded,
+            paths=paths,
         )
+        return PipelineResult(resp, exp.hop_log)
+
+    if not exp.candidates:
+        return refuse(exp.failed_code or ErrorCode.PATH_INCOMPLETE, exp.failed_hop)
 
     complete, fail_code, fail_hop = path_check.filter_complete(exp.candidates, intent, batch)
+    if fail_code == ErrorCode.VERSION_CONFLICT:
+        # 冲突：不给结论，但展示互相冲突的路径（ADR-013）
+        return refuse(fail_code, None, [c.path for c in rank.rank(complete, intent)])
     if not complete:
-        return PipelineResult(
-            QAResponse.insufficient(
-                request_id,
-                batch,
-                fail_code or ErrorCode.PATH_INCOMPLETE,
-                fail_hop,
-                retrieval_mode=exp.retrieval_mode,
-                degradation_reason=degraded,
-            ),
-            exp.hop_log,
-        )
+        if fail_code is None:  # 候选路径都与问题无关 → 采用扩展阶段最相关的断点
+            fail_code, fail_hop = exp.failed_code or ErrorCode.PATH_INCOMPLETE, exp.failed_hop
+        return refuse(fail_code, fail_hop)
 
     ranked = rank.rank(complete, intent)
     facts = facts_mod.build(ranked, batch)
+    if not facts:
+        return refuse(ErrorCode.EVIDENCE_UNVERIFIED, None)
 
     draft, validation = _generate_with_guard(req.question, facts, settings.generation.max_retries)
     if not validation.kept:
         log.info("all claims dropped: %s", validation.dropped)
-        return PipelineResult(
-            QAResponse.insufficient(
-                request_id,
-                batch,
-                ErrorCode.CITATION_INVALID,
-                retrieval_mode=exp.retrieval_mode,
-                degradation_reason=degraded,
-            ),
-            exp.hop_log,
-        )
+        return refuse(ErrorCode.CITATION_INVALID, None)
 
     reasons = [r for r in (degraded, draft.degradation_reason) if r]
     used_paths = {pid for c in validation.kept for pid in c.path_ids}
     used_cits = {cid for c in validation.kept for cid in c.citation_ids}
+    citations = list({f.citation.citation_id: f.citation for f in facts}.values())
     response = QAResponse(
         request_id=request_id,
         status="success",
         knowledge_batch=batch,
-        retrieval_mode=exp.retrieval_mode,
+        retrieval_mode=mode,
         degraded_mode=bool(reasons),
         degradation_reason=",".join(reasons) or None,
         answer_mode=draft.answer_mode,
-        answer=draft.answer,
+        answer=template.compose(validation.kept),
         claims=[Claim(**vars(c)) for c in validation.kept],
         paths=[cp.path for cp in ranked if cp.path.path_id in used_paths],
-        citations=[f.citation for f in facts if f.citation.citation_id in used_cits],
+        citations=[c for c in citations if c.citation_id in used_cits],
         missing_fields=[],
         error=None,
     )
@@ -136,7 +130,7 @@ def _generate_with_guard(question, facts, max_retries):
         except ServiceUnavailable:
             break  # 模型不可用 → 直接走模板
         validation = validate_claims.validate(draft.claims, facts)
-        if validation.ok:
+        if validation.ok and validation.kept:  # 空断言（模型认为证据不足或输出无法解析）也重试/降级
             return draft, validation
     if get_settings().generation.fallback == "template":
         draft = template.render(facts, reason="llm_unavailable" if draft is None else "llm_invalid")

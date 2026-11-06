@@ -1,0 +1,4 @@
+doc_id,doc_version,title,source_uri,authorization_note,access_level,file_sha256,college_code,major_code,entry_year,notes
+doc-demo-plan-2024,2024-demo,【模拟】计算机科学与技术专业 2024 级本科培养方案,demo://plan-2024,教学演示用模拟资料，非真实制度,public,demo-00000000000000000000000000000000000000000000000000000000000,DEMO,DEMO01,2024,
+doc-demo-plan-2023,2023-demo,【模拟】计算机科学与技术专业 2023 级本科培养方案,demo://plan-2023,教学演示用模拟资料，非真实制度,public,demo-11111111111111111111111111111111111111111111111111111111111,DEMO,DEMO01,2023,
+doc-demo-rules,v1-demo,【模拟】本科生学籍管理规定,demo://rules,教学演示用模拟资料，非真实制度,public,demo-22222222222222222222222222222222222222222222222222222222222,,,,

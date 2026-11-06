@@ -20,11 +20,11 @@ def predicted_edges(resp: QAResponse) -> list[list[GoldEdge]]:
 
 
 def is_path_hit(q: EvalQuestion, resp: QAResponse) -> bool:
-    """输出路径中任意一条与标准关系链完全一致（按业务实体 ID，不含 batch）。"""
+    """输出路径中任意一条与标准关系链的边集合完全一致（按业务实体 ID，不含 batch，与书写顺序无关）。"""
     if not q.gold_relation_path:
         return resp.status == q.expected_status
-    gold = [(e.from_, e.type, e.to) for e in q.gold_relation_path]
-    return any([(e.from_, e.type, e.to) for e in p] == gold for p in predicted_edges(resp))
+    gold = {(e.from_, e.type, e.to) for e in q.gold_relation_path}
+    return any({(e.from_, e.type, e.to) for e in p} == gold for p in predicted_edges(resp))
 
 
 def is_answer_correct(q: EvalQuestion, resp: QAResponse) -> bool:

@@ -12,6 +12,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Literal
 
+from app.core.errors import ErrorCode
 from app.schemas.qa import Citation, Path, Scope
 
 PatternId = Literal["T1", "T2", "T3"]
@@ -21,8 +22,10 @@ PatternId = Literal["T1", "T2", "T3"]
 class Intent:
     question: str
     scope: Scope
-    pattern: PatternId | None  # None = 尚未识别题型
-    mentions: list[str] = field(default_factory=list)  # 问题中的实体词/关键词
+    pattern: PatternId | None  # None = 未从关键词识别出题型，按锚点类型尝试所有模式
+    mentions: list[str] = field(
+        default_factory=list
+    )  # 问题中字面/向量匹配到的实体 entity_id（锚点阶段后填充）
     missing_fields: list[str] = field(default_factory=list)
 
 
@@ -32,7 +35,7 @@ class Anchor:
     label: str
     name: str
     score: float
-    match: Literal["exact", "alias", "vector"]
+    match: Literal["exact", "alias", "vector", "scope"]  # scope = 由 major_code+entry_year 推出
 
 
 @dataclass
@@ -55,17 +58,20 @@ class EdgeEvidence:
 
 @dataclass
 class CandidatePath:
-    path: Path  # 对外展示用的节点/边
+    path: Path  # 对外展示用的节点/边（nodes 按从锚点出发的顺序）
     pattern: PatternId | None
     evidence: list[EdgeEvidence]  # 与 path.edges 一一对应
     score: float = 0.0
+    node_props: dict[str, dict] = field(default_factory=dict)  # node_id → 图谱节点属性
+    node_batches: dict[str, str] = field(default_factory=dict)  # node_id → batch_id
 
 
 @dataclass
 class Expansion:
     candidates: list[CandidatePath]
     hop_log: list[HopLogEntry]
-    failed_hop: int | None = None  # 第几跳无结果；None = 未断链
+    failed_hop: int | None = None  # 最相关的断点在第几跳；None = 未断链
+    failed_code: ErrorCode | None = None  # 断点原因：PATH_INCOMPLETE / EVIDENCE_UNVERIFIED
     retrieval_mode: Literal["hybrid", "graph_only"] = "hybrid"
     degradation_reason: str | None = None
 

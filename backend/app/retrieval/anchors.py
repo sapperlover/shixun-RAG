@@ -1,23 +1,57 @@
 """锚点匹配（V1.2 §4.2：解析 anchors；实体词典 + 可选 FAISS）。
 
 输入：Intent、knowledge_batch。
-输出：最多 retrieval.max_anchors 个 Anchor，按 score 降序。空列表 → pipeline 返回 ANCHOR_NOT_FOUND。
+输出：Anchor 列表（字面命中 > scope 推出 > 向量召回，按分数降序）。
 
-规则：先按名称/别名精确匹配；未命中再用 FAISS 向量相似度（≥ vector_anchor_min_score）。
-FAISS 不可用时只用精确匹配，并让 Expansion 标记 graph_only 降级。
-
-TODO(BE, D3)：实现真实匹配，并从 settings.yaml 的 stub_modules 中移除 "anchors"。
+来源：
+1. 字面：问题中出现的实体名称/别名（最长匹配优先），match=exact/alias，score=1；
+2. scope：major_code + entry_year 唯一确定的培养方案，match=scope；
+3. 向量：没有任何字面命中时，用 FAISS 召回 top-k（≥ vector_anchor_min_score），match=vector。
+除 scope 外的命中实体同时作为“问题语义约束”（Intent.mentions），由 path_check 使用。
 """
 
 from __future__ import annotations
 
-from app import fixtures
+import logging
+
 from app.core.config import get_settings
 from app.domain import Anchor, Intent
+from app.graph import dictionary
+from app.storage import faiss_store
+
+log = logging.getLogger(__name__)
 
 
 def match(intent: Intent, batch_id: str) -> list[Anchor]:
-    if get_settings().is_stub("anchors"):
-        n = fixtures.success().paths[0].nodes[0]
-        return [Anchor(entity_id=n.node_id, label=n.label, name=n.name, score=1.0, match="exact")]
-    raise NotImplementedError
+    cfg = get_settings().retrieval
+    d = dictionary.load(batch_id)
+    out: dict[str, Anchor] = {}
+
+    for ref, surface in d.find_mentions(intent.question, cfg.min_surface_chars):
+        kind = "exact" if dictionary.normalize(ref.name) == surface else "alias"
+        out[ref.entity_id] = Anchor(ref.entity_id, ref.label, ref.name, 1.0, kind)
+
+    s = intent.scope
+    if s.major_code and s.entry_year:
+        for ref in d.entities.values():
+            if (
+                ref.label == "ProgramPlan"
+                and ref.props.get("major_id") == f"major:{s.major_code}"
+                and ref.props.get("entry_year") == s.entry_year
+            ):
+                out.setdefault(
+                    ref.entity_id, Anchor(ref.entity_id, ref.label, ref.name, 1.0, "scope")
+                )
+
+    if cfg.vector_enabled and not any(a.match in ("exact", "alias") for a in out.values()):
+        try:
+            hits = faiss_store.search(batch_id, intent.question, cfg.vector_anchor_top_k)
+        except Exception as exc:  # 向量不可用只影响召回，不影响图检索
+            log.info("向量锚点不可用: %s", exc)
+            hits = []
+        for eid, label, score in hits:
+            if score >= cfg.vector_anchor_min_score and eid in d.entities:
+                out.setdefault(eid, Anchor(eid, label, d.entities[eid].name, score, "vector"))
+
+    order = {"exact": 0, "alias": 0, "scope": 1, "vector": 2}
+    return sorted(out.values(), key=lambda a: (order[a.match], -a.score, a.entity_id))

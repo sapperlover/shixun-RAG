@@ -30,9 +30,7 @@ async def lifespan(app: FastAPI):
             log.info("SQLite 迁移: %s", applied)
     except Exception as exc:  # 元数据库不可用时仍启动，由 /health/ready 报告
         log.error("SQLite 迁移失败: %s", exc)
-    log.info(
-        "启动完成 env=%s stub_modules=%s", get_env().app_env, get_settings().pipeline.stub_modules
-    )
+    log.info("启动完成 env=%s", get_env().app_env)
     yield
     neo4j_client.close()
 

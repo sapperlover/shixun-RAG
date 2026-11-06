@@ -3,8 +3,8 @@
 “实体锚点 → 2–3 跳关系路径 → 逐边原文来源 → 受约束回答”的单机可复现 MVP。
 设计依据见 `docs/architecture/`，取舍见 [docs/ADR.md](docs/ADR.md)，分工见 [docs/TASKS.md](docs/TASKS.md)。
 
-> 当前处于**骨架阶段**：链路端到端可跑，但检索与生成模块返回的是 `contracts/mocks/` 中标注为【模拟】的数据。
-> 仍在模拟状态的模块列在 `config/settings.yaml → pipeline.stub_modules`，`/health/ready` 也会显示。
+> 主干已全部实现，并用 `data/demo/` 的【模拟】演示知识包端到端验证。真实文档的解析与抽取（D2）尚待实现，
+> 正式知识包放在 `data/kb/`（格式见该目录 README）。
 
 ## 环境要求
 
@@ -16,9 +16,13 @@
 ```bash
 make env        # 生成 .env，然后修改 NEO4J_PASSWORD（至少 8 位）
 make up         # 交付基线：web / api / neo4j / ollama；GPU 加速用 make up GPU=1
-make init       # 首次：SQLite 迁移、Neo4j 约束、拉取 Qwen 模型
+make init       # 首次：SQLite 迁移、Neo4j 约束、拉取 Qwen 与 bge-small-zh 模型
+make kb-demo    # 构建并发布【模拟】演示知识批次（正式数据：make kb DIR=data/kb Q=...）
 make health     # 查看 /health/ready
 ```
+
+演示问题（专业代码 `DEMO01`、年级 `2024`）：“计算机科学与技术专业 2024 级的专业选修课，跨院系修读的课程怎么认定？”、
+“学操作系统之前需要先修哪些课？”（无需年级）、“2024 级通识选修课的修读有什么规定？”（应拒答：关系未核验）。
 
 打开 http://localhost:8080 。只有 web 暴露端口；Neo4j、Ollama 仅在 Compose 内网可见。
 
@@ -27,6 +31,8 @@ make health     # 查看 /health/ready
 ```bash
 make dev        # api 热重载 :8000（/docs 看接口），Vite :5173，Neo4j Browser :7474
 make test       # 后端契约 / 单元 / 接口测试（不依赖外部服务）
+make test-int   # 集成测试：真实 Neo4j + Ollama 跑演示知识包（需先 make up）
+make eval-demo  # 用演示题集跑评测，输出三项指标与失败分布
 make lint       # ruff + eslint + prettier
 make typecheck  # vue-tsc
 make check      # 以上全部，提交前执行
@@ -56,7 +62,7 @@ backend/app/
   storage/     SQLite（迁移）、Neo4j（约束）、FAISS、active_version 指针
   ingest/ graph/ retrieval/ answer/ llm/ eval/   各功能模块
 frontend/      Vue 3 + Vite + Element Plus + ECharts，四个页面
-data/          文档清单、预核验关系 CSV、冻结题集（D1 补齐）
+data/          kb/ 正式知识包（D1/D2）、demo/【模拟】演示包、eval/ 冻结题集
 docs/          架构文档、ADR、任务分派、部署基线
 ```
 
@@ -67,4 +73,5 @@ docs/          架构文档、ADR、任务分派、部署基线
 - `POST /qa/ask` 四种终态 `success / needs_context / insufficient / error` 返回相同顶层键；error 为 HTTP 503。
 - 每条断言的引用必须覆盖其依赖路径的每一条边；断言中的数值必须出现在所引原文中。
 - 每个请求开始时固定 `knowledge_batch`，本次请求只读这一批次的数据。
+- 知识包 → staging 批次 → 6 项校验 → 事务化切换 active；校验不过的批次不会上线。
 - 降级（`graph_only` / `template`）必须设置 `degraded_mode=true`，前端可见。

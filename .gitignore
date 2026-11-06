@@ -16,9 +16,8 @@ htmlcov/
 node_modules/
 frontend/dist/
 
-# 数据：原始文档按授权情况单独管理，仓库只保留清单
+# 数据：原始文档（PDF/DOCX）按授权情况单独管理；知识包 data/kb/ 与演示包 data/demo/ 入库
 data/raw/*
-!data/raw/manifest.csv
 !data/raw/.gitkeep
 data/eval/runs/
 *.db

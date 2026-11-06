@@ -1,7 +1,7 @@
-"""模板生成：模型不可用时的降级路径，同时也是生成结果的下限（V1.2 §4.3）。
+"""模板生成：模型不可用或输出不合格时的降级路径（V1.2 §4.3）。
 
-只复述事实，不引入任何事实之外的数值或结论。answer_mode=template，必须标记 degraded_mode。
-TODO(BE, D3)：按题型 T1/T2/T3 写更自然的句式；当前为通用句式。
+只复述已核验的事实，不引入任何事实之外的数值或结论。answer_mode=template，必须标记 degraded_mode。
+每条路径生成一条断言，引用该路径上全部边的证据，天然满足“引用覆盖路径每条边”的约束。
 """
 
 from __future__ import annotations
@@ -10,12 +10,12 @@ from collections import defaultdict
 
 from app.domain import Draft, DraftClaim, FactRecord
 
-_PREDICATE_ZH = {
-    "BELONGS_TO": "属于",
-    "CONTAINS": "包含",
-    "APPLIES_TO": "适用于",
-    "CITES": "引用",
-    "PREREQUISITE_OF": "是以下课程的先修课：",
+_SENTENCE = {
+    "BELONGS_TO": "{s}属于{o}",
+    "CONTAINS": "{s}包含{o}",
+    "APPLIES_TO": "{s}适用于{o}",
+    "CITES": "{s}引用了{o}",
+    "PREREQUISITE_OF": "{s}是{o}的先修课",
 }
 
 
@@ -27,15 +27,22 @@ def render(facts: list[FactRecord], reason: str = "llm_unavailable") -> Draft:
     claims: list[DraftClaim] = []
     for i, (path_id, fs) in enumerate(by_path.items(), start=1):
         text = "；".join(
-            f"{f.subject}{_PREDICATE_ZH.get(f.predicate, f.predicate)}{f.object}" for f in fs
+            _SENTENCE.get(f.predicate, "{s} {p} {o}").format(s=f.subject, o=f.object, p=f.predicate)
+            for f in fs
         )
         claims.append(
             DraftClaim(
                 claim_id=f"claim-{i}",
-                text=text,
+                text=text + "。",
                 path_ids=[path_id],
-                citation_ids=[f.citation.citation_id for f in fs],
+                citation_ids=list(dict.fromkeys(f.citation.citation_id for f in fs)),
             )
         )
-    answer = "\n".join(c.text + " " + "".join(f"[{cid}]" for cid in c.citation_ids) for c in claims)
-    return Draft(answer=answer, claims=claims, answer_mode="template", degradation_reason=reason)
+    return Draft(
+        answer=compose(claims), claims=claims, answer_mode="template", degradation_reason=reason
+    )
+
+
+def compose(claims: list[DraftClaim]) -> str:
+    """答案正文只由通过校验的断言拼成（ADR-018），避免正文出现未经校验的内容。"""
+    return "\n".join(c.text + "".join(f"[{cid}]" for cid in c.citation_ids) for c in claims)

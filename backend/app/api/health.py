@@ -11,7 +11,6 @@ from __future__ import annotations
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 
-from app.core.config import get_settings
 from app.core.errors import ServiceUnavailable
 from app.llm import ollama_client
 from app.storage import faiss_store, neo4j_client, snapshot, sqlite
@@ -51,7 +50,6 @@ def ready() -> JSONResponse:
     body = {
         "ready": is_ready,
         "active_version": batch,
-        "stub_modules": get_settings().pipeline.stub_modules,
         "checks": checks,
     }
     return JSONResponse(body, status_code=200 if is_ready else 503)

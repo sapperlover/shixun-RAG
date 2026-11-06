@@ -1,0 +1,12 @@
+{"entity_id": "college:DEMO", "label": "College", "name": "【模拟】计算机学院", "aliases": ["计算机学院"], "props": {"college_code": "DEMO"}}
+{"entity_id": "major:DEMO01", "label": "Professional", "name": "【模拟】计算机科学与技术", "aliases": ["计算机科学与技术", "计科"], "props": {"major_code": "DEMO01", "college_code": "DEMO"}}
+{"entity_id": "plan:DEMO01:2024:r1", "label": "ProgramPlan", "name": "【模拟】计算机科学与技术专业 2024 级培养方案", "aliases": [], "props": {"major_id": "major:DEMO01", "entry_year": 2024, "plan_revision": "r1"}}
+{"entity_id": "plan:DEMO01:2023:r1", "label": "ProgramPlan", "name": "【模拟】计算机科学与技术专业 2023 级培养方案", "aliases": [], "props": {"major_id": "major:DEMO01", "entry_year": 2023, "plan_revision": "r1"}}
+{"entity_id": "category:plan-DEMO01-2024-r1:PE", "label": "CourseCategory", "name": "【模拟】专业选修课", "aliases": ["专业选修课", "专选"], "props": {"plan_id": "plan:DEMO01:2024:r1", "category_code": "PE"}}
+{"entity_id": "category:plan-DEMO01-2024-r1:GE", "label": "CourseCategory", "name": "【模拟】通识选修课", "aliases": ["通识选修课"], "props": {"plan_id": "plan:DEMO01:2024:r1", "category_code": "GE"}}
+{"entity_id": "category:plan-DEMO01-2023-r1:PE", "label": "CourseCategory", "name": "【模拟】专业选修课", "aliases": ["专业选修课", "专选"], "props": {"plan_id": "plan:DEMO01:2023:r1", "category_code": "PE"}}
+{"entity_id": "rule:doc-demo-rules:v1-demo:s12", "label": "RuleClause", "name": "【模拟】第十二条 跨院系课程认定", "aliases": ["第十二条", "跨院系课程认定"], "props": {"doc_id": "doc-demo-rules", "doc_version": "v1-demo", "section": "第十二条"}}
+{"entity_id": "rule:doc-demo-rules:v1-demo:s15", "label": "RuleClause", "name": "【模拟】第十五条 通识选修课修读", "aliases": ["第十五条"], "props": {"doc_id": "doc-demo-rules", "doc_version": "v1-demo", "section": "第十五条"}}
+{"entity_id": "course:DEMO101", "label": "Course", "name": "【模拟】程序设计基础", "aliases": ["程序设计基础"], "props": {"course_code": "DEMO101"}}
+{"entity_id": "course:DEMO201", "label": "Course", "name": "【模拟】数据结构", "aliases": ["数据结构"], "props": {"course_code": "DEMO201"}}
+{"entity_id": "course:DEMO301", "label": "Course", "name": "【模拟】操作系统", "aliases": ["操作系统"], "props": {"course_code": "DEMO301"}}

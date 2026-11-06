@@ -1,0 +1,12 @@
+type,from_entity_id,from_label,to_entity_id,to_label,major_code,entry_year,evidence_chunk_ids,evidence_excerpt,confidence,source,verification_status,verified_by,verified_at,note
+BELONGS_TO,major:DEMO01,Professional,college:DEMO,College,,,chunk-20f294416b81ad4d000a,【模拟】本培养方案适用于计算机科学与技术专业 2024 级本科生。,1.0,demo,verified,demo-reviewer,2026-11-06,
+APPLIES_TO,plan:DEMO01:2024:r1,ProgramPlan,major:DEMO01,Professional,DEMO01,2024,chunk-20f294416b81ad4d000a,【模拟】本培养方案适用于计算机科学与技术专业 2024 级本科生。,1.0,demo,verified,demo-reviewer,2026-11-06,
+APPLIES_TO,plan:DEMO01:2023:r1,ProgramPlan,major:DEMO01,Professional,DEMO01,2023,chunk-ffe7b9374b9b1f276dae,【模拟】本培养方案适用于计算机科学与技术专业 2023 级本科生。,1.0,demo,verified,demo-reviewer,2026-11-06,
+CONTAINS,plan:DEMO01:2024:r1,ProgramPlan,category:plan-DEMO01-2024-r1:PE,CourseCategory,,,chunk-2fcf61477fb569e97cef,【模拟】课程体系由通识必修课、通识选修课、专业必修课、专业选修课组成。,1.0,demo,verified,demo-reviewer,2026-11-06,
+CONTAINS,plan:DEMO01:2024:r1,ProgramPlan,category:plan-DEMO01-2024-r1:GE,CourseCategory,,,chunk-2fcf61477fb569e97cef,【模拟】课程体系由通识必修课、通识选修课、专业必修课、专业选修课组成。,1.0,demo,verified,demo-reviewer,2026-11-06,
+CONTAINS,plan:DEMO01:2023:r1,ProgramPlan,category:plan-DEMO01-2023-r1:PE,CourseCategory,,,chunk-22dfa60854cca7a5af36,【模拟】专业选修课中跨院系修读的课程，其认定按《本科生学籍管理规定》第十二条执行。,1.0,demo,verified,demo-reviewer,2026-11-06,
+CITES,category:plan-DEMO01-2024-r1:PE,CourseCategory,rule:doc-demo-rules:v1-demo:s12,RuleClause,,,chunk-ab092397348d0588e9f3;chunk-2ffd29e235de56118285,【模拟】专业选修课中跨院系修读的课程，其认定按《本科生学籍管理规定》第十二条执行。,1.0,demo,verified,demo-reviewer,2026-11-06,
+CITES,category:plan-DEMO01-2023-r1:PE,CourseCategory,rule:doc-demo-rules:v1-demo:s12,RuleClause,,,chunk-22dfa60854cca7a5af36;chunk-2ffd29e235de56118285,【模拟】专业选修课中跨院系修读的课程，其认定按《本科生学籍管理规定》第十二条执行。,1.0,demo,verified,demo-reviewer,2026-11-06,
+CITES,category:plan-DEMO01-2024-r1:GE,CourseCategory,rule:doc-demo-rules:v1-demo:s15,RuleClause,,,chunk-0d924ff2750a84669db3,【模拟】通识选修课的修读要求参见学籍管理规定相关条款。,1.0,demo,unverified,,,原文只说“相关条款”，未指明第十五条，待核验
+PREREQUISITE_OF,course:DEMO101,Course,course:DEMO201,Course,,,chunk-adcf532e80d63c480621,【模拟】程序设计基础是数据结构的先修课程；数据结构是操作系统的先修课程。,1.0,demo,verified,demo-reviewer,2026-11-06,
+PREREQUISITE_OF,course:DEMO201,Course,course:DEMO301,Course,,,chunk-adcf532e80d63c480621,【模拟】程序设计基础是数据结构的先修课程；数据结构是操作系统的先修课程。,1.0,demo,verified,demo-reviewer,2026-11-06,

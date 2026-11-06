@@ -1,12 +1,6 @@
 # 算法与业务参数（V1.2 §4.2/§4.3）。部署相关的值（密码、模型名、端口）在 .env。
 # 修改本文件属于“契约变更”：需架构师同意，并记录到 docs/ADR.md。
 
-pipeline:
-  # 骨架阶段：列表中的模块返回 contracts/mocks/success.json 中的模拟数据。
-  # 某模块的真实实现合入后，由负责人把它从列表中移除；列表清空即骨架阶段结束。
-  # /health/ready 会如实报告当前仍处于 stub 的模块。
-  stub_modules: [snapshot, anchors, expand, path_check, rank, facts, generate]
-
 retrieval:
   min_hops: 2
   max_hops: 3
@@ -14,10 +8,14 @@ retrieval:
   per_hop_candidates: 10
   max_paths: 20
   top_k_paths: 3
-  vector_anchor_min_score: 0.6   # 向量锚点召回阈值（D3 实测后调整）
+  vector_enabled: true           # false 时强制 graph_only（降级可见）
+  vector_anchor_top_k: 3
+  vector_anchor_min_score: 0.6   # 向量锚点召回阈值（实测后调整）
+  min_surface_chars: 2           # 实体名/别名参与字面匹配的最短长度
 
 evidence:
-  token_budget: 3000
+  token_budget: 3000      # 送入模型的原文总长度上限（按字符近似 token）
+  excerpt_chars: 300      # 单条引用摘录的最大长度
 
 generation:
   temperature: 0.1

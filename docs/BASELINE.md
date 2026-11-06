@@ -1,6 +1,6 @@
 # 部署基线记录
 
-生成时间：2026-11-06 11:23:50；git：f95f0b1
+生成时间：2026-11-06 12:55:42；git：d53aa82
 
 ## 镜像
 - `neo4j:5.26.0-community` → `neo4j@sha256:5a015e53de1895e7eee1574ae0325cf8c4b89587222778108c594bdd45a474b5`
@@ -10,11 +10,11 @@
 - `nginx:1.27-alpine` → `nginx@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10`
 
 ## 模型
-    NAME            ID              SIZE      MODIFIED       
-    qwen2.5:1.5b    65ec06548149    986 MB    39 seconds ago    
+    NAME            ID              SIZE      MODIFIED    
+    qwen2.5:1.5b    65ec06548149    986 MB    2 hours ago    
 
 ## 锁文件 sha256
-- `backend/requirements.lock` 4332828728feb198
+- `backend/requirements.lock` 7ca26161232cfaa2
 - `backend/requirements-dev.lock` 654e6e0882fc28f7
 - `frontend/package-lock.json` 2a83f8e43c5b93ff
 

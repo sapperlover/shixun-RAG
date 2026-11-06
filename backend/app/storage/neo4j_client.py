@@ -44,6 +44,15 @@ def ping() -> str:
         raise ServiceUnavailable(ErrorCode.GRAPH_UNAVAILABLE, str(exc)) from exc
 
 
+def run_read(query: str, **params) -> list[dict]:
+    """只读查询；连接类故障统一转换为 GRAPH_UNAVAILABLE。"""
+    try:
+        with get_driver().session() as session:
+            return session.run(query, **params).data()
+    except (Neo4jUnavailable, OSError) as exc:
+        raise ServiceUnavailable(ErrorCode.GRAPH_UNAVAILABLE, str(exc)) from exc
+
+
 def apply_constraints() -> int:
     stmts = [
         s.strip()

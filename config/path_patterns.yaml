@@ -1,6 +1,8 @@
 # 问题类型与目标关系链（V1.2 §4.2）。“任意连通的 2 跳 ≠ 能回答该问题”：
 # 候选路径必须逐跳匹配下面的 (type, stored 起点→终点, traverse 方向)，终点类型也必须一致。
 # traverse: forward = 沿存储方向走；reverse = 逆存储方向走。
+# keywords：问题含这些词时判定为该题型（只用于决定需要哪些 scope 字段和优先尝试的模式）。
+# bidirectional：起点与终点同类型时，也从锚点反向走整条链（如“X 之前要先修什么”）。
 patterns:
   T1:
     name: 2 跳 / 方案规则
@@ -25,6 +27,8 @@ patterns:
     name: 2 跳 / 先修链
     anchor_label: Course
     target_label: Course
+    keywords: [先修, 前置, 先学, 之前要学, 之前需要]
+    bidirectional: true
     # 待 D1 确认：先修关系是否随培养方案/年级变化。若随年级变化，这里改为 [major_code, entry_year]。
     required_scope: []
     hops:

@@ -8,17 +8,13 @@
 
 from __future__ import annotations
 
-from app.core.config import get_settings
 from app.core.errors import ErrorCode, ServiceUnavailable
-from app.fixtures import STUB_BATCH
 from app.storage import sqlite
 
 PROJECT_KEY = "campus-graphrag"
 
 
 def get_active() -> str:
-    if get_settings().is_stub("snapshot"):
-        return STUB_BATCH
     with sqlite.connect() as conn:
         row = conn.execute(
             "SELECT active_version FROM active_snapshot WHERE project_key = ?", (PROJECT_KEY,)

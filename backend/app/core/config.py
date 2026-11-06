@@ -40,10 +40,6 @@ class EnvSettings(BaseSettings):
 # ---------- settings.yaml ----------
 
 
-class PipelineCfg(BaseModel):
-    stub_modules: list[str] = Field(default_factory=list)
-
-
 class RetrievalCfg(BaseModel):
     min_hops: int = 2
     max_hops: int = 3
@@ -51,11 +47,15 @@ class RetrievalCfg(BaseModel):
     per_hop_candidates: int = 10
     max_paths: int = 20
     top_k_paths: int = 3
+    vector_enabled: bool = True
+    vector_anchor_top_k: int = 3
     vector_anchor_min_score: float = 0.6
+    min_surface_chars: int = 2
 
 
 class EvidenceCfg(BaseModel):
     token_budget: int = 3000
+    excerpt_chars: int = 300
 
 
 class GenerationCfg(BaseModel):
@@ -80,15 +80,11 @@ class EvalCfg(BaseModel):
 
 
 class AppSettings(BaseModel):
-    pipeline: PipelineCfg
     retrieval: RetrievalCfg
     evidence: EvidenceCfg
     generation: GenerationCfg
     ingest: IngestCfg
     eval: EvalCfg
-
-    def is_stub(self, module: str) -> bool:
-        return module in self.pipeline.stub_modules
 
 
 # ---------- schema_whitelist.yaml ----------
@@ -148,6 +144,16 @@ class PathPattern(BaseModel):
     target_label: str
     required_scope: list[Literal["major_code", "entry_year"]]
     hops: list[HopSpec]
+    keywords: list[str] = Field(default_factory=list)
+    bidirectional: bool = False
+
+    def reversed_hops(self) -> list[HopSpec]:
+        """从终点一侧出发、反向走整条链时的跳序列。"""
+        flip = {"forward": "reverse", "reverse": "forward"}
+        return [
+            HopSpec(type=h.type, stored=h.stored, traverse=flip[h.traverse])
+            for h in reversed(self.hops)
+        ]
 
 
 class Patterns(BaseModel):

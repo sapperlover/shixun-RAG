@@ -35,3 +35,16 @@ def chunk_id(doc_id: str, doc_version: str, text_sha256: str) -> str:
     """同一文档版本内，内容相同的块 ID 相同 → 增量重建时可按哈希比对。"""
     raw = f"{doc_id}|{doc_version}|{text_sha256}"
     return "chunk-" + hashlib.sha256(raw.encode("utf-8")).hexdigest()[:20]
+
+
+def citation_id(batch_id: str, relation_id: str, chunk_id: str) -> str:
+    """一条“关系-原文块”证据的全局引用编号（ADR-017）。"""
+    raw = f"{batch_id}|{relation_id}|{chunk_id}"
+    return "cit-" + hashlib.sha256(raw.encode("utf-8")).hexdigest()[:12]
+
+
+def scope_from(major_code: str | None, entry_year: int | str | None) -> Scope:
+    return Scope(
+        major_code=major_code or None,
+        entry_year=int(entry_year) if entry_year not in (None, "") else None,
+    )

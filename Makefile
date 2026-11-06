@@ -11,7 +11,7 @@ RUN_API := $(DEV) run --rm --no-deps api
 RUN_WEB := $(DEV) run --rm --no-deps web
 LLM_MODEL ?= qwen2.5:1.5b
 
-.PHONY: help env up down dev init health test lint fmt typecheck check shell logs ps lock eval schema baseline clean-volumes
+.PHONY: help env up down dev init health test test-int lint fmt typecheck check shell logs ps lock kb kb-demo eval eval-demo schema baseline clean-volumes
 
 help: ## 列出命令
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk -F':.*?## ' '{printf "  \033[36m%-14s\033[0m %s\n", $$1, $$2}'
@@ -28,16 +28,20 @@ down: ## 停止所有容器（保留数据卷）
 dev: env ## 开发模式：热重载 api(:8000) + Vite(:5173)
 	$(DEV) up --build
 
-init: ## 首次启动后：建 Neo4j 约束、迁移 SQLite、拉取模型
+init: ## 首次启动后：建 Neo4j 约束、迁移 SQLite、拉取生成模型与 embedding 模型
 	$(BASE) exec api python -m scripts.init_sqlite
 	$(BASE) exec api python -m scripts.init_neo4j
 	$(BASE) exec ollama ollama pull $(LLM_MODEL)
+	$(BASE) exec api python -m scripts.download_models
 
 health: ## 查看 /health/ready
 	@curl -s http://localhost:$(or $(WEB_PORT),8080)/api/health/ready | python3 -m json.tool
 
 test: ## 后端单元/接口/契约测试（不依赖外部服务）
-	$(RUN_API) pytest
+	$(RUN_API) pytest -m "not integration"
+
+test-int: ## 集成测试：真实 Neo4j（+ Ollama 可选），需先 make up 或 make dev
+	$(DEV) run --rm --no-deps -e INTEGRATION=1 api pytest -m integration
 
 lint: ## 后端 ruff + 前端 eslint/prettier
 	$(RUN_API) sh -c "ruff check . && ruff format --check ."
@@ -69,8 +73,17 @@ lock: ## 由 requirements*.in 重新生成锁文件
 	  -e UV_INDEX_URL=$(or $(PIP_INDEX_URL),https://pypi.org/simple) \
 	  -v $(CURDIR)/backend:/w -w /w python:3.11-slim sh -c "\
 	  pip install -q --user uv && \
-	  /tmp/.local/bin/uv pip compile -q --no-header --no-annotate -o requirements.lock requirements.in && \
+	  /tmp/.local/bin/uv pip compile -q --no-header --no-annotate --emit-find-links -o requirements.lock requirements.in && \
 	  /tmp/.local/bin/uv pip compile -q --no-header --no-annotate -o requirements-dev.lock requirements-dev.in"
+
+kb: ## 构建+校验+发布知识批次：make kb DIR=data/kb [Q=data/eval/questions_v1.jsonl]
+	$(BASE) exec api python -m scripts.build_batch /app/$(DIR) $(if $(Q),--questions /app/$(Q)) --publish
+
+kb-demo: ## 用【模拟】演示知识包构建并发布批次（仅用于演示与联调）
+	$(BASE) exec api python -m scripts.build_batch /app/data/demo --questions /app/data/demo/questions_demo.jsonl --publish
+
+eval-demo: ## 用演示题集跑一遍评测（不做冻结校验）
+	$(BASE) exec api python -m scripts.run_eval /app/data/demo/questions_demo.jsonl --no-freeze-check
 
 eval: ## 用冻结题集运行评测（与线上同一条 pipeline）
 	$(DEV) exec api python -m scripts.run_eval

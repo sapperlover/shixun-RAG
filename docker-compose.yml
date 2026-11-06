@@ -44,6 +44,7 @@ services:
       - faiss_indexes:/data/faiss
       - model_cache:/data/model_cache
       - doc_uploads:/data/uploads
+      - ./data:/app/data   # 知识包、题集、评测输出（make kb / make eval）
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/health/live', timeout=3).status == 200 else 1)"]
       interval: 10s

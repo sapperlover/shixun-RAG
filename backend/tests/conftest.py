@@ -3,14 +3,27 @@ import tempfile
 
 import pytest
 
-# 必须在导入 app 之前设置：测试不依赖任何外部服务
+# 必须在导入 app 之前设置。
+# 单元测试（默认）：外部服务地址指向不可达端口，保证不依赖、也不误连正在运行的服务。
+# 集成测试（INTEGRATION=1，make test-int）：沿用容器环境中的真实 Neo4j / Ollama 地址。
 _tmp = tempfile.mkdtemp(prefix="graphrag-test-")
 os.environ["APP_ENV"] = "test"
 os.environ["SQLITE_PATH"] = os.path.join(_tmp, "app.db")
-os.environ["NEO4J_URI"] = "bolt://127.0.0.1:1"  # 故意不可达
-os.environ["OLLAMA_BASE_URL"] = "http://127.0.0.1:1"
+os.environ["FAISS_DIR"] = os.path.join(_tmp, "faiss")
+if os.environ.get("INTEGRATION") != "1":
+    os.environ["NEO4J_URI"] = "bolt://127.0.0.1:1"
+    os.environ["OLLAMA_BASE_URL"] = "http://127.0.0.1:1"
 
 from app.core.config import get_env  # noqa: E402
+
+
+def pytest_collection_modifyitems(config, items):
+    if os.environ.get("INTEGRATION") == "1":
+        return
+    skip = pytest.mark.skip(reason="集成测试：用 make test-int 运行")
+    for item in items:
+        if "integration" in item.keywords:
+            item.add_marker(skip)
 
 
 @pytest.fixture

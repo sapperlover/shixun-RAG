@@ -18,7 +18,15 @@
 | ADR-011 | 生成校验不过时：重试 1 次 → 模板生成（degraded）→ 仍不过返回 insufficient；不保留部分通过的模型断言 | 部分删除后答案正文会与断言不一致；V1.2 §4.3 允许模板回退 |
 | ADR-012 | 断言数值校验：数值必须出现在所引原文摘录或所引事实的实体名称中（按完整数字比较） | V1.2 §4.3“发现额外未授权数值…回退模板或返回 insufficient”；实体名称来自已核验图谱 |
 | ADR-013 | 版本冲突用 `status=insufficient` + `error.code=VERSION_CONFLICT`，可附带 citations 展示冲突来源 | V1.2 §4.2、附录 B.2：同范围可信条款冲突返回 insufficient 并呈现冲突来源 |
-| ADR-014 | 骨架阶段用 `settings.yaml → pipeline.stub_modules` 标记仍返回模拟数据的模块，`/health/ready` 如实报告 | 链路端到端可跑，同时不会把模拟数据误当成真实结果 |
+| ADR-014 | ~~骨架阶段用 `stub_modules` 标记返回模拟数据的模块~~ **已废止（2026-11-06）**：主干全部真实实现，stub 机制删除；`contracts/mocks` 只用于 dev 联调与契约测试 | 主干已用演示知识包端到端验证 |
+| ADR-015 | Embedding 用 sentence-transformers + **CPU 版 torch**（从 `https://download.pytorch.org/whl/cpu` 安装，约 200 MB），禁止装默认的 CUDA 版 torch | 默认 torch 带 CUDA 运行库，超过 3 GB；V1.2 要求 CPU 可运行；bge-small-zh 在 CPU 上足够快 |
+
+| ADR-016 | **知识包（knowledge bundle）是 ingest 与建图之间的唯一接口**：`documents.csv / chunks.jsonl / entities.jsonl / relations.csv`，契约见 `backend/app/ingest/bundle.py`；`relations.csv` 不含 relation_id（依赖 batch，构建时生成） | ingest 可以并行开发、可以换实现；建图只认契约，构建前做全部静态校验 |
+| ADR-017 | `citation_id = "cit-" + sha256(batch_id\|relation_id\|chunk_id)[:12]`，构建时写入 `relation_evidence`（迁移 002）；`GET /evidence/{citation_id}?knowledge_batch=` 直接读回 | V1.2 的读回接口只带 citation_id 与批次，编号必须全局可解析，不能是某次回答内的序号 |
+| ADR-018 | 答案正文由通过校验的断言拼成（`template.compose`），模型只输出 claims | 防止正文出现未经断言-引用校验的内容 |
+| ADR-019 | 问题语义约束：路径至少包含一个问题提及的实体；问题提及某类实体时，路径上同类节点必须是被提及的那个；被更靠前路径完全包含的子路径不再单独给出 | V1.2 §1.2“符合问题语义约束的完整路径”；防止用“专业选修课”路径回答“通识选修课”的问题 |
+| ADR-020 | 锚点三种来源：问题字面命中（名称/别名，去掉【…】标注，最长匹配）、scope 推出的培养方案、无字面命中时的 FAISS 向量召回；T3 先修链从锚点双向尝试 | “X 之前要先修什么”需要逆存储方向走链 |
+| ADR-021 | PyTorch CPU 包从阿里云镜像（`--find-links https://mirrors.aliyun.com/pytorch-wheels/cpu/`）获取，锁定 `torch==2.9.1+cpu` | 官方 download.pytorch.org 国内直连不可用；锁文件已核对不含 nvidia/CUDA 包 |
 
 ## 待决问题（D1 签核时确认）
 
