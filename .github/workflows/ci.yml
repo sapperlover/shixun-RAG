@@ -9,9 +9,12 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Prepare env
-        run: cp .env.example .env
+        run: |
+          cp .env.example .env
+          # 镜像内用户与 checkout 目录属主一致（runner 的 uid 通常是 1001，不是默认的 1000）
+          echo "APP_UID=$(id -u)" >> "$GITHUB_ENV"
       - name: Build dev images
         run: docker compose -f docker-compose.yml -f docker-compose.dev.yml build api web
       - name: Lint

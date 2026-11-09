@@ -21,6 +21,8 @@ RUN pip install -r backend/requirements.lock
 FROM base AS dev
 COPY backend/requirements-dev.lock backend/requirements-dev.lock
 RUN pip install -r backend/requirements-dev.lock
+# 工具缓存不写进挂载的源码目录：CI 与组员机器上源码目录的属主不一定是容器用户
+ENV RUFF_CACHE_DIR=/tmp/.ruff_cache
 USER app
 WORKDIR /app/backend
 EXPOSE 8000 5678
