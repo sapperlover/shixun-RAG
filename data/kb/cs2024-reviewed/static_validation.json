@@ -1,0 +1,19 @@
+{
+  "validation_kind": "static_file_integrity_only",
+  "runtime_tests_executed": false,
+  "documents": 1,
+  "chunks": 9,
+  "entities": 17,
+  "verified_relations": 15,
+  "rejected_relations": 1,
+  "manifest_matches": true,
+  "review_decisions_hash_matches": true,
+  "chunk_hashes_match": true,
+  "required_entity_properties_present": true,
+  "edge_endpoints_exist": true,
+  "evidence_references_exist": true,
+  "reviewed_question_path_edges_exist": true,
+  "question_file_hash_matches": true,
+  "reviewer_kind": "ai_source_review",
+  "publish_performed": false
+}

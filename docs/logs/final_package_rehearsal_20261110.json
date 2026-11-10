@@ -1,0 +1,12 @@
+{
+  "state": "passed",
+  "execution": "code and all source files from final extracted ZIP",
+  "source_documents": 5,
+  "source_pages": 507,
+  "source_chunks": 897,
+  "vectors": 848,
+  "dimensions": 1024,
+  "source_and_review_hashes_valid": true,
+  "embedding_api_calls": 0,
+  "second_machine_tested": false
+}

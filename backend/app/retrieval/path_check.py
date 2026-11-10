@@ -26,8 +26,15 @@ from app.storage import evidence
 
 def check_edge_evidence(c: CandidatePath, batch_id: str) -> int | None:
     """返回第一条不合格边的跳次（1 起）；全部合格返回 None。"""
+    if len(c.evidence) != len(c.path.edges):
+        return 1
     for i, ev in enumerate(c.evidence, start=1):
-        if ev.batch_id != batch_id or not ev.verified or not ev.evidence_chunk_ids:
+        if (
+            ev.relation_id != c.path.edges[i - 1].relation_id
+            or ev.batch_id != batch_id
+            or not ev.verified
+            or not ev.evidence_chunk_ids
+        ):
             return i
     return None
 
@@ -48,7 +55,7 @@ def filter_complete(
     for c in candidates:
         if not cfg.min_hops <= c.path.hop_count <= cfg.max_hops:
             continue
-        if any(b != batch_id for b in c.node_batches.values()):
+        if any(c.node_batches.get(n.node_id) != batch_id for n in c.path.nodes):
             continue
         if not _scope_ok(c, intent) or not _relevant(c, mentions, mentioned_labels):
             continue  # 与问题无关的路径不参与证据判断，避免给出误导性的失败原因
@@ -78,6 +85,12 @@ def _scope_ok(c: CandidatePath, intent: Intent) -> bool:
     for n in c.path.nodes:
         props = c.node_props.get(n.node_id, {})
         if n.label == "ProgramPlan" and s.entry_year and props.get("entry_year") != s.entry_year:
+            return False
+        if (
+            n.label == "ProgramPlan"
+            and s.major_code
+            and props.get("major_id") != f"major:{s.major_code}"
+        ):
             return False
         if n.label == "Professional" and s.major_code and n.node_id != f"major:{s.major_code}":
             return False

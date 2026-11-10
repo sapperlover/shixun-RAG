@@ -1,0 +1,23 @@
+{
+  "record_date": "2026-11-10",
+  "installation_scope": "Neo4j database only; existing Python packages preserved",
+  "image": "neo4j:5.26.0-community",
+  "image_digest": "neo4j@sha256:5a015e53de1895e7eee1574ae0325cf8c4b89587222778108c594bdd45a474b5",
+  "container": "campus-rag-neo4j-1",
+  "health_at_validation": "healthy",
+  "ports": {
+    "bolt": "127.0.0.1:7687",
+    "browser": "127.0.0.1:7474"
+  },
+  "data_volume": "campus-rag_neo4j_data",
+  "credentials_location": ".env.rag (excluded from export)",
+  "baseline_tests": {
+    "offline_passed": 87,
+    "neo4j_integration_passed": 9
+  },
+  "runtime_batch": "batch-20261110-095629-0eb8",
+  "notes": [
+    "Development-set validation, not human blind gold",
+    "Passwords and API keys are not in this log"
+  ]
+}

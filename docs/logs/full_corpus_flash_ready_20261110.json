@@ -1,0 +1,22 @@
+{
+  "state": "ready",
+  "graph_batch": "batch-20261110-105715-0cb3",
+  "document_corpus": {
+    "batch": "documents-5d0bc4db29-df92fe",
+    "reused": false,
+    "chunks": 897,
+    "embedded_chunks": 848,
+    "dimensions": 1024
+  },
+  "portable_vectors": {
+    "vectors": 848,
+    "dimensions": 1024,
+    "sha256": "3b9362defdebf68b4b2191fad7d9c6a175f687b8b18725c9cb2af8417046c164"
+  },
+  "query_api_health_checked": false,
+  "checked_at": "2026-11-10T04:00:14.581092+00:00",
+  "model": "qwen3.7-text-embedding-flash",
+  "dimensions": 1024,
+  "interface": "app.rag.retrieve",
+  "generator_started": false
+}

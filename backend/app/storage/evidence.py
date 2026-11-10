@@ -17,7 +17,8 @@ _READABLE = (
     "WHERE e.batch_id = ? AND e.verification_status = 'verified' AND d.access_level = 'public' "
 )
 _COLUMNS = (
-    "SELECT e.citation_id, e.relation_id, e.chunk_id, e.verification_status, c.doc_id, "
+    "SELECT e.citation_id, e.relation_id, e.chunk_id, e.verification_status, "
+    "e.verified_by, e.verified_at, e.note AS verification_note, c.doc_id, "
     "c.doc_version, c.section, c.page_start, c.page_end, c.text, d.title AS doc_title "
 )
 
@@ -37,19 +38,24 @@ def readable_relations(batch: str, relation_ids: Iterable[str]) -> set[str]:
 
 def best_evidence(batch: str, relation_ids: Iterable[str]) -> dict[str, dict]:
     """每条关系取一条可读回证据（按 chunk_id 稳定排序取第一条）。"""
+    out: dict[str, dict] = {}
+    for r in all_evidence(batch, relation_ids):
+        out.setdefault(r["relation_id"], r)
+    return out
+
+
+def all_evidence(batch: str, relation_ids: Iterable[str]) -> list[dict]:
+    """Retrieval callers need all verified source spans, including explicit cross-references."""
     rids = list(set(relation_ids))
     if not rids:
-        return {}
+        return []
     marks = ",".join("?" * len(rids))
     with sqlite.connect() as conn:
         rows = conn.execute(
             f"{_COLUMNS} {_READABLE} AND e.relation_id IN ({marks}) ORDER BY e.relation_id, e.chunk_id",
             (batch, *rids),
         ).fetchall()
-    out: dict[str, dict] = {}
-    for r in rows:
-        out.setdefault(r["relation_id"], dict(r))
-    return out
+    return [dict(r) for r in rows]
 
 
 def by_citation(batch: str, citation_id: str) -> dict | None:

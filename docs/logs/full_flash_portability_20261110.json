@@ -1,0 +1,18 @@
+{
+  "state": "passed",
+  "test": "full real Flash vectors rebuild SQLite and FAISS in separate directories without API",
+  "documents": 5,
+  "source_chunks": 897,
+  "vector_count": 848,
+  "dimensions": 1024,
+  "identity": {
+    "provider": "api",
+    "model": "qwen3.7-text-embedding-flash",
+    "endpoint": "https://llm-o72xf06lk2b2rmtr.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+    "configured_dimensions": 1024
+  },
+  "same_index_sha256": true,
+  "api_calls": 0,
+  "same_machine_rehearsal_only": true,
+  "rebuilt_batch": "documents-5d0bc4db29-19f31e"
+}

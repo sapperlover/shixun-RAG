@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-11-10T04:03:26.681492+00:00",
+  "model": "qwen3.7-text-embedding-flash",
+  "user_revised_limit": 1000000,
+  "provider_reported_tokens_since_ledger": 292734,
+  "unknown_request_reservations": 32449,
+  "untracked_historical_reserve": 600000,
+  "conservative_ledger_total": 925183,
+  "limit": 1000000,
+  "within_ledger_limit": true,
+  "boundary": "Provider-reported total is exact only for recorded responses. Historical reserve includes earlier model calls and is not an actual Flash bill. Reserve preserved conservatively; user revised Flash limit to 1M."
+}

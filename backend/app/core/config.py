@@ -30,6 +30,21 @@ class EnvSettings(BaseSettings):
     ollama_base_url: str = "http://localhost:11434"
     llm_model: str = "qwen2.5:1.5b"
     embedding_model: str = "BAAI/bge-small-zh-v1.5"
+    embedding_provider: Literal["local", "api"] = "local"
+    embedding_base_url: str = ""
+    embedding_api_key: str = Field(default="", repr=False)
+    embedding_dimensions: int | None = Field(default=None, gt=0)
+    embedding_batch_size: int = Field(default=10, ge=1, le=100)
+    embedding_timeout_s: float = Field(default=30, gt=0)
+    embedding_max_retries: int = Field(default=2, ge=0, le=5)
+    embedding_token_limit: int | None = Field(default=None, gt=0)
+    embedding_untracked_reserve: int = Field(default=0, ge=0)
+    embedding_usage_path: str = str(REPO_ROOT / "data" / "embedding_usage.json")
+    embedding_cache_enabled: bool = False
+    embedding_trust_env: bool = True
+    embedding_request_cache: str = str(REPO_ROOT / "data" / "embedding_requests")
+    document_retrieval_enabled: bool = False
+    document_index_dir: str = str(REPO_ROOT / "data" / "document_indexes")
     sqlite_path: str = str(REPO_ROOT / "data" / "app.db")
     faiss_dir: str = str(REPO_ROOT / "data" / "faiss")
     model_cache_dir: str = str(REPO_ROOT / "data" / "model_cache")

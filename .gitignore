@@ -1,5 +1,6 @@
 # 环境与密钥
 .env
+.env.rag
 *.local
 
 # Python
@@ -11,6 +12,8 @@ __pycache__/
 .coverage
 htmlcov/
 .venv/
+.cache/
+dist/
 
 # Node
 node_modules/
@@ -20,6 +23,11 @@ frontend/dist/
 data/raw/*
 !data/raw/.gitkeep
 data/eval/runs/
+data/faiss/
+data/document_indexes/
+data/embedding_requests/
+data/embedding_usage.json
+data/embedding_usage.lock
 *.db
 *.sqlite
 *.faiss

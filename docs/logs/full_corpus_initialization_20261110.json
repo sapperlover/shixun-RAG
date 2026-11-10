@@ -1,0 +1,15 @@
+{
+  "state": "ready",
+  "graph_batch": "batch-20261110-095629-0eb8",
+  "document_corpus": {
+    "batch": "documents-749f0400d8-b9bac5",
+    "reused": false,
+    "chunks": 897,
+    "dimensions": 1024
+  },
+  "checked_at": "2026-11-10T02:42:11.943913+00:00",
+  "model": "qwen3.7-text-embedding",
+  "dimensions": 1024,
+  "interface": "app.rag.retrieve",
+  "generator_started": false
+}

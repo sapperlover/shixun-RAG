@@ -1,0 +1,333 @@
+{
+  "documents": [
+    {
+      "doc_id": "assessment-rules",
+      "doc_version": "source-d8f72dddfca2",
+      "title": "关于印发《北京邮电大学本科生课程考核与成绩管理实施细则》的通知",
+      "source_file": "关于印发《北京邮电大学本科生课程考核与成绩管理实施细则》的通知.pdf",
+      "source_uri": "data/raw/关于印发《北京邮电大学本科生课程考核与成绩管理实施细则》的通知.pdf",
+      "source_sha256": "d8f72dddfca209917116afa62fa93f1fbef1514cd99ae5354a1b76e7b8e9f912",
+      "book_year": null,
+      "pages": 17
+    },
+    {
+      "doc_id": "degree-rules",
+      "doc_version": "source-9669317fd357",
+      "title": "学位授予规定",
+      "source_file": "学位授予规定.pdf",
+      "source_uri": "data/raw/学位授予规定.pdf",
+      "source_sha256": "9669317fd357f67bf8317344613a63ca0231efeedcbff63aabeb37f1378038a8",
+      "book_year": null,
+      "pages": 7
+    },
+    {
+      "doc_id": "curriculum-2023",
+      "doc_version": "source-86d4e15b5e39",
+      "title": "计算机学院（国家示范性软件学院）2023级本科专业培养方案",
+      "source_file": "计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "source_uri": "data/raw/计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "source_sha256": "86d4e15b5e398f58c2d5682dbbaff90756dbe157298452b9687ba3ae2b25ecea",
+      "book_year": 2023,
+      "pages": 204
+    },
+    {
+      "doc_id": "curriculum-2024",
+      "doc_version": "source-0fdf1672554d",
+      "title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案",
+      "source_file": "计算机学院（国家示范性软件学院）2024级本科专业培养方案.pdf",
+      "source_uri": "data/raw/计算机学院（国家示范性软件学院）2024级本科专业培养方案.pdf",
+      "source_sha256": "0fdf1672554d97a2306be03eb7c2890e251b8948a45001b0fe6ed4e615dd0c32",
+      "book_year": 2024,
+      "pages": 136
+    },
+    {
+      "doc_id": "curriculum-2025",
+      "doc_version": "source-24084f4353cc",
+      "title": "计算机学院（国家示范性软件学院）2025级本科专业培养方案",
+      "source_file": "计算机学院（国家示范性软件学院）2025级本科专业培养方案.pdf",
+      "source_uri": "data/raw/计算机学院（国家示范性软件学院）2025级本科专业培养方案.pdf",
+      "source_sha256": "24084f4353cc94313665b186ec3cc179a97b7f3b21577889eca4350532009bf4",
+      "book_year": 2025,
+      "pages": 143
+    }
+  ],
+  "inventory": [
+    {
+      "doc_id": "assessment-rules",
+      "doc_version": "source-d8f72dddfca2",
+      "title": "关于印发《北京邮电大学本科生课程考核与成绩管理实施细则》的通知",
+      "source_file": "关于印发《北京邮电大学本科生课程考核与成绩管理实施细则》的通知.pdf",
+      "source_uri": "data/raw/关于印发《北京邮电大学本科生课程考核与成绩管理实施细则》的通知.pdf",
+      "source_sha256": "d8f72dddfca209917116afa62fa93f1fbef1514cd99ae5354a1b76e7b8e9f912",
+      "book_year": null,
+      "pages": 17,
+      "programs": [],
+      "ocr_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "empty_pages": []
+    },
+    {
+      "doc_id": "degree-rules",
+      "doc_version": "source-9669317fd357",
+      "title": "学位授予规定",
+      "source_file": "学位授予规定.pdf",
+      "source_uri": "data/raw/学位授予规定.pdf",
+      "source_sha256": "9669317fd357f67bf8317344613a63ca0231efeedcbff63aabeb37f1378038a8",
+      "book_year": null,
+      "pages": 7,
+      "programs": [],
+      "ocr_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "empty_pages": []
+    },
+    {
+      "doc_id": "curriculum-2023",
+      "doc_version": "source-86d4e15b5e39",
+      "title": "计算机学院（国家示范性软件学院）2023级本科专业培养方案",
+      "source_file": "计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "source_uri": "data/raw/计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "source_sha256": "86d4e15b5e398f58c2d5682dbbaff90756dbe157298452b9687ba3ae2b25ecea",
+      "book_year": 2023,
+      "pages": 204,
+      "programs": [
+        {
+          "page": 12,
+          "major": "计算机科学与技术",
+          "program_variant": "regular",
+          "program_title": "计算机科学与技术专业培养方案（2023年版）专业负责人：孟祥武教学副院长：张笑燕核稿人：戴志涛",
+          "printed_revision": "2023"
+        },
+        {
+          "page": 40,
+          "major": "网络工程",
+          "program_variant": "regular",
+          "program_title": "网络工程专业培养方案(2023年版)专业负责人：高占春教学副院长：张笑燕核稿人：程莉",
+          "printed_revision": "2023"
+        },
+        {
+          "page": 68,
+          "major": "数据科学与大数据技术",
+          "program_variant": "regular",
+          "program_title": "数据科学与大数据技术专业培养方案(2023年版)专业负责人：吴斌教学副院长：张笑燕核稿人：鄂海红",
+          "printed_revision": "2023"
+        },
+        {
+          "page": 99,
+          "major": "软件工程",
+          "program_variant": "regular",
+          "program_title": "软件工程专业培养方案（2023年版）专业负责人：王祎教学副院长：张笑燕核稿人：张宇超",
+          "printed_revision": "2023"
+        },
+        {
+          "page": 134,
+          "major": "计算机科学与技术",
+          "program_variant": "international",
+          "program_title": "计算机科学与技术专业留学生培养方案（2021年版）专业负责人：孟祥武教学副院长：张笑燕核稿人：戴志涛",
+          "printed_revision": "2021"
+        },
+        {
+          "page": 143,
+          "major": "计算机科学与技术",
+          "program_variant": "second_degree",
+          "program_title": "计算机科学与技术专业第二学士学位培养方案（2021年版）专业负责人：孟祥武教学副院长：张笑燕核稿人：戴志涛",
+          "printed_revision": "2021"
+        }
+      ],
+      "ocr_pages": [
+        1,
+        11,
+        23,
+        51,
+        80,
+        114,
+        116,
+        139
+      ],
+      "empty_pages": []
+    },
+    {
+      "doc_id": "curriculum-2024",
+      "doc_version": "source-0fdf1672554d",
+      "title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案",
+      "source_file": "计算机学院（国家示范性软件学院）2024级本科专业培养方案.pdf",
+      "source_uri": "data/raw/计算机学院（国家示范性软件学院）2024级本科专业培养方案.pdf",
+      "source_sha256": "0fdf1672554d97a2306be03eb7c2890e251b8948a45001b0fe6ed4e615dd0c32",
+      "book_year": 2024,
+      "pages": 136,
+      "programs": [
+        {
+          "page": 1,
+          "major": "计算机科学与技术",
+          "program_variant": "regular",
+          "program_title": "目录计算机科学与技术专业培养方案......................................................................................................1",
+          "printed_revision": null
+        },
+        {
+          "page": 5,
+          "major": "计算机科学与技术",
+          "program_variant": "regular",
+          "program_title": "计算机科学与技术专业培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 27,
+          "major": "网络工程",
+          "program_variant": "regular",
+          "program_title": "网络工程专业培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 49,
+          "major": "数据科学与大数据技术",
+          "program_variant": "regular",
+          "program_title": "数据科学与大数据技术专业培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 73,
+          "major": "软件工程",
+          "program_variant": "regular",
+          "program_title": "软件工程专业培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 96,
+          "major": "计算机科学与技术",
+          "program_variant": "joint",
+          "program_title": "“计算机科学与技术＋会计学”联合学士学位培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 106,
+          "major": "计算机科学与技术",
+          "program_variant": "international",
+          "program_title": "计算机科学与技术专业留学生培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 115,
+          "major": "计算机科学与技术",
+          "program_variant": "second_degree",
+          "program_title": "计算机科学与技术专业第二学士学位培养方案",
+          "printed_revision": null
+        }
+      ],
+      "ocr_pages": [
+        17,
+        37,
+        62,
+        86,
+        100,
+        111
+      ],
+      "empty_pages": []
+    },
+    {
+      "doc_id": "curriculum-2025",
+      "doc_version": "source-24084f4353cc",
+      "title": "计算机学院（国家示范性软件学院）2025级本科专业培养方案",
+      "source_file": "计算机学院（国家示范性软件学院）2025级本科专业培养方案.pdf",
+      "source_uri": "data/raw/计算机学院（国家示范性软件学院）2025级本科专业培养方案.pdf",
+      "source_sha256": "24084f4353cc94313665b186ec3cc179a97b7f3b21577889eca4350532009bf4",
+      "book_year": 2025,
+      "pages": 143,
+      "programs": [
+        {
+          "page": 2,
+          "major": "计算机科学与技术",
+          "program_variant": "regular",
+          "program_title": "目录计算机科学与技术专业培养方案......................................................................................................1",
+          "printed_revision": null
+        },
+        {
+          "page": 6,
+          "major": "计算机科学与技术",
+          "program_variant": "regular",
+          "program_title": "计算机科学与技术专业培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 27,
+          "major": "网络工程",
+          "program_variant": "regular",
+          "program_title": "网络工程专业培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 51,
+          "major": "数据科学与大数据技术",
+          "program_variant": "regular",
+          "program_title": "数据科学与大数据技术专业培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 75,
+          "major": "软件工程",
+          "program_variant": "regular",
+          "program_title": "软件工程专业培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 101,
+          "major": "计算机科学与技术",
+          "program_variant": "joint",
+          "program_title": "“计算机科学与技术＋会计学”联合学士学位培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 112,
+          "major": "计算机科学与技术",
+          "program_variant": "international",
+          "program_title": "计算机科学与技术专业留学生培养方案",
+          "printed_revision": null
+        },
+        {
+          "page": 121,
+          "major": "计算机科学与技术",
+          "program_variant": "second_degree",
+          "program_title": "计算机科学与技术专业第二学士学位培养方案",
+          "printed_revision": null
+        }
+      ],
+      "ocr_pages": [
+        1,
+        17,
+        39,
+        64,
+        90,
+        105,
+        117
+      ],
+      "empty_pages": []
+    }
+  ],
+  "page_count": 507,
+  "chunk_count": 897,
+  "chunks_sha256": "749f0400d8d4ee0fe2e1436c6fd23eb14bb8709b1ed05f4b0deff7c20f67f70b",
+  "boundary": "Full source-text coverage; no claim that all extracted/OCR text is verified",
+  "ocr_chunk_count": 25
+}

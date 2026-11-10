@@ -1,0 +1,10 @@
+{
+  "state": "passed",
+  "scope": "offline archive integrity and relocatable prepared data only; Flash embeddings incomplete",
+  "files": 193,
+  "raw_pdf_count": 5,
+  "source_chunks": 897,
+  "secrets_detected": false,
+  "second_machine_tested": false,
+  "archive_sha256": "48ecd70d57e4db0d08818c1790ee1b0933e613f1452480cba3f0ce39fdd3719d"
+}

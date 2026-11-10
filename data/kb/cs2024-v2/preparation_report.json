@@ -1,0 +1,25 @@
+{
+  "state": "awaiting_human_review",
+  "documents": 3,
+  "chunks": 117,
+  "entities": 222,
+  "relations": 16,
+  "verified_relations": 0,
+  "selected_program_pdf_pages": [
+    5,
+    26
+  ],
+  "included_shared_appendix_pdf_pages": [
+    135,
+    136
+  ],
+  "manifest_sha256": "29045de9e0c949a87d603425f94e2d97e04ea69f781f4c2d5814309a6a427e36",
+  "candidate_questions": 10,
+  "evaluation": "not_frozen; no verified gold paths yet",
+  "warnings": [
+    "Course-map page may be image-only; no prerequisites inferred",
+    "OCR numbers/formulas/tables require visual review",
+    "No applicability edges inferred for the two institution-wide rules",
+    "Appendix references require review; not automatically resolved"
+  ]
+}

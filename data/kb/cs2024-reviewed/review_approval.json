@@ -1,0 +1,11 @@
+{
+  "reviewer": "codex-ai-source-review",
+  "reviewed_at": "2026-11-09T11:39:22.812Z",
+  "review_kind": "ai_source_review",
+  "delegated_by": "user",
+  "delegation_note": "那你直接确认",
+  "source_content_reviewed": true,
+  "scope_reviewed": true,
+  "manifest_sha256": "31971e49a41adb69aaf73022968ef4ff38b38c89b056761db23413686a387eda",
+  "decision_report_sha256": "13d63afc17391d6ebf7864f65e4c0069c78e5f4fed7524c28ffbe9d75d5cfeee"
+}

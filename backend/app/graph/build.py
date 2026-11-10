@@ -30,6 +30,9 @@ def new_batch_id() -> str:
 
 def build_staging(bundle_dir: str | Path) -> str:
     b = bundle_mod.load(Path(bundle_dir))
+    from app.ingest import review
+
+    review.check(b)
     batch = new_batch_id()
     with sqlite.connect() as conn:
         conn.execute(

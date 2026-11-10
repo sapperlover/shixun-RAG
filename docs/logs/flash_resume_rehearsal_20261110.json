@@ -1,0 +1,11 @@
+{
+  "state": "passed",
+  "test": "relocated real Flash partial cache resumes without repeated embeddings",
+  "validated_cached_chunks": 750,
+  "first_uncached_group": 50,
+  "total_eligible_chunks": 848,
+  "outgoing_api_requests": 0,
+  "budget_ledger_unchanged": true,
+  "incomplete_batch_published": false,
+  "boundary": "Only tests offline resume; remaining 98 embeddings and live hybrid verification are not complete."
+}

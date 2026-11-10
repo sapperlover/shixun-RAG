@@ -1,0 +1,341 @@
+{
+  "review_kind": "ai_source_review",
+  "reviewer": "codex-ai-source-review",
+  "delegated_by": "user",
+  "delegation_note": "用户明确要求“那你直接确认”，并要求先完成代码和数据、不运行其他程序。",
+  "reviewed_at": "2026-11-09T11:39:22.812Z",
+  "source_bundle_manifest_sha256": "29045de9e0c949a87d603425f94e2d97e04ea69f781f4c2d5814309a6a427e36",
+  "source_pdf_sha256": "0fdf1672554d97a2306be03eb7c2890e251b8948a45001b0fe6ed4e615dd0c32",
+  "visual_pages_inspected": [
+    1,
+    5,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    119,
+    135,
+    136
+  ],
+  "verified_count": 15,
+  "rejected_count": 1,
+  "limitations": [
+    "AI核验，不是人类盲审或学校对现行制度的认证。",
+    "只纳入目标专业已对照原页的条款，不发布两份OCR制度。",
+    "附录表格存在文字提取奖项标签错读，首版仅纳入已核验表格前正文。",
+    "没有运行测试程序、数据库、构建或发布。"
+  ],
+  "decisions": [
+    {
+      "original_row": 1,
+      "type": "APPLIES_TO",
+      "from": "计算机科学与技术2024级培养方案",
+      "to": "计算机科学与技术",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 5,
+      "page_end": 5,
+      "section": null,
+      "evidence_chunk_ids": [
+        "chunk-cb2ec8b25691aecf56f3"
+      ],
+      "reason": "PDF第5页标题明确为计算机科学与技术专业培养方案；2024版本按原始文件名、该文档第119页2024版本说明及用户提供的资料范围核对，不冒充教务现行版本认证。",
+      "original_from_entity_id": "plan:计算机科学与技术:2024:source",
+      "original_to_entity_id": "major:计算机科学与技术"
+    },
+    {
+      "original_row": 2,
+      "type": "CONTAINS",
+      "from": "计算机科学与技术2024级培养方案",
+      "to": "通识教育课程",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 19,
+      "page_end": 19,
+      "section": "十二、课程设置·通识教育课程",
+      "evidence_chunk_ids": [
+        "chunk-0ba413819e9269b41223"
+      ],
+      "reason": "目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。",
+      "original_from_entity_id": "plan:计算机科学与技术:2024:source",
+      "original_to_entity_id": "category:plan:计算机科学与技术:2024:source:23e31d699a"
+    },
+    {
+      "original_row": 3,
+      "type": "CITES",
+      "from": "通识教育课程",
+      "to": "通识教育课程修读规定",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 19,
+      "page_end": 19,
+      "section": "十二、课程设置·通识教育课程",
+      "evidence_chunk_ids": [
+        "chunk-0ba413819e9269b41223"
+      ],
+      "reason": "该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。",
+      "original_from_entity_id": "category:plan:计算机科学与技术:2024:source:23e31d699a",
+      "original_to_entity_id": "rule:bupt-cs-plan-2024:2024-source:chunk-833c6b5c4cda4f03a158:23e31d699a"
+    },
+    {
+      "original_row": 4,
+      "type": "CONTAINS",
+      "from": "计算机科学与技术2024级培养方案",
+      "to": "专业教育课程",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 19,
+      "page_end": 19,
+      "section": "十二、课程设置·专业教育课程标题",
+      "evidence_chunk_ids": [
+        "chunk-b381f2bc7d31fe33f9a1"
+      ],
+      "reason": "目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。",
+      "original_from_entity_id": "plan:计算机科学与技术:2024:source",
+      "original_to_entity_id": "category:plan:计算机科学与技术:2024:source:7d90652df8"
+    },
+    {
+      "original_row": 5,
+      "type": "CITES",
+      "from": "专业教育课程",
+      "to": "专业教育课程要求（十二、课程设置）",
+      "status": "rejected",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 19,
+      "page_end": 19,
+      "section": "十二、课程设置·专业教育课程标题",
+      "evidence_chunk_ids": [
+        "chunk-b381f2bc7d31fe33f9a1"
+      ],
+      "reason": "只有专业教育课程总标题，未找到该标题对应的独立规范条款；不凭同表出现确认独立CITES。",
+      "original_from_entity_id": "category:plan:计算机科学与技术:2024:source:7d90652df8",
+      "original_to_entity_id": "rule:bupt-cs-plan-2024:2024-source:chunk-833c6b5c4cda4f03a158:7d90652df8"
+    },
+    {
+      "original_row": 6,
+      "type": "CONTAINS",
+      "from": "计算机科学与技术2024级培养方案",
+      "to": "学科基础课程",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 19,
+      "page_end": 19,
+      "section": "十二、课程设置·学科基础课程",
+      "evidence_chunk_ids": [
+        "chunk-6eb7a6efda1bd1f4c3f4"
+      ],
+      "reason": "目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。",
+      "original_from_entity_id": "plan:计算机科学与技术:2024:source",
+      "original_to_entity_id": "category:plan:计算机科学与技术:2024:source:b6391fb92d"
+    },
+    {
+      "original_row": 7,
+      "type": "CITES",
+      "from": "学科基础课程",
+      "to": "学科基础课程修读规定",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 19,
+      "page_end": 19,
+      "section": "十二、课程设置·学科基础课程",
+      "evidence_chunk_ids": [
+        "chunk-6eb7a6efda1bd1f4c3f4"
+      ],
+      "reason": "该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。",
+      "original_from_entity_id": "category:plan:计算机科学与技术:2024:source:b6391fb92d",
+      "original_to_entity_id": "rule:bupt-cs-plan-2024:2024-source:chunk-833c6b5c4cda4f03a158:b6391fb92d"
+    },
+    {
+      "original_row": 8,
+      "type": "CONTAINS",
+      "from": "计算机科学与技术2024级培养方案",
+      "to": "专业基础课程",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 20,
+      "page_end": 20,
+      "section": "十二、课程设置·专业基础课程",
+      "evidence_chunk_ids": [
+        "chunk-24e5f3b15ce5cadbb21d"
+      ],
+      "reason": "目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。",
+      "original_from_entity_id": "plan:计算机科学与技术:2024:source",
+      "original_to_entity_id": "category:plan:计算机科学与技术:2024:source:802a264ab1"
+    },
+    {
+      "original_row": 9,
+      "type": "CITES",
+      "from": "专业基础课程",
+      "to": "专业基础课程修读规定",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 20,
+      "page_end": 20,
+      "section": "十二、课程设置·专业基础课程",
+      "evidence_chunk_ids": [
+        "chunk-24e5f3b15ce5cadbb21d"
+      ],
+      "reason": "该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。",
+      "original_from_entity_id": "category:plan:计算机科学与技术:2024:source:802a264ab1",
+      "original_to_entity_id": "rule:bupt-cs-plan-2024:2024-source:chunk-833c6b5c4cda4f03a158:802a264ab1"
+    },
+    {
+      "original_row": 10,
+      "type": "CONTAINS",
+      "from": "计算机科学与技术2024级培养方案",
+      "to": "专业课程",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 21,
+      "page_end": 21,
+      "section": "十二、课程设置·专业课程",
+      "evidence_chunk_ids": [
+        "chunk-d07bdc82dde297bf4983"
+      ],
+      "reason": "目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。",
+      "original_from_entity_id": "plan:计算机科学与技术:2024:source",
+      "original_to_entity_id": "category:plan:计算机科学与技术:2024:source:2221697565"
+    },
+    {
+      "original_row": 11,
+      "type": "CITES",
+      "from": "专业课程",
+      "to": "专业课程修读规定",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 21,
+      "page_end": 21,
+      "section": "十二、课程设置·专业课程",
+      "evidence_chunk_ids": [
+        "chunk-d07bdc82dde297bf4983"
+      ],
+      "reason": "该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。",
+      "original_from_entity_id": "category:plan:计算机科学与技术:2024:source:2221697565",
+      "original_to_entity_id": "rule:bupt-cs-plan-2024:2024-source:chunk-833c6b5c4cda4f03a158:2221697565"
+    },
+    {
+      "original_row": 12,
+      "type": "CONTAINS",
+      "from": "计算机科学与技术2024级培养方案",
+      "to": "实践教学",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 23,
+      "page_end": 23,
+      "section": "十二、课程设置·实践教学",
+      "evidence_chunk_ids": [
+        "chunk-600bdfcca90dfa356397"
+      ],
+      "reason": "目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。",
+      "original_from_entity_id": "plan:计算机科学与技术:2024:source",
+      "original_to_entity_id": "category:plan:计算机科学与技术:2024:source:1799adb67d"
+    },
+    {
+      "original_row": 13,
+      "type": "CITES",
+      "from": "实践教学",
+      "to": "实践教学修读规定",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 23,
+      "page_end": 23,
+      "section": "十二、课程设置·实践教学",
+      "evidence_chunk_ids": [
+        "chunk-600bdfcca90dfa356397"
+      ],
+      "reason": "该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。",
+      "original_from_entity_id": "category:plan:计算机科学与技术:2024:source:1799adb67d",
+      "original_to_entity_id": "rule:bupt-cs-plan-2024:2024-source:chunk-833c6b5c4cda4f03a158:1799adb67d"
+    },
+    {
+      "original_row": 14,
+      "type": "CONTAINS",
+      "from": "计算机科学与技术2024级培养方案",
+      "to": "创新实践",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 23,
+      "page_end": 23,
+      "section": "十三、创新实践",
+      "evidence_chunk_ids": [
+        "chunk-ead9039520a8174ed852"
+      ],
+      "reason": "目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。",
+      "original_from_entity_id": "plan:计算机科学与技术:2024:source",
+      "original_to_entity_id": "category:plan:计算机科学与技术:2024:source:1b228ecc59"
+    },
+    {
+      "original_row": 15,
+      "type": "CITES",
+      "from": "创新实践",
+      "to": "创新实践修读规定",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 23,
+      "page_end": 23,
+      "section": "十三、创新实践",
+      "evidence_chunk_ids": [
+        "chunk-ead9039520a8174ed852"
+      ],
+      "reason": "该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。",
+      "original_from_entity_id": "category:plan:计算机科学与技术:2024:source:1b228ecc59",
+      "original_to_entity_id": "rule:bupt-cs-plan-2024:2024-source:chunk-ead9039520a8174ed852:1b228ecc59"
+    },
+    {
+      "original_row": 16,
+      "type": "CITES",
+      "from": "创新实践",
+      "to": "创新实践学分及成绩认定方案",
+      "status": "verified",
+      "reviewed_by": "codex-ai-source-review",
+      "reviewed_at": "2026-11-09T11:39:22.812Z",
+      "method": "AI direct source text plus visual PDF page comparison",
+      "page_start": 135,
+      "page_end": 135,
+      "section": "附录4·创新实践学分及成绩认定（表格前正文）",
+      "evidence_chunk_ids": [
+        "chunk-ead9039520a8174ed852",
+        "chunk-3fcf424277ba218ae86f"
+      ],
+      "reason": "第23页正文明确详见附录4；第135页附录标题和表格前正文一致。仅使用已核对的表格前正文，表格奖项提取标签错读部分不入可用包。",
+      "original_from_entity_id": "category:plan:计算机科学与技术:2024:source:1b228ecc59",
+      "original_to_entity_id": "rule:bupt-cs-plan-2024:2024-source:chunk-c85703966f0b5a9396d2",
+      "reference_source_pages": [
+        23,
+        135
+      ]
+    }
+  ]
+}
