@@ -1,0 +1,14 @@
+{
+  "state": "paused_for_budget_reconciliation",
+  "checked_at": "2026-11-10T03:16:10.382026+00:00",
+  "model": "qwen3.7-text-embedding-flash",
+  "dimensions": 1024,
+  "completed_group_cached_chunks": 750,
+  "eligible_chunks": 848,
+  "provider_reported_tokens_since_ledger": 259280,
+  "unknown_requests_upper_bound": 32449,
+  "untracked_historical_reserve": 600000,
+  "conservative_total": 891729,
+  "limit": 900000,
+  "boundary": "Historical reserve is an estimate, not provider billing; no further API calls before reconciliation."
+}

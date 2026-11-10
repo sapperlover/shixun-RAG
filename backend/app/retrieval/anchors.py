@@ -23,7 +23,13 @@ log = logging.getLogger(__name__)
 
 
 def match(intent: Intent, batch_id: str) -> list[Anchor]:
+    return match_with_diagnostics(intent, batch_id)[0]
+
+
+def match_with_diagnostics(intent: Intent, batch_id: str) -> tuple[list[Anchor], str | None]:
+    """Also report a failed vector request; an existing index is not proof of API health."""
     cfg = get_settings().retrieval
+    vector_failure = None
     d = dictionary.load(batch_id)
     out: dict[str, Anchor] = {}
 
@@ -48,10 +54,13 @@ def match(intent: Intent, batch_id: str) -> list[Anchor]:
             hits = faiss_store.search(batch_id, intent.question, cfg.vector_anchor_top_k)
         except Exception as exc:  # 向量不可用只影响召回，不影响图检索
             log.info("向量锚点不可用: %s", exc)
+            vector_failure = "vector_query_unavailable"
             hits = []
         for eid, label, score in hits:
             if score >= cfg.vector_anchor_min_score and eid in d.entities:
                 out.setdefault(eid, Anchor(eid, label, d.entities[eid].name, score, "vector"))
 
     order = {"exact": 0, "alias": 0, "scope": 1, "vector": 2}
-    return sorted(out.values(), key=lambda a: (order[a.match], -a.score, a.entity_id))
+    return sorted(
+        out.values(), key=lambda a: (order[a.match], -a.score, a.entity_id)
+    ), vector_failure

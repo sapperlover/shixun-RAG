@@ -1,0 +1,2 @@
+# Knowledge manifests bind exact bytes. Do not rewrite their line endings on checkout.
+data/** -text

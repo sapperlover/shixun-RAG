@@ -1,0 +1,24 @@
+{
+  "state": "complete",
+  "user_budget_revision": "Flash <= 1000000 tokens replaces original 900000 limit",
+  "documents": 5,
+  "pages": 507,
+  "retained_chunks": 897,
+  "embedded_eligible_chunks": 848,
+  "excluded_ocr_chunks": 25,
+  "excluded_toc_chunks": 24,
+  "ten_case_checks_passed": 10,
+  "live_positive_modes": "hybrid",
+  "graph_regression_hit_rate": 1.0,
+  "migration_rehearsal": "final ZIP code, prepared sources, source review, SQLite and FAISS; local separate folder, zero embedding API calls",
+  "archive": "rag-ready-20261110.zip",
+  "archive_sha256": "8f96e05f040a55ae099c66cc887e6030a235fb9d6b3ec857bad68e2be4f611c7",
+  "provider_reported_since_ledger": 292734,
+  "conservative_ledger_total_including_old_reserve": 925183,
+  "historical_reserve_is_estimate": true,
+  "limitations": [
+    "25 OCR excerpts retained but excluded pending review",
+    "No final-answer generation accuracy evaluation",
+    "Not tested on a physically separate computer"
+  ]
+}

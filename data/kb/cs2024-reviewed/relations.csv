@@ -1,0 +1,41 @@
+type,from_entity_id,from_label,to_entity_id,to_label,major_code,entry_year,evidence_chunk_ids,evidence_excerpt,confidence,source,verification_status,verified_by,verified_at,note
+APPLIES_TO,plan:计算机科学与技术:2024:source,ProgramPlan,major:计算机科学与技术,Professional,计算机科学与技术,2024,chunk-cb2ec8b25691aecf56f3,计算机科学与技术专业培养方案,,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；PDF第5页标题明确为计算机科学与技术专业培养方案；2024版本按原始文件名、该文档第119页2024版本说明及用户提供的资料范围核对，不冒充教务现行版本认证。
+CONTAINS,plan:计算机科学与技术:2024:source,ProgramPlan,category:plan:计算机科学与技术:2024:source:23e31d699a,CourseCategory,计算机科学与技术,2024,chunk-0ba413819e9269b41223,通识教育课程  合计66.5学分，其中必修51.5学分，最低选修15                     学分。,,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。
+CITES,category:plan:计算机科学与技术:2024:source:23e31d699a,CourseCategory,rule:bupt-cs-plan-2024:2024-source:chunk-0ba413819e9269b41223:23e31d699a,RuleClause,计算机科学与技术,2024,chunk-0ba413819e9269b41223,通识教育课程  合计66.5学分，其中必修51.5学分，最低选修15                     学分。,,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。
+CONTAINS,plan:计算机科学与技术:2024:source,ProgramPlan,category:plan:计算机科学与技术:2024:source:7d90652df8,CourseCategory,计算机科学与技术,2024,chunk-b381f2bc7d31fe33f9a1,专业教育课程,,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。
+CITES,category:plan:计算机科学与技术:2024:source:7d90652df8,CourseCategory,rule:bupt-cs-plan-2024:2024-source:chunk-833c6b5c4cda4f03a158:7d90652df8,RuleClause,计算机科学与技术,2024,chunk-b381f2bc7d31fe33f9a1,专业教育课程,,ai_visual_source_review,rejected,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；只有专业教育课程总标题，未找到该标题对应的独立规范条款；不凭同表出现确认独立CITES。
+CONTAINS,plan:计算机科学与技术:2024:source,ProgramPlan,category:plan:计算机科学与技术:2024:source:b6391fb92d,CourseCategory,计算机科学与技术,2024,chunk-6eb7a6efda1bd1f4c3f4,学科基础课程  合计11        学分，其中必修       11学分，最低选修       0学分。,,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。
+CITES,category:plan:计算机科学与技术:2024:source:b6391fb92d,CourseCategory,rule:bupt-cs-plan-2024:2024-source:chunk-6eb7a6efda1bd1f4c3f4:b6391fb92d,RuleClause,计算机科学与技术,2024,chunk-6eb7a6efda1bd1f4c3f4,学科基础课程  合计11        学分，其中必修       11学分，最低选修       0学分。,,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。
+CONTAINS,plan:计算机科学与技术:2024:source,ProgramPlan,category:plan:计算机科学与技术:2024:source:802a264ab1,CourseCategory,计算机科学与技术,2024,chunk-24e5f3b15ce5cadbb21d,专业基础课程  合计35.5学分，其中必修35.5学分，最低选修0学分。,,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。
+CITES,category:plan:计算机科学与技术:2024:source:802a264ab1,CourseCategory,rule:bupt-cs-plan-2024:2024-source:chunk-24e5f3b15ce5cadbb21d:802a264ab1,RuleClause,计算机科学与技术,2024,chunk-24e5f3b15ce5cadbb21d,专业基础课程  合计35.5学分，其中必修35.5学分，最低选修0学分。,,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。
+CONTAINS,plan:计算机科学与技术:2024:source,ProgramPlan,category:plan:计算机科学与技术:2024:source:2221697565,CourseCategory,计算机科学与技术,2024,chunk-d07bdc82dde297bf4983,"专业课程    合计  12学分，其中必修      0学分，最低选修      12学分。
+说明：在满足本专业各模块最低选修要求的基础上，允许选修最多4                      学分本院其他专业的专业模块课程、或者
+本专业研究生课程。“指选”的课程为本专业必须选修的课程，成绩达标获得相应学分。",,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。
+CITES,category:plan:计算机科学与技术:2024:source:2221697565,CourseCategory,rule:bupt-cs-plan-2024:2024-source:chunk-d07bdc82dde297bf4983:2221697565,RuleClause,计算机科学与技术,2024,chunk-d07bdc82dde297bf4983,"专业课程    合计  12学分，其中必修      0学分，最低选修      12学分。
+说明：在满足本专业各模块最低选修要求的基础上，允许选修最多4                      学分本院其他专业的专业模块课程、或者
+本专业研究生课程。“指选”的课程为本专业必须选修的课程，成绩达标获得相应学分。",,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。
+CONTAINS,plan:计算机科学与技术:2024:source,ProgramPlan,category:plan:计算机科学与技术:2024:source:1799adb67d,CourseCategory,计算机科学与技术,2024,chunk-600bdfcca90dfa356397,实践教学  合计30    学分，其中必修     17学分（804  学时），最低选修     13学分。,,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。
+CITES,category:plan:计算机科学与技术:2024:source:1799adb67d,CourseCategory,rule:bupt-cs-plan-2024:2024-source:chunk-600bdfcca90dfa356397:1799adb67d,RuleClause,计算机科学与技术,2024,chunk-600bdfcca90dfa356397,实践教学  合计30    学分，其中必修     17学分（804  学时），最低选修     13学分。,,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。
+CONTAINS,plan:计算机科学与技术:2024:source,ProgramPlan,category:plan:计算机科学与技术:2024:source:1b228ecc59,CourseCategory,计算机科学与技术,2024,chunk-ead9039520a8174ed852,"十三、创新实践
+
+     创新实践是全校必修实践环节，设置4                学分，具体学分及成绩认定方案详见附录4。",,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；目标专业正文的课程设置或创新实践章节明确列出该类别；只确认包含关系，不将不同统计口径的学分合并推算。
+CITES,category:plan:计算机科学与技术:2024:source:1b228ecc59,CourseCategory,rule:bupt-cs-plan-2024:2024-source:chunk-ead9039520a8174ed852:1b228ecc59,RuleClause,计算机科学与技术,2024,chunk-ead9039520a8174ed852,"十三、创新实践
+
+     创新实践是全校必修实践环节，设置4                学分，具体学分及成绩认定方案详见附录4。",,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；该类别与原文中紧随其后的明确修读规定直接对应。CITES在此表示类别对应原文规范条款，不声称存在跨文档引用。
+CITES,category:plan:计算机科学与技术:2024:source:1b228ecc59,CourseCategory,rule:bupt-cs-plan-2024:2024-source:chunk-3fcf424277ba218ae86f:1b228ecc59,RuleClause,计算机科学与技术,2024,chunk-ead9039520a8174ed852;chunk-3fcf424277ba218ae86f,"十三、创新实践
+
+     创新实践是全校必修实践环节，设置4                学分，具体学分及成绩认定方案详见附录4。
+
+附录  4：创新实践学分及成绩认定方案
+
+   创新实践设置4    学分。成绩采用积分制，包括创新实践成果类积分、创新实践项目类积
+
+分和创新实践训练类积分，分值均可累计，根据积分最终认定所修学分的成绩。成绩合格及
+
+以上即获得   4学分。
+
+   创新实践学分成绩分为      5档，即优秀（积分≥10      且同时满足创新实践成果类积分不低于
+
+6积分和创新实践项目类积分不低于         4积分）、良好（10>积分≥8）、中评（8 >积分≥6）、合
+
+格( 6>积分≥4 )、不合格（积分<4）。",,ai_visual_source_review,verified,codex-ai-source-review,2026-11-09T11:39:22.812Z,AI核验；用户委托“那你直接确认”；第23页正文明确详见附录4；第135页附录标题和表格前正文一致。仅使用已核对的表格前正文，表格奖项提取标签错读部分不入可用包。

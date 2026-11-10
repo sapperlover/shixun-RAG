@@ -3,7 +3,7 @@
 关系必须在白名单内；evidence 必须是原文子串，否则丢弃；置信度 < ingest.relation_min_confidence
 的只进入待核验清单，不得建议通过。
 
-TODO(Data, D2，可选)
+检索模块不拥有生成模型；当前禁用此可选抽取器，返回空候选。
 """
 
 from __future__ import annotations
@@ -12,4 +12,6 @@ from app.ingest.chunk import Chunk
 
 
 def extract(chunks: list[Chunk]) -> list[dict]:
-    raise NotImplementedError
+    # Generation model ownership is outside the retrieval-only module.
+    # Rules produce review candidates; absence of an LLM must not invent relations.
+    return []

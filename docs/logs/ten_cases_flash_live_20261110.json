@@ -1,0 +1,1084 @@
+{
+  "state": "passed",
+  "checked_at": "2026-11-10T04:02:00.173312+00:00",
+  "keyword_only_fault_injected": false,
+  "simple_ten": true,
+  "boundary": "AI-authored source-grounded development probes; not blind gold or answer scoring",
+  "graph_regression": {
+    "dataset_reviewers": [
+      "codex-ai-source-review"
+    ],
+    "contains_ai_reviewed_questions": true,
+    "answer_evaluation": "not_performed",
+    "questions": 10,
+    "path_hit_rate": 1.0,
+    "gold_evidence_hit_rate": 1.0,
+    "negative_questions": 0,
+    "negative_status_matches": 0,
+    "records": [
+      {
+        "question_id": "cs2024-reviewed-2-001",
+        "status": "success",
+        "expected_status": "success",
+        "knowledge_batch": "batch-20261110-105715-0cb3",
+        "path_hit": true,
+        "status_match": true,
+        "gold_evidence_hit": true,
+        "failed_hop": null,
+        "error_code": null,
+        "elapsed_ms": 40,
+        "predicted_paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 2,
+            "nodes": [
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:23e31d699a",
+                "label": "CourseCategory",
+                "name": "通识教育课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-0ba413819e9269b41223:23e31d699a",
+                "label": "RuleClause",
+                "name": "通识教育课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-b8b557dd85e1551e1964",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:23e31d699a"
+              },
+              {
+                "relation_id": "rel-3a977a94a1e6401099b4",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:23e31d699a",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-0ba413819e9269b41223:23e31d699a"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question_id": "cs2024-reviewed-2-002",
+        "status": "success",
+        "expected_status": "success",
+        "knowledge_batch": "batch-20261110-105715-0cb3",
+        "path_hit": true,
+        "status_match": true,
+        "gold_evidence_hit": true,
+        "failed_hop": null,
+        "error_code": null,
+        "elapsed_ms": 11,
+        "predicted_paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 2,
+            "nodes": [
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:b6391fb92d",
+                "label": "CourseCategory",
+                "name": "学科基础课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-6eb7a6efda1bd1f4c3f4:b6391fb92d",
+                "label": "RuleClause",
+                "name": "学科基础课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-bf0d7a3d321e9c30ac36",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:b6391fb92d"
+              },
+              {
+                "relation_id": "rel-5468b3fbda71ebbd233d",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:b6391fb92d",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-6eb7a6efda1bd1f4c3f4:b6391fb92d"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question_id": "cs2024-reviewed-2-003",
+        "status": "success",
+        "expected_status": "success",
+        "knowledge_batch": "batch-20261110-105715-0cb3",
+        "path_hit": true,
+        "status_match": true,
+        "gold_evidence_hit": true,
+        "failed_hop": null,
+        "error_code": null,
+        "elapsed_ms": 10,
+        "predicted_paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 2,
+            "nodes": [
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:802a264ab1",
+                "label": "CourseCategory",
+                "name": "专业基础课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-24e5f3b15ce5cadbb21d:802a264ab1",
+                "label": "RuleClause",
+                "name": "专业基础课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-8e1b96352528886493df",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:802a264ab1"
+              },
+              {
+                "relation_id": "rel-4b79e4af1124f2b07358",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:802a264ab1",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-24e5f3b15ce5cadbb21d:802a264ab1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question_id": "cs2024-reviewed-2-004",
+        "status": "success",
+        "expected_status": "success",
+        "knowledge_batch": "batch-20261110-105715-0cb3",
+        "path_hit": true,
+        "status_match": true,
+        "gold_evidence_hit": true,
+        "failed_hop": null,
+        "error_code": null,
+        "elapsed_ms": 10,
+        "predicted_paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 2,
+            "nodes": [
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:2221697565",
+                "label": "CourseCategory",
+                "name": "专业课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-d07bdc82dde297bf4983:2221697565",
+                "label": "RuleClause",
+                "name": "专业课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-ae8382ceea3fb14513dc",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:2221697565"
+              },
+              {
+                "relation_id": "rel-2e7b62f20fb777f7d382",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:2221697565",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-d07bdc82dde297bf4983:2221697565"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question_id": "cs2024-reviewed-2-005",
+        "status": "success",
+        "expected_status": "success",
+        "knowledge_batch": "batch-20261110-105715-0cb3",
+        "path_hit": true,
+        "status_match": true,
+        "gold_evidence_hit": true,
+        "failed_hop": null,
+        "error_code": null,
+        "elapsed_ms": 10,
+        "predicted_paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 2,
+            "nodes": [
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:1799adb67d",
+                "label": "CourseCategory",
+                "name": "实践教学"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-600bdfcca90dfa356397:1799adb67d",
+                "label": "RuleClause",
+                "name": "实践教学修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-e00fdb25a98ae60bd973",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:1799adb67d"
+              },
+              {
+                "relation_id": "rel-c5802616d67b8bb61b94",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:1799adb67d",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-600bdfcca90dfa356397:1799adb67d"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question_id": "cs2024-reviewed-3-001",
+        "status": "success",
+        "expected_status": "success",
+        "knowledge_batch": "batch-20261110-105715-0cb3",
+        "path_hit": true,
+        "status_match": true,
+        "gold_evidence_hit": true,
+        "failed_hop": null,
+        "error_code": null,
+        "elapsed_ms": 17,
+        "predicted_paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 3,
+            "nodes": [
+              {
+                "node_id": "major:计算机科学与技术",
+                "label": "Professional",
+                "name": "计算机科学与技术"
+              },
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:23e31d699a",
+                "label": "CourseCategory",
+                "name": "通识教育课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-0ba413819e9269b41223:23e31d699a",
+                "label": "RuleClause",
+                "name": "通识教育课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-8f3593910ecf54a7e6a2",
+                "type": "APPLIES_TO",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "major:计算机科学与技术"
+              },
+              {
+                "relation_id": "rel-b8b557dd85e1551e1964",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:23e31d699a"
+              },
+              {
+                "relation_id": "rel-3a977a94a1e6401099b4",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:23e31d699a",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-0ba413819e9269b41223:23e31d699a"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question_id": "cs2024-reviewed-3-002",
+        "status": "success",
+        "expected_status": "success",
+        "knowledge_batch": "batch-20261110-105715-0cb3",
+        "path_hit": true,
+        "status_match": true,
+        "gold_evidence_hit": true,
+        "failed_hop": null,
+        "error_code": null,
+        "elapsed_ms": 18,
+        "predicted_paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 3,
+            "nodes": [
+              {
+                "node_id": "major:计算机科学与技术",
+                "label": "Professional",
+                "name": "计算机科学与技术"
+              },
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:b6391fb92d",
+                "label": "CourseCategory",
+                "name": "学科基础课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-6eb7a6efda1bd1f4c3f4:b6391fb92d",
+                "label": "RuleClause",
+                "name": "学科基础课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-8f3593910ecf54a7e6a2",
+                "type": "APPLIES_TO",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "major:计算机科学与技术"
+              },
+              {
+                "relation_id": "rel-bf0d7a3d321e9c30ac36",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:b6391fb92d"
+              },
+              {
+                "relation_id": "rel-5468b3fbda71ebbd233d",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:b6391fb92d",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-6eb7a6efda1bd1f4c3f4:b6391fb92d"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question_id": "cs2024-reviewed-3-003",
+        "status": "success",
+        "expected_status": "success",
+        "knowledge_batch": "batch-20261110-105715-0cb3",
+        "path_hit": true,
+        "status_match": true,
+        "gold_evidence_hit": true,
+        "failed_hop": null,
+        "error_code": null,
+        "elapsed_ms": 18,
+        "predicted_paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 3,
+            "nodes": [
+              {
+                "node_id": "major:计算机科学与技术",
+                "label": "Professional",
+                "name": "计算机科学与技术"
+              },
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:802a264ab1",
+                "label": "CourseCategory",
+                "name": "专业基础课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-24e5f3b15ce5cadbb21d:802a264ab1",
+                "label": "RuleClause",
+                "name": "专业基础课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-8f3593910ecf54a7e6a2",
+                "type": "APPLIES_TO",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "major:计算机科学与技术"
+              },
+              {
+                "relation_id": "rel-8e1b96352528886493df",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:802a264ab1"
+              },
+              {
+                "relation_id": "rel-4b79e4af1124f2b07358",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:802a264ab1",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-24e5f3b15ce5cadbb21d:802a264ab1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question_id": "cs2024-reviewed-3-004",
+        "status": "success",
+        "expected_status": "success",
+        "knowledge_batch": "batch-20261110-105715-0cb3",
+        "path_hit": true,
+        "status_match": true,
+        "gold_evidence_hit": true,
+        "failed_hop": null,
+        "error_code": null,
+        "elapsed_ms": 20,
+        "predicted_paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 3,
+            "nodes": [
+              {
+                "node_id": "major:计算机科学与技术",
+                "label": "Professional",
+                "name": "计算机科学与技术"
+              },
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:2221697565",
+                "label": "CourseCategory",
+                "name": "专业课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-d07bdc82dde297bf4983:2221697565",
+                "label": "RuleClause",
+                "name": "专业课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-8f3593910ecf54a7e6a2",
+                "type": "APPLIES_TO",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "major:计算机科学与技术"
+              },
+              {
+                "relation_id": "rel-ae8382ceea3fb14513dc",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:2221697565"
+              },
+              {
+                "relation_id": "rel-2e7b62f20fb777f7d382",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:2221697565",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-d07bdc82dde297bf4983:2221697565"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question_id": "cs2024-reviewed-3-005",
+        "status": "success",
+        "expected_status": "success",
+        "knowledge_batch": "batch-20261110-105715-0cb3",
+        "path_hit": true,
+        "status_match": true,
+        "gold_evidence_hit": true,
+        "failed_hop": null,
+        "error_code": null,
+        "elapsed_ms": 17,
+        "predicted_paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 3,
+            "nodes": [
+              {
+                "node_id": "major:计算机科学与技术",
+                "label": "Professional",
+                "name": "计算机科学与技术"
+              },
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:1799adb67d",
+                "label": "CourseCategory",
+                "name": "实践教学"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-600bdfcca90dfa356397:1799adb67d",
+                "label": "RuleClause",
+                "name": "实践教学修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-8f3593910ecf54a7e6a2",
+                "type": "APPLIES_TO",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "major:计算机科学与技术"
+              },
+              {
+                "relation_id": "rel-e00fdb25a98ae60bd973",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:1799adb67d"
+              },
+              {
+                "relation_id": "rel-c5802616d67b8bb61b94",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:1799adb67d",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-600bdfcca90dfa356397:1799adb67d"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "document_probes": [
+    {
+      "question": "计算机科学与技术2023级普通本科的学制是几年、授予什么学位？",
+      "expected_doc": "curriculum-2023",
+      "major": "计算机科学与技术",
+      "year": 2023,
+      "source_terms": [
+        "学制",
+        "学位"
+      ],
+      "status": "success",
+      "retrieval_type": "document",
+      "retrieval_mode": "hybrid",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "curriculum-2023",
+          "page": 14,
+          "major": "计算机科学与技术",
+          "entry_year": 2023,
+          "review_status": "source_text_extracted"
+        },
+        {
+          "doc_id": "curriculum-2023",
+          "page": 13,
+          "major": "计算机科学与技术",
+          "entry_year": 2023,
+          "review_status": "source_text_extracted"
+        },
+        {
+          "doc_id": "curriculum-2023",
+          "page": 12,
+          "major": "计算机科学与技术",
+          "entry_year": 2023,
+          "review_status": "source_text_extracted"
+        },
+        {
+          "doc_id": "curriculum-2023",
+          "page": 15,
+          "major": "计算机科学与技术",
+          "entry_year": 2023,
+          "review_status": "source_text_extracted"
+        }
+      ]
+    },
+    {
+      "question": "网络工程2024级普通本科的学制是几年、授予什么学位？",
+      "expected_doc": "curriculum-2024",
+      "major": "网络工程",
+      "year": 2024,
+      "source_terms": [
+        "学制",
+        "学位"
+      ],
+      "status": "success",
+      "retrieval_type": "document",
+      "retrieval_mode": "hybrid",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "curriculum-2024",
+          "page": 29,
+          "major": "网络工程",
+          "entry_year": 2024,
+          "review_status": "source_text_extracted"
+        },
+        {
+          "doc_id": "curriculum-2024",
+          "page": 27,
+          "major": "网络工程",
+          "entry_year": 2024,
+          "review_status": "source_text_extracted"
+        },
+        {
+          "doc_id": "curriculum-2024",
+          "page": 30,
+          "major": "网络工程",
+          "entry_year": 2024,
+          "review_status": "source_text_extracted"
+        }
+      ]
+    },
+    {
+      "question": "软件工程2025级普通本科的学制是几年、授予什么学位？",
+      "expected_doc": "curriculum-2025",
+      "major": "软件工程",
+      "year": 2025,
+      "source_terms": [
+        "学制",
+        "学位"
+      ],
+      "status": "success",
+      "retrieval_type": "document",
+      "retrieval_mode": "hybrid",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "curriculum-2025",
+          "page": 80,
+          "major": "软件工程",
+          "entry_year": 2025,
+          "review_status": "source_text_extracted"
+        },
+        {
+          "doc_id": "curriculum-2025",
+          "page": 76,
+          "major": "软件工程",
+          "entry_year": 2025,
+          "review_status": "source_text_extracted"
+        },
+        {
+          "doc_id": "curriculum-2025",
+          "page": 75,
+          "major": "软件工程",
+          "entry_year": 2025,
+          "review_status": "source_text_extracted"
+        },
+        {
+          "doc_id": "curriculum-2025",
+          "page": 85,
+          "major": "软件工程",
+          "entry_year": 2025,
+          "review_status": "source_text_extracted"
+        }
+      ]
+    },
+    {
+      "question": "课程考试迟到多少分钟不准参加考试？",
+      "expected_doc": "assessment-rules",
+      "source_terms": [
+        "迟到",
+        "15"
+      ],
+      "status": "success",
+      "retrieval_type": "document",
+      "retrieval_mode": "hybrid",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "assessment-rules",
+          "page": 4,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "assessment-rules",
+          "page": 10,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "assessment-rules",
+          "page": 6,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "assessment-rules",
+          "page": 9,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        }
+      ]
+    },
+    {
+      "question": "申请期末考试缓考需要什么手续？",
+      "expected_doc": "assessment-rules",
+      "source_terms": [
+        "缓考",
+        "申请"
+      ],
+      "status": "success",
+      "retrieval_type": "document",
+      "retrieval_mode": "hybrid",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "assessment-rules",
+          "page": 9,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "assessment-rules",
+          "page": 8,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "assessment-rules",
+          "page": 7,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "assessment-rules",
+          "page": 13,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        }
+      ]
+    },
+    {
+      "question": "学位申请被拒绝可以申请复核吗？",
+      "expected_doc": "degree-rules",
+      "source_terms": [
+        "学位",
+        "复核"
+      ],
+      "status": "success",
+      "retrieval_type": "document",
+      "retrieval_mode": "hybrid",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "degree-rules",
+          "page": 6,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "degree-rules",
+          "page": 5,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "degree-rules",
+          "page": 7,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "degree-rules",
+          "page": 4,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        }
+      ]
+    },
+    {
+      "question": "学位获得者在什么情况下可能被撤销学位？",
+      "expected_doc": "degree-rules",
+      "source_terms": [
+        "撤销",
+        "学位"
+      ],
+      "status": "success",
+      "retrieval_type": "document",
+      "retrieval_mode": "hybrid",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "degree-rules",
+          "page": 6,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "degree-rules",
+          "page": 7,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "degree-rules",
+          "page": 3,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "degree-rules",
+          "page": 2,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        }
+      ]
+    },
+    {
+      "question": "学士学位申请应在多少日内决定受理？",
+      "expected_doc": "degree-rules",
+      "source_terms": [
+        "学士",
+        "受理"
+      ],
+      "status": "success",
+      "retrieval_type": "document",
+      "retrieval_mode": "hybrid",
+      "passed": true,
+      "citations": [
+        {
+          "doc_id": "degree-rules",
+          "page": 2,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "degree-rules",
+          "page": 4,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "degree-rules",
+          "page": 5,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        },
+        {
+          "doc_id": "degree-rules",
+          "page": 3,
+          "major": null,
+          "entry_year": null,
+          "review_status": "ai_source_reviewed"
+        }
+      ]
+    }
+  ],
+  "negative_probes": [
+    {
+      "case": "missing_major",
+      "status": "needs_context",
+      "expected": "needs_context",
+      "passed": true
+    },
+    {
+      "case": "no_source",
+      "status": "insufficient",
+      "expected": "insufficient",
+      "passed": true
+    }
+  ],
+  "document_batch": "documents-5d0bc4db29-df92fe",
+  "document_index": "ready",
+  "scope_catalog": {
+    "college": "计算机学院（国家示范性软件学院）",
+    "programs": [
+      {
+        "major": "计算机科学与技术",
+        "entry_year": 2023,
+        "book_year": 2023,
+        "program_variant": "regular",
+        "plan_revision": "2023",
+        "program_title": "计算机科学与技术专业培养方案（2023年版）专业负责人：孟祥武教学副院长：张笑燕核稿人：戴志涛"
+      },
+      {
+        "major": "网络工程",
+        "entry_year": 2023,
+        "book_year": 2023,
+        "program_variant": "regular",
+        "plan_revision": "2023",
+        "program_title": "网络工程专业培养方案(2023年版)专业负责人：高占春教学副院长：张笑燕核稿人：程莉"
+      },
+      {
+        "major": "数据科学与大数据技术",
+        "entry_year": 2023,
+        "book_year": 2023,
+        "program_variant": "regular",
+        "plan_revision": "2023",
+        "program_title": "数据科学与大数据技术专业培养方案(2023年版)专业负责人：吴斌教学副院长：张笑燕核稿人：鄂海红"
+      },
+      {
+        "major": "软件工程",
+        "entry_year": 2023,
+        "book_year": 2023,
+        "program_variant": "regular",
+        "plan_revision": "2023",
+        "program_title": "软件工程专业培养方案（2023年版）专业负责人：王祎教学副院长：张笑燕核稿人：张宇超"
+      },
+      {
+        "major": "计算机科学与技术",
+        "entry_year": null,
+        "book_year": 2023,
+        "program_variant": "international",
+        "plan_revision": "2021",
+        "program_title": "计算机科学与技术专业留学生培养方案（2021年版）专业负责人：孟祥武教学副院长：张笑燕核稿人：戴志涛"
+      },
+      {
+        "major": "计算机科学与技术",
+        "entry_year": null,
+        "book_year": 2023,
+        "program_variant": "second_degree",
+        "plan_revision": "2021",
+        "program_title": "计算机科学与技术专业第二学士学位培养方案（2021年版）专业负责人：孟祥武教学副院长：张笑燕核稿人：戴志涛"
+      },
+      {
+        "major": "计算机科学与技术",
+        "entry_year": 2024,
+        "book_year": 2024,
+        "program_variant": "regular",
+        "plan_revision": "2024",
+        "program_title": "计算机科学与技术专业培养方案"
+      },
+      {
+        "major": "网络工程",
+        "entry_year": 2024,
+        "book_year": 2024,
+        "program_variant": "regular",
+        "plan_revision": "2024",
+        "program_title": "网络工程专业培养方案"
+      },
+      {
+        "major": "数据科学与大数据技术",
+        "entry_year": 2024,
+        "book_year": 2024,
+        "program_variant": "regular",
+        "plan_revision": "2024",
+        "program_title": "数据科学与大数据技术专业培养方案"
+      },
+      {
+        "major": "软件工程",
+        "entry_year": 2024,
+        "book_year": 2024,
+        "program_variant": "regular",
+        "plan_revision": "2024",
+        "program_title": "软件工程专业培养方案"
+      },
+      {
+        "major": "计算机科学与技术",
+        "entry_year": 2024,
+        "book_year": 2024,
+        "program_variant": "joint",
+        "plan_revision": "2024",
+        "program_title": "“计算机科学与技术＋会计学”联合学士学位培养方案"
+      },
+      {
+        "major": "计算机科学与技术",
+        "entry_year": 2024,
+        "book_year": 2024,
+        "program_variant": "international",
+        "plan_revision": "2024",
+        "program_title": "计算机科学与技术专业留学生培养方案"
+      },
+      {
+        "major": "计算机科学与技术",
+        "entry_year": 2024,
+        "book_year": 2024,
+        "program_variant": "second_degree",
+        "plan_revision": "2024",
+        "program_title": "计算机科学与技术专业第二学士学位培养方案"
+      },
+      {
+        "major": "计算机科学与技术",
+        "entry_year": 2025,
+        "book_year": 2025,
+        "program_variant": "regular",
+        "plan_revision": "2025",
+        "program_title": "计算机科学与技术专业培养方案"
+      },
+      {
+        "major": "网络工程",
+        "entry_year": 2025,
+        "book_year": 2025,
+        "program_variant": "regular",
+        "plan_revision": "2025",
+        "program_title": "网络工程专业培养方案"
+      },
+      {
+        "major": "数据科学与大数据技术",
+        "entry_year": 2025,
+        "book_year": 2025,
+        "program_variant": "regular",
+        "plan_revision": "2025",
+        "program_title": "数据科学与大数据技术专业培养方案"
+      },
+      {
+        "major": "软件工程",
+        "entry_year": 2025,
+        "book_year": 2025,
+        "program_variant": "regular",
+        "plan_revision": "2025",
+        "program_title": "软件工程专业培养方案"
+      },
+      {
+        "major": "计算机科学与技术",
+        "entry_year": 2025,
+        "book_year": 2025,
+        "program_variant": "joint",
+        "plan_revision": "2025",
+        "program_title": "“计算机科学与技术＋会计学”联合学士学位培养方案"
+      },
+      {
+        "major": "计算机科学与技术",
+        "entry_year": 2025,
+        "book_year": 2025,
+        "program_variant": "international",
+        "plan_revision": "2025",
+        "program_title": "计算机科学与技术专业留学生培养方案"
+      },
+      {
+        "major": "计算机科学与技术",
+        "entry_year": 2025,
+        "book_year": 2025,
+        "program_variant": "second_degree",
+        "plan_revision": "2025",
+        "program_title": "计算机科学与技术专业第二学士学位培养方案"
+      }
+    ]
+  }
+}

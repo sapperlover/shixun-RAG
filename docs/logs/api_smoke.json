@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "model": "qwen3.7-text-embedding",
+  "dimensions": 1024,
+  "provider": "api",
+  "items": 3,
+  "normalization_checked": true,
+  "top_hit": "test:course",
+  "top_score": 1.0,
+  "model_mismatch_rejected": true,
+  "index_sha256": "8aff8a8165eed851aa1faee35d72f07a5c1f888548000892c152d483b4e00d91",
+  "batch_id": "smoke-ae052926ef8f",
+  "real_documents_sent": false,
+  "active_knowledge_batch_changed": false
+}

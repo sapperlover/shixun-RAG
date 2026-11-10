@@ -20,7 +20,22 @@ def index_dir(batch_id: str) -> Path:
 def status(batch_id: str | None) -> str:
     if batch_id is None:
         return "no active batch"
-    return "ready" if (index_dir(batch_id) / "index.faiss").exists() else "not built"
+    try:
+        from app.llm import embedder
+
+        d = index_dir(batch_id)
+        meta = json.loads((d / "embedding.json").read_text(encoding="utf-8"))
+        if meta["identity"] != embedder.identity():
+            return "embedding configuration mismatch"
+        if not (d / "index.faiss").exists() or not (d / "meta.json").exists():
+            return "not built"
+        if hashlib.sha256((d / "index.faiss").read_bytes()).hexdigest() != meta["index_sha256"]:
+            return "index checksum mismatch"
+        if hashlib.sha256((d / "meta.json").read_bytes()).hexdigest() != meta["items_sha256"]:
+            return "metadata checksum mismatch"
+        return "ready"
+    except (OSError, ValueError, KeyError, TypeError):
+        return "not built (or legacy metadata; rebuild required)"
 
 
 def build(batch_id: str, items: list[tuple[str, str, str]]) -> str:
@@ -37,17 +52,38 @@ def build(batch_id: str, items: list[tuple[str, str, str]]) -> str:
     faiss.write_index(index, str(d / "index.faiss"))
     meta = [{"entity_id": e, "label": lb, "text": t} for e, lb, t in items]
     (d / "meta.json").write_text(json.dumps(meta, ensure_ascii=False), encoding="utf-8")
-    return hashlib.sha256((d / "index.faiss").read_bytes()).hexdigest()
+    sha = hashlib.sha256((d / "index.faiss").read_bytes()).hexdigest()
+    (d / "embedding.json").write_text(
+        json.dumps(
+            {
+                "identity": embedder.identity(),
+                "dimensions": index.d,
+                "index_sha256": sha,
+                "items_sha256": hashlib.sha256((d / "meta.json").read_bytes()).hexdigest(),
+            }
+        ),
+        encoding="utf-8",
+    )
+    _cache.clear()
+    return sha
 
 
 def search(batch_id: str, text: str, k: int) -> list[tuple[str, str, float]]:
     """返回 [(entity_id, label, score)]，同一实体只保留最高分。"""
     from app.llm import embedder
 
+    if status(batch_id) != "ready":
+        raise ValueError("FAISS index unavailable or embedding identity mismatch; rebuild required")
     d = index_dir(batch_id)
     index = _load_index(str(d / "index.faiss"))
     meta = _load_meta(str(d / "meta.json"))
-    scores, idx = index.search(embedder.embed([text]), k * 3)
+    identity_meta = json.loads((d / "embedding.json").read_text(encoding="utf-8"))
+    vectors = embedder.embed([text])
+    if index.d != identity_meta["dimensions"] or vectors.shape[1] != index.d:
+        raise ValueError("Embedding dimensions do not match index")
+    if index.ntotal != len(meta):
+        raise ValueError("FAISS item count mismatch")
+    scores, idx = index.search(vectors, k * 3)
     best: dict[str, tuple[str, str, float]] = {}
     for score, i in zip(scores[0], idx[0], strict=False):
         if i < 0:

@@ -1,0 +1,231 @@
+{
+  "default_excluded": true,
+  "boundary": "These OCR excerpts are preserved but not embedded or returned until source review. No fabricated formulas or graph edges.",
+  "items": [
+    {
+      "chunk_id": "doc-3e810366de2d1b03a91bc340",
+      "doc_id": "assessment-rules",
+      "source_file": "关于印发《北京邮电大学本科生课程考核与成绩管理实施细则》的通知.pdf",
+      "page_start": 14,
+      "page_end": 14,
+      "source_sha256": "d8f72dddfca209917116afa62fa93f1fbef1514cd99ae5354a1b76e7b8e9f912",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-e55e4cf8774c93df661372c5",
+      "doc_id": "assessment-rules",
+      "source_file": "关于印发《北京邮电大学本科生课程考核与成绩管理实施细则》的通知.pdf",
+      "page_start": 15,
+      "page_end": 15,
+      "source_sha256": "d8f72dddfca209917116afa62fa93f1fbef1514cd99ae5354a1b76e7b8e9f912",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-72f85810c1cadf0965644c86",
+      "doc_id": "assessment-rules",
+      "source_file": "关于印发《北京邮电大学本科生课程考核与成绩管理实施细则》的通知.pdf",
+      "page_start": 16,
+      "page_end": 16,
+      "source_sha256": "d8f72dddfca209917116afa62fa93f1fbef1514cd99ae5354a1b76e7b8e9f912",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-ec1419caa326e9133c2ade50",
+      "doc_id": "assessment-rules",
+      "source_file": "关于印发《北京邮电大学本科生课程考核与成绩管理实施细则》的通知.pdf",
+      "page_start": 17,
+      "page_end": 17,
+      "source_sha256": "d8f72dddfca209917116afa62fa93f1fbef1514cd99ae5354a1b76e7b8e9f912",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-6761bcdebc7849cfb68eb853",
+      "doc_id": "curriculum-2023",
+      "source_file": "计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "page_start": 1,
+      "page_end": 1,
+      "source_sha256": "86d4e15b5e398f58c2d5682dbbaff90756dbe157298452b9687ba3ae2b25ecea",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-d9014e4f232791003609b0be",
+      "doc_id": "curriculum-2023",
+      "source_file": "计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "page_start": 11,
+      "page_end": 11,
+      "source_sha256": "86d4e15b5e398f58c2d5682dbbaff90756dbe157298452b9687ba3ae2b25ecea",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-f5905631e72ac2fb36237bf7",
+      "doc_id": "curriculum-2023",
+      "source_file": "计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "page_start": 23,
+      "page_end": 23,
+      "source_sha256": "86d4e15b5e398f58c2d5682dbbaff90756dbe157298452b9687ba3ae2b25ecea",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-66bbba43f87cdbe83e223802",
+      "doc_id": "curriculum-2023",
+      "source_file": "计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "page_start": 51,
+      "page_end": 51,
+      "source_sha256": "86d4e15b5e398f58c2d5682dbbaff90756dbe157298452b9687ba3ae2b25ecea",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-b0547d9ab4739cf232c4154f",
+      "doc_id": "curriculum-2023",
+      "source_file": "计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "page_start": 80,
+      "page_end": 80,
+      "source_sha256": "86d4e15b5e398f58c2d5682dbbaff90756dbe157298452b9687ba3ae2b25ecea",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-6c15ac96669cae3ce4af1f49",
+      "doc_id": "curriculum-2023",
+      "source_file": "计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "page_start": 114,
+      "page_end": 114,
+      "source_sha256": "86d4e15b5e398f58c2d5682dbbaff90756dbe157298452b9687ba3ae2b25ecea",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-8129dc2a93a7a73ebe4c97fe",
+      "doc_id": "curriculum-2023",
+      "source_file": "计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "page_start": 116,
+      "page_end": 116,
+      "source_sha256": "86d4e15b5e398f58c2d5682dbbaff90756dbe157298452b9687ba3ae2b25ecea",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-1f3f29a88fa8ca63e6abc563",
+      "doc_id": "curriculum-2023",
+      "source_file": "计算机学院（国家示范性软件学院）2023级本科专业培养方案.pdf",
+      "page_start": 139,
+      "page_end": 139,
+      "source_sha256": "86d4e15b5e398f58c2d5682dbbaff90756dbe157298452b9687ba3ae2b25ecea",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-3aae35c7389a57c8e54e8384",
+      "doc_id": "curriculum-2024",
+      "source_file": "计算机学院（国家示范性软件学院）2024级本科专业培养方案.pdf",
+      "page_start": 17,
+      "page_end": 17,
+      "source_sha256": "0fdf1672554d97a2306be03eb7c2890e251b8948a45001b0fe6ed4e615dd0c32",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-ade960b2d6dfd8b4c4b0c6b2",
+      "doc_id": "curriculum-2024",
+      "source_file": "计算机学院（国家示范性软件学院）2024级本科专业培养方案.pdf",
+      "page_start": 37,
+      "page_end": 37,
+      "source_sha256": "0fdf1672554d97a2306be03eb7c2890e251b8948a45001b0fe6ed4e615dd0c32",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-1fb4dfb5a0aad82af752cb61",
+      "doc_id": "curriculum-2024",
+      "source_file": "计算机学院（国家示范性软件学院）2024级本科专业培养方案.pdf",
+      "page_start": 62,
+      "page_end": 62,
+      "source_sha256": "0fdf1672554d97a2306be03eb7c2890e251b8948a45001b0fe6ed4e615dd0c32",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-48794ad0d8e1f0ea22ca0f7e",
+      "doc_id": "curriculum-2024",
+      "source_file": "计算机学院（国家示范性软件学院）2024级本科专业培养方案.pdf",
+      "page_start": 86,
+      "page_end": 86,
+      "source_sha256": "0fdf1672554d97a2306be03eb7c2890e251b8948a45001b0fe6ed4e615dd0c32",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-16e6843403b80476290a15e9",
+      "doc_id": "curriculum-2024",
+      "source_file": "计算机学院（国家示范性软件学院）2024级本科专业培养方案.pdf",
+      "page_start": 100,
+      "page_end": 100,
+      "source_sha256": "0fdf1672554d97a2306be03eb7c2890e251b8948a45001b0fe6ed4e615dd0c32",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-3c89b0f168cb60411f015e23",
+      "doc_id": "curriculum-2024",
+      "source_file": "计算机学院（国家示范性软件学院）2024级本科专业培养方案.pdf",
+      "page_start": 111,
+      "page_end": 111,
+      "source_sha256": "0fdf1672554d97a2306be03eb7c2890e251b8948a45001b0fe6ed4e615dd0c32",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-4c1e2455a571827c9fd66a1f",
+      "doc_id": "curriculum-2025",
+      "source_file": "计算机学院（国家示范性软件学院）2025级本科专业培养方案.pdf",
+      "page_start": 1,
+      "page_end": 1,
+      "source_sha256": "24084f4353cc94313665b186ec3cc179a97b7f3b21577889eca4350532009bf4",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-b2718c42aef1130e13000d76",
+      "doc_id": "curriculum-2025",
+      "source_file": "计算机学院（国家示范性软件学院）2025级本科专业培养方案.pdf",
+      "page_start": 17,
+      "page_end": 17,
+      "source_sha256": "24084f4353cc94313665b186ec3cc179a97b7f3b21577889eca4350532009bf4",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-5b13de6fc5e7ac19a8f2fd18",
+      "doc_id": "curriculum-2025",
+      "source_file": "计算机学院（国家示范性软件学院）2025级本科专业培养方案.pdf",
+      "page_start": 39,
+      "page_end": 39,
+      "source_sha256": "24084f4353cc94313665b186ec3cc179a97b7f3b21577889eca4350532009bf4",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-2b4ec02d6b0f042c6f84ac20",
+      "doc_id": "curriculum-2025",
+      "source_file": "计算机学院（国家示范性软件学院）2025级本科专业培养方案.pdf",
+      "page_start": 64,
+      "page_end": 64,
+      "source_sha256": "24084f4353cc94313665b186ec3cc179a97b7f3b21577889eca4350532009bf4",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-0e32a72ce6de34d40e294c7d",
+      "doc_id": "curriculum-2025",
+      "source_file": "计算机学院（国家示范性软件学院）2025级本科专业培养方案.pdf",
+      "page_start": 90,
+      "page_end": 90,
+      "source_sha256": "24084f4353cc94313665b186ec3cc179a97b7f3b21577889eca4350532009bf4",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-7506bb032fdbd04f3881c838",
+      "doc_id": "curriculum-2025",
+      "source_file": "计算机学院（国家示范性软件学院）2025级本科专业培养方案.pdf",
+      "page_start": 105,
+      "page_end": 105,
+      "source_sha256": "24084f4353cc94313665b186ec3cc179a97b7f3b21577889eca4350532009bf4",
+      "verification_status": "ocr_unreviewed"
+    },
+    {
+      "chunk_id": "doc-bdf728c15313ab1baa3e9e13",
+      "doc_id": "curriculum-2025",
+      "source_file": "计算机学院（国家示范性软件学院）2025级本科专业培养方案.pdf",
+      "page_start": 117,
+      "page_end": 117,
+      "source_sha256": "24084f4353cc94313665b186ec3cc179a97b7f3b21577889eca4350532009bf4",
+      "verification_status": "ocr_unreviewed"
+    }
+  ]
+}

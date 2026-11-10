@@ -1,0 +1,217 @@
+{"entity_id": "major:计算机科学与技术", "label": "Professional", "name": "计算机科学与技术", "aliases": [], "props": {"major_code": "计算机科学与技术", "college_code": "计算机学院（国家示范性软件学院）"}}
+{"entity_id": "plan:计算机科学与技术:2024:source", "label": "ProgramPlan", "name": "计算机科学与技术2024级培养方案", "aliases": ["计算机科学与技术专业培养方案"], "props": {"major_id": "major:计算机科学与技术", "entry_year": 2024, "plan_revision": "source"}}
+{"entity_id": "category:plan:计算机科学与技术:2024:source:1799adb67d", "label": "CourseCategory", "name": "实践教学", "aliases": [], "props": {"plan_id": "plan:计算机科学与技术:2024:source", "category_code": "1799adb67d"}}
+{"entity_id": "category:plan:计算机科学与技术:2024:source:1b228ecc59", "label": "CourseCategory", "name": "创新实践", "aliases": [], "props": {"plan_id": "plan:计算机科学与技术:2024:source", "category_code": "1b228ecc59"}}
+{"entity_id": "category:plan:计算机科学与技术:2024:source:2221697565", "label": "CourseCategory", "name": "专业课程", "aliases": [], "props": {"plan_id": "plan:计算机科学与技术:2024:source", "category_code": "2221697565"}}
+{"entity_id": "category:plan:计算机科学与技术:2024:source:99ea722762", "label": "CourseCategory", "name": "素质拓展课", "aliases": [], "props": {"plan_id": "plan:计算机科学与技术:2024:source", "category_code": "99ea722762"}}
+{"entity_id": "category:plan:计算机科学与技术:2024:source:23e31d699a", "label": "CourseCategory", "name": "通识教育课程", "aliases": [], "props": {"plan_id": "plan:计算机科学与技术:2024:source", "category_code": "23e31d699a"}}
+{"entity_id": "rule:bupt-cs-plan-2024:2024-source:chunk-833c6b5c4cda4f03a158", "label": "RuleClause", "name": "通识教育课程要求（十二、课程设置）", "aliases": [], "props": {"doc_id": "bupt-cs-plan-2024", "doc_version": "2024-source", "section": "十二、课程设置"}}
+{"entity_id": "category:plan:计算机科学与技术:2024:source:7d90652df8", "label": "CourseCategory", "name": "专业教育课程", "aliases": [], "props": {"plan_id": "plan:计算机科学与技术:2024:source", "category_code": "7d90652df8"}}
+{"entity_id": "category:plan:计算机科学与技术:2024:source:b6391fb92d", "label": "CourseCategory", "name": "学科基础课程", "aliases": [], "props": {"plan_id": "plan:计算机科学与技术:2024:source", "category_code": "b6391fb92d"}}
+{"entity_id": "category:plan:计算机科学与技术:2024:source:802a264ab1", "label": "CourseCategory", "name": "专业基础课程", "aliases": [], "props": {"plan_id": "plan:计算机科学与技术:2024:source", "category_code": "802a264ab1"}}
+{"entity_id": "course:3322100012", "label": "Course", "name": "思想道德与法治", "aliases": [], "props": {"course_code": "3322100012"}}
+{"entity_id": "course:3322100060", "label": "Course", "name": "中国近现代史纲要", "aliases": [], "props": {"course_code": "3322100060"}}
+{"entity_id": "course:3322100021", "label": "Course", "name": "马克思主义基本原理", "aliases": [], "props": {"course_code": "3322100021"}}
+{"entity_id": "course:3322100083", "label": "Course", "name": "毛泽东思想和中国特色社会主义", "aliases": [], "props": {"course_code": "3322100083"}}
+{"entity_id": "course:3322100092", "label": "Course", "name": "习近平新时代中国特色社会主义", "aliases": [], "props": {"course_code": "3322100092"}}
+{"entity_id": "course:1052100010", "label": "Course", "name": "形势与政策", "aliases": [], "props": {"course_code": "1052100010"}}
+{"entity_id": "course:1052100020", "label": "Course", "name": "形势与政策", "aliases": [], "props": {"course_code": "1052100020"}}
+{"entity_id": "course:1052100030", "label": "Course", "name": "形势与政策", "aliases": [], "props": {"course_code": "1052100030"}}
+{"entity_id": "course:1052100040", "label": "Course", "name": "形势与政策", "aliases": [], "props": {"course_code": "1052100040"}}
+{"entity_id": "course:1052100050", "label": "Course", "name": "形势与政策", "aliases": [], "props": {"course_code": "1052100050"}}
+{"entity_id": "course:3322111020", "label": "Course", "name": "中共党史", "aliases": [], "props": {"course_code": "3322111020"}}
+{"entity_id": "course:3322111026", "label": "Course", "name": "中华人民共和国史", "aliases": [], "props": {"course_code": "3322111026"}}
+{"entity_id": "course:3322111021", "label": "Course", "name": "改革开放史", "aliases": [], "props": {"course_code": "3322111021"}}
+{"entity_id": "course:3322111022", "label": "Course", "name": "社会主义发展史", "aliases": [], "props": {"course_code": "3322111022"}}
+{"entity_id": "course:2122120021", "label": "Course", "name": "大学生心理健康（慕课）", "aliases": [], "props": {"course_code": "2122120021"}}
+{"entity_id": "course:2122100100", "label": "Course", "name": "国家安全教育（上）", "aliases": [], "props": {"course_code": "2122100100"}}
+{"entity_id": "course:3322111017", "label": "Course", "name": "国家安全教育（下）", "aliases": [], "props": {"course_code": "3322111017"}}
+{"entity_id": "course:2122210003", "label": "Course", "name": "军事理论", "aliases": [], "props": {"course_code": "2122210003"}}
+{"entity_id": "course:3412110051", "label": "Course", "name": "数学分析（上）", "aliases": [], "props": {"course_code": "3412110051"}}
+{"entity_id": "course:3412110063", "label": "Course", "name": "数学分析（下）", "aliases": [], "props": {"course_code": "3412110063"}}
+{"entity_id": "course:3412120034", "label": "Course", "name": "大学物理    D", "aliases": [], "props": {"course_code": "3412120034"}}
+{"entity_id": "course:3132112011", "label": "Course", "name": "计算导论与程序设计", "aliases": [], "props": {"course_code": "3132112011"}}
+{"entity_id": "course:3112103350", "label": "Course", "name": "信息通信概论      A", "aliases": [], "props": {"course_code": "3112103350"}}
+{"entity_id": "course:3912103031", "label": "Course", "name": "人工智能引论      A", "aliases": [], "props": {"course_code": "3912103031"}}
+{"entity_id": "course:3162103034", "label": "Course", "name": "设计思维", "aliases": [], "props": {"course_code": "3162103034"}}
+{"entity_id": "course:3212114592", "label": "Course", "name": "领导力与可持续发展", "aliases": [], "props": {"course_code": "3212114592"}}
+{"entity_id": "course:3122101024", "label": "Course", "name": "电路与电子学基础", "aliases": [], "props": {"course_code": "3122101024"}}
+{"entity_id": "course:3132112020", "label": "Course", "name": "离散数学（上）", "aliases": [], "props": {"course_code": "3132112020"}}
+{"entity_id": "course:3132112030", "label": "Course", "name": "离散数学（下）", "aliases": [], "props": {"course_code": "3132112030"}}
+{"entity_id": "course:3132113020", "label": "Course", "name": "数字逻辑与数字系统", "aliases": [], "props": {"course_code": "3132113020"}}
+{"entity_id": "course:3132121320", "label": "Course", "name": "数据结构", "aliases": [], "props": {"course_code": "3132121320"}}
+{"entity_id": "course:3132113151", "label": "Course", "name": "计算机系统基础", "aliases": [], "props": {"course_code": "3132113151"}}
+{"entity_id": "course:3132113041", "label": "Course", "name": "计算机组成原理", "aliases": [], "props": {"course_code": "3132113041"}}
+{"entity_id": "course:3132121030", "label": "Course", "name": "计算机网络", "aliases": [], "props": {"course_code": "3132121030"}}
+{"entity_id": "course:3132111040", "label": "Course", "name": "算法设计与分析", "aliases": [], "props": {"course_code": "3132111040"}}
+{"entity_id": "course:3132111010", "label": "Course", "name": "操作系统", "aliases": [], "props": {"course_code": "3132111010"}}
+{"entity_id": "course:3132111021", "label": "Course", "name": "编译原理与技术", "aliases": [], "props": {"course_code": "3132111021"}}
+{"entity_id": "course:3132111030", "label": "Course", "name": "数据库系统原理", "aliases": [], "props": {"course_code": "3132111030"}}
+{"entity_id": "course:3132113060", "label": "Course", "name": "计算机系统结构", "aliases": [], "props": {"course_code": "3132113060"}}
+{"entity_id": "course:3132112050", "label": "Course", "name": "软件工程", "aliases": [], "props": {"course_code": "3132112050"}}
+{"entity_id": "course:3132121040", "label": "Course", "name": "现代交换原理", "aliases": [], "props": {"course_code": "3132121040"}}
+{"entity_id": "course:3132111230", "label": "Course", "name": "新一代互联网技术与协议", "aliases": [], "props": {"course_code": "3132111230"}}
+{"entity_id": "course:3132121130", "label": "Course", "name": "计算机网络技术实践", "aliases": [], "props": {"course_code": "3132121130"}}
+{"entity_id": "course:3132121310", "label": "Course", "name": "Linux开发环境及应用", "aliases": [], "props": {"course_code": "3132121310"}}
+{"entity_id": "course:3132121350", "label": "Course", "name": "互联网协议分析与设计", "aliases": [], "props": {"course_code": "3132121350"}}
+{"entity_id": "course:3132121300", "label": "Course", "name": "移动互联网技术及应用", "aliases": [], "props": {"course_code": "3132121300"}}
+{"entity_id": "course:3132111080", "label": "Course", "name": "Web 开发技术", "aliases": [], "props": {"course_code": "3132111080"}}
+{"entity_id": "course:3132133010", "label": "Course", "name": "Python程序设计", "aliases": [], "props": {"course_code": "3132133010"}}
+{"entity_id": "course:3132121290", "label": "Course", "name": "现代通信技术", "aliases": [], "props": {"course_code": "3132121290"}}
+{"entity_id": "course:3132103030", "label": "Course", "name": "信息与网络安全", "aliases": [], "props": {"course_code": "3132103030"}}
+{"entity_id": "course:3132132120", "label": "Course", "name": "大数据技术基础", "aliases": [], "props": {"course_code": "3132132120"}}
+{"entity_id": "course:3132123090", "label": "Course", "name": "机器学习", "aliases": [], "props": {"course_code": "3132123090"}}
+{"entity_id": "course:3132112100", "label": "Course", "name": "数据仓库与数据挖掘", "aliases": [], "props": {"course_code": "3132112100"}}
+{"entity_id": "course:3132123080", "label": "Course", "name": "信息与知识获取", "aliases": [], "props": {"course_code": "3132123080"}}
+{"entity_id": "course:3132132020", "label": "Course", "name": "网络科学", "aliases": [], "props": {"course_code": "3132132020"}}
+{"entity_id": "course:3132113160", "label": "Course", "name": "并行计算与     GPU 编程", "aliases": [], "props": {"course_code": "3132113160"}}
+{"entity_id": "course:3132113110", "label": "Course", "name": "网络存储技术", "aliases": [], "props": {"course_code": "3132113110"}}
+{"entity_id": "course:3132103020", "label": "Course", "name": "程序设计实践", "aliases": [], "props": {"course_code": "3132103020"}}
+{"entity_id": "course:3132112080", "label": "Course", "name": "服务科学与服务工程概论", "aliases": [], "props": {"course_code": "3132112080"}}
+{"entity_id": "course:3132121080", "label": "Course", "name": "无线通信技术", "aliases": [], "props": {"course_code": "3132121080"}}
+{"entity_id": "course:3132121270", "label": "Course", "name": "物联网技术", "aliases": [], "props": {"course_code": "3132121270"}}
+{"entity_id": "course:3132114060", "label": "Course", "name": "计算机图形学", "aliases": [], "props": {"course_code": "3132114060"}}
+{"entity_id": "course:3132114070", "label": "Course", "name": "多媒体技术", "aliases": [], "props": {"course_code": "3132114070"}}
+{"entity_id": "course:3132113090", "label": "Course", "name": "嵌入式系统体系结构及应", "aliases": [], "props": {"course_code": "3132113090"}}
+{"entity_id": "course:3132111330", "label": "Course", "name": "元宇宙概论", "aliases": [], "props": {"course_code": "3132111330"}}
+{"entity_id": "course:3132111810", "label": "Course", "name": "设计", "aliases": [], "props": {"course_code": "3132111810"}}
+{"entity_id": "course:3132111170", "label": "Course", "name": "以 Vela挑战嵌入式    AIoT", "aliases": [], "props": {"course_code": "3132111170"}}
+{"entity_id": "course:3132111190", "label": "Course", "name": "生成式人工智能原理及应", "aliases": [], "props": {"course_code": "3132111190"}}
+{"entity_id": "course:3132111210", "label": "Course", "name": "面向脑机接口的网络操作", "aliases": [], "props": {"course_code": "3132111210"}}
+{"entity_id": "course:3132111220", "label": "Course", "name": "基于网络安全的软件工程", "aliases": [], "props": {"course_code": "3132111220"}}
+{"entity_id": "course:3132111300", "label": "Course", "name": "医疗大模型应用创新与实", "aliases": [], "props": {"course_code": "3132111300"}}
+{"entity_id": "course:3132111310", "label": "Course", "name": "基于飞桨的大语言模型技", "aliases": [], "props": {"course_code": "3132111310"}}
+{"entity_id": "course:3322100013", "label": "Course", "name": "思想道德与法治（实践环", "aliases": [], "props": {"course_code": "3322100013"}}
+{"entity_id": "course:3322100061", "label": "Course", "name": "中国近现代史纲要（实践环", "aliases": [], "props": {"course_code": "3322100061"}}
+{"entity_id": "course:3322100022", "label": "Course", "name": "马克思主义基本原理（实践", "aliases": [], "props": {"course_code": "3322100022"}}
+{"entity_id": "course:3322100084", "label": "Course", "name": "会主义理论体系概论（实践", "aliases": [], "props": {"course_code": "3322100084"}}
+{"entity_id": "course:2122120001", "label": "Course", "name": "大学生心理健康", "aliases": [], "props": {"course_code": "2122120001"}}
+{"entity_id": "course:2122120011", "label": "Course", "name": "大学生心理健康", "aliases": [], "props": {"course_code": "2122120011"}}
+{"entity_id": "course:2122110010", "label": "Course", "name": "军事技能", "aliases": [], "props": {"course_code": "2122110010"}}
+{"entity_id": "course:2020000011", "label": "Course", "name": "劳动教育", "aliases": [], "props": {"course_code": "2020000011"}}
+{"entity_id": "course:3412130031", "label": "Course", "name": "物理实验", "aliases": [], "props": {"course_code": "3412130031"}}
+{"entity_id": "course:3132102350", "label": "Course", "name": "创新创业实践课（现代信息", "aliases": [], "props": {"course_code": "3132102350"}}
+{"entity_id": "course:3132102470", "label": "Course", "name": "（C++）", "aliases": [], "props": {"course_code": "3132102470"}}
+{"entity_id": "course:3132102321", "label": "Course", "name": "面向对象程序设计实践", "aliases": [], "props": {"course_code": "3132102321"}}
+{"entity_id": "course:3132102022", "label": "Course", "name": "数据结构课程设计", "aliases": [], "props": {"course_code": "3132102022"}}
+{"entity_id": "course:3132102120", "label": "Course", "name": "计算机网络课程设计", "aliases": [], "props": {"course_code": "3132102120"}}
+{"entity_id": "course:3132102070", "label": "Course", "name": "数字逻辑与数字系统课程", "aliases": [], "props": {"course_code": "3132102070"}}
+{"entity_id": "course:3132102100", "label": "Course", "name": "编译原理与技术课程设计", "aliases": [], "props": {"course_code": "3132102100"}}
+{"entity_id": "course:3132102090", "label": "Course", "name": "数据库系统原理课程设计", "aliases": [], "props": {"course_code": "3132102090"}}
+{"entity_id": "course:3132111180", "label": "Course", "name": "数字孪生与元宇宙工程实", "aliases": [], "props": {"course_code": "3132111180"}}
+{"entity_id": "course:3132102610", "label": "Course", "name": "智能机器人实践训练", "aliases": [], "props": {"course_code": "3132102610"}}
+{"entity_id": "course:3132102620", "label": "Course", "name": "移动应用开发实践训练", "aliases": [], "props": {"course_code": "3132102620"}}
+{"entity_id": "course:3132102590", "label": "Course", "name": "大数据技术实践训练", "aliases": [], "props": {"course_code": "3132102590"}}
+{"entity_id": "course:3132102600", "label": "Course", "name": "智能车实践训练", "aliases": [], "props": {"course_code": "3132102600"}}
+{"entity_id": "course:3132102630", "label": "Course", "name": "机器学习实践训练", "aliases": [], "props": {"course_code": "3132102630"}}
+{"entity_id": "course:3132102131", "label": "Course", "name": "专业实习", "aliases": [], "props": {"course_code": "3132102131"}}
+{"entity_id": "course:3132111350", "label": "Course", "name": "项目式课程阶段     1（计算导", "aliases": [], "props": {"course_code": "3132111350"}}
+{"entity_id": "course:3132111360", "label": "Course", "name": "项目式课程阶段     1（程序设", "aliases": [], "props": {"course_code": "3132111360"}}
+{"entity_id": "course:3132111370", "label": "Course", "name": "项目式课程阶段", "aliases": [], "props": {"course_code": "3132111370"}}
+{"entity_id": "course:3132111380", "label": "Course", "name": "项目式课程阶段3", "aliases": [], "props": {"course_code": "3132111380"}}
+{"entity_id": "course:3132102002", "label": "Course", "name": "毕业设计（论文）", "aliases": [], "props": {"course_code": "3132102002"}}
+{"entity_id": "rule:bupt-cs-plan-2024:2024-source:chunk-ead9039520a8174ed852", "label": "RuleClause", "name": "创新实践要求（十三、创新实践）", "aliases": [], "props": {"doc_id": "bupt-cs-plan-2024", "doc_version": "2024-source", "section": "十三、创新实践"}}
+{"entity_id": "course:3412110073", "label": "Course", "name": "线性代数", "aliases": [], "props": {"course_code": "3412110073"}}
+{"entity_id": "course:2122110002", "label": "Course", "name": "军事理论", "aliases": [], "props": {"course_code": "2122110002"}}
+{"entity_id": "course:3132113150", "label": "Course", "name": "计 算机系统基础", "aliases": [], "props": {"course_code": "3132113150"}}
+{"entity_id": "course:3812150324", "label": "Course", "name": "体育专项课（详见附录1）", "aliases": [], "props": {"course_code": "3812150324"}}
+{"entity_id": "rule:bupt-cs-plan-2024:2024-source:chunk-c85703966f0b5a9396d2", "label": "RuleClause", "name": "创新实践要求（附录  4：创新实践学分及成绩认定方案）", "aliases": [], "props": {"doc_id": "bupt-cs-plan-2024", "doc_version": "2024-source", "section": "附录  4：创新实践学分及成绩认定方案"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-807ae0a0039618ef47d3", "label": "RuleClause", "name": "第一章总则", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第一章总则"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-fb3351a98b34468bb17f", "label": "RuleClause", "name": "第一条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第一条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-d3f6b7d05dae6c160df5", "label": "RuleClause", "name": "第二条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-dd42b55a4a98183509f5", "label": "RuleClause", "name": "第二章考核方式", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二章考核方式"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-b1241c31cc73b7a858df", "label": "RuleClause", "name": "第三条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-67f6bb98fdbaca6cdef2", "label": "RuleClause", "name": "第四条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-fee5857f8172df4c2c50", "label": "RuleClause", "name": "第五条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第五条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-3714d6fc835f1c34a26f", "label": "RuleClause", "name": "第三章课程考试命题", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三章课程考试命题"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-fac43a6d21d9fa7576f8", "label": "RuleClause", "name": "第六条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第六条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-9257849d4210485829ed", "label": "RuleClause", "name": "第七条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第七条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-792568546387ce50017c", "label": "RuleClause", "name": "第八条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第八条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-a58edabab755ca7d2f3c", "label": "RuleClause", "name": "第九条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第九条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-cdd067f3d0a9c6f60d71", "label": "RuleClause", "name": "第十条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-f49e7e88d5d743d555b6", "label": "RuleClause", "name": "第四章考试组织", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四章考试组织"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-d17694e3312ec4e056f5", "label": "RuleClause", "name": "第十一条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十一条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-fcdcb03312e9deb44f95", "label": "RuleClause", "name": "第十二条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十二条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-e0102f14419006bc77d8", "label": "RuleClause", "name": "第十三条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十三条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-05671652440afb61404b", "label": "RuleClause", "name": "第十四条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十四条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-28f9984e5e14af1a6cf9", "label": "RuleClause", "name": "第十五条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十五条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-effcc9d94bae7a6fb1fb", "label": "RuleClause", "name": "第五章成绩评定", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第五章成绩评定"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-0d610cf025607927b950", "label": "RuleClause", "name": "第十六条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十六条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-3766032db190858f9761", "label": "RuleClause", "name": "第十七条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十七条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-0b62c8a86dc1986c3af6", "label": "RuleClause", "name": "第十八条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十八条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-ceaa05969526f1e3db16", "label": "RuleClause", "name": "第十九条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十九条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-5c95399b100339ec22c5", "label": "RuleClause", "name": "第二十条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二十条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-f393bdb4b01b7e49bf2d", "label": "RuleClause", "name": "第二十一条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二十一条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-5c28fdd648c6bd808c31", "label": "RuleClause", "name": "第二十二条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二十二条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-ecef5ed4b009a8513e7d", "label": "RuleClause", "name": "第六章补考 、 重修及其他", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第六章补考 、 重修及其他"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-5bb5c0aa2b106e9c22cf", "label": "RuleClause", "name": "第二十三条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二十三条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-5aae6ac1620c404fec8f", "label": "RuleClause", "name": "第二十四条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二十四条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-5587b099cb1029fa767f", "label": "RuleClause", "name": "第二十五条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二十五条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-16da35a7fbbcf426c341", "label": "RuleClause", "name": "第二十六条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二十六条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-6ea10f96575e37825efc", "label": "RuleClause", "name": "第二十七条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二十七条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-f3533ec01f3364135533", "label": "RuleClause", "name": "第二十八条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二十八条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-69178d36d0a96281b630", "label": "RuleClause", "name": "第七章免修考试与免修成绩管理", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第七章免修考试与免修成绩管理"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-12a29f5864de744dc954", "label": "RuleClause", "name": "第二十九条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第二十九条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-a88b6398d08e850e98f4", "label": "RuleClause", "name": "第三十条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三十条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-b8b41d3f9f91a969c63e", "label": "RuleClause", "name": "第三十一条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三十一条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-d10cdf1efc4dc63aa7d4", "label": "RuleClause", "name": "第八章特殊生源学生成绩", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第八章特殊生源学生成绩"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-66ddb037256c70cbbd82", "label": "RuleClause", "name": "第三十二条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三十二条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-49c177576bbadea0a298", "label": "RuleClause", "name": "第三十三条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三十三条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-987e172809c619c242de", "label": "RuleClause", "name": "第三十四条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三十四条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-1d692ec3f5ec84eba25b", "label": "RuleClause", "name": "第三十五条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三十五条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-2998fc7daf622380d425", "label": "RuleClause", "name": "第三十六条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三十六条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-39daa934e865393dd6a6", "label": "RuleClause", "name": "第三十七条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三十七条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-055c05c0f924714b7d66", "label": "RuleClause", "name": "第九章成绩录入与记载", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第九章成绩录入与记载"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-52406cf7f65ecb67d328", "label": "RuleClause", "name": "第三十八条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三十八条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-6aeeeec67d1752ab77d9", "label": "RuleClause", "name": "第三十九条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第三十九条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-08cf62eaf1f3f1b13788", "label": "RuleClause", "name": "第十章成绩查询与试卷存档", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十章成绩查询与试卷存档"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-397d0cb8c73589c812d4", "label": "RuleClause", "name": "第四十条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四十条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-9690ceec4beaeda47bb9", "label": "RuleClause", "name": "第四十一条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四十一条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-aec398e3726e05dcdae2", "label": "RuleClause", "name": "第四十二条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四十二条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-f10723fdaeb794cc7cf1", "label": "RuleClause", "name": "第十一章加权平均分和平均学分绩点 (GPA)", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十一章加权平均分和平均学分绩点 (GPA)"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-9a0548fccaa34af241a4", "label": "RuleClause", "name": "第四十三条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四十三条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-c9a94a6b163529b9502f", "label": "RuleClause", "name": "第四十四条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四十四条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-a4a885728abb6fda5793", "label": "RuleClause", "name": "第四十五条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四十五条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-2f69b51a718032725beb", "label": "RuleClause", "name": "第十二章附则", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第十二章附则"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-4e873dc3b7daba16eae9", "label": "RuleClause", "name": "第四十六条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四十六条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-eebaa0b3df3fc4d47088", "label": "RuleClause", "name": "第四十七条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四十七条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-76f3070e7308b6999bb2", "label": "RuleClause", "name": "第四十八条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四十八条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-6dc5d17b2262d3debabe", "label": "RuleClause", "name": "第四十九条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第四十九条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-f750b08ab9719e56cfb5", "label": "RuleClause", "name": "第五十条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第五十条"}}
+{"entity_id": "rule:bupt-assessment-source:source-d8f72dddfca2:chunk-7e42e059c212ee32b386", "label": "RuleClause", "name": "第五十一条", "aliases": [], "props": {"doc_id": "bupt-assessment-source", "doc_version": "source-d8f72dddfca2", "section": "第五十一条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-8e9ae1090c7e0ac04b31", "label": "RuleClause", "name": "第一章总则", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第一章总则"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-ea74ad8f976ca39804a0", "label": "RuleClause", "name": "第一条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第一条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-a708659b126cdee0ba87", "label": "RuleClause", "name": "第二条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-08dc51b458419b8625db", "label": "RuleClause", "name": "第三条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第三条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-e99dff534cfed8061a1d", "label": "RuleClause", "name": "第二章学士学位授予条件和程序", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二章学士学位授予条件和程序"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-f6b96789f501405bddf8", "label": "RuleClause", "name": "第四条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第四条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-2e712323b84cee5f1852", "label": "RuleClause", "name": "第五条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第五条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-f0dc66ffda697fba1439", "label": "RuleClause", "name": "第六条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第六条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-ef0bc24012c6016eb00e", "label": "RuleClause", "name": "第七条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第七条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-1cb05c2f8a5ecf40fcef", "label": "RuleClause", "name": "第八条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第八条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-e27840935aa0eeaa32b7", "label": "RuleClause", "name": "第九条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第九条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-f3217863e77840429033", "label": "RuleClause", "name": "第十条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第十条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-235a3d97f648ce273ccf", "label": "RuleClause", "name": "第三章硕士学位授予条件和程序", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第三章硕士学位授予条件和程序"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-9183146150670ee198e2", "label": "RuleClause", "name": "第十一条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第十一条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-14962356cb92dd05f96a", "label": "RuleClause", "name": "第十二条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第十二条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-1d6761c09177a12c2bba", "label": "RuleClause", "name": "第十三条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第十三条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-141671453a1c36ee3ea6", "label": "RuleClause", "name": "第十四条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第十四条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-3116f9f8917f8c579cbb", "label": "RuleClause", "name": "第十五条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第十五条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-dbc442b36e260f264828", "label": "RuleClause", "name": "第四章博士学位授予条件和程序", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第四章博士学位授予条件和程序"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-406d4f3a29f09ef82c8e", "label": "RuleClause", "name": "第十六条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第十六条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-be087bb75ab1606174c6", "label": "RuleClause", "name": "第十七条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第十七条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-4fa2b9caf21a1ac88e26", "label": "RuleClause", "name": "第十八条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第十八条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-7c320fc7e5b6a91d79a5", "label": "RuleClause", "name": "第十九条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第十九条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-b0c591548e8a120c2ce9", "label": "RuleClause", "name": "第二十条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二十条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-62bfa798e0ae1627055e", "label": "RuleClause", "name": "第五章不授予学位 、 撤销学位及异议复核", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第五章不授予学位 、 撤销学位及异议复核"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-885c040832bfb6c437a2", "label": "RuleClause", "name": "第二十一条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二十一条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-82ea71192416fff01ca4", "label": "RuleClause", "name": "第二十二条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二十二条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-f8cfef66784b19ed9e33", "label": "RuleClause", "name": "第二十三条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二十三条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-bb87a0eae97f4c64b43a", "label": "RuleClause", "name": "第六章附则", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第六章附则"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-f1e07e156d0ecb7451f3", "label": "RuleClause", "name": "第二十四条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二十四条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-e5593f6ab670bc1f7ae3", "label": "RuleClause", "name": "第二十五条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二十五条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-02dbc628488ff44064ab", "label": "RuleClause", "name": "第二十六条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二十六条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-3eaf7710e29a55fccb44", "label": "RuleClause", "name": "第二十七条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二十七条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-cd87c961c26314da714d", "label": "RuleClause", "name": "第二十八条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二十八条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-9d21373566befc4ed6ad", "label": "RuleClause", "name": "第二十九条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第二十九条"}}
+{"entity_id": "rule:bupt-degree-source:source-9669317fd357:chunk-d0d1b19fc035d3ff0678", "label": "RuleClause", "name": "第三十条", "aliases": [], "props": {"doc_id": "bupt-degree-source", "doc_version": "source-9669317fd357", "section": "第三十条"}}

@@ -1,0 +1,18 @@
+{
+  "state": "ai_source_reviewed_not_built",
+  "review_kind": "ai_source_review",
+  "documents": 1,
+  "chunks": 9,
+  "entities": 17,
+  "relations": 16,
+  "verified_relations": 15,
+  "rejected_relations": 1,
+  "reviewed_questions": 10,
+  "question_review_boundary": "AI-made and AI-source-reviewed development set; not human blind gold",
+  "manifest_sha256": "31971e49a41adb69aaf73022968ef4ff38b38c89b056761db23413686a387eda",
+  "source_pdf_sha256": "0fdf1672554d97a2306be03eb7c2890e251b8948a45001b0fe6ed4e615dd0c32",
+  "source_archive": "data/kb/cs2024-v2",
+  "tests_executed": false,
+  "published": false,
+  "programs_launched_after_execution_restriction": false
+}

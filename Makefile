@@ -88,8 +88,9 @@ eval-demo: ## 用演示题集跑一遍评测（不做冻结校验）
 eval: ## 用冻结题集运行评测（与线上同一条 pipeline）
 	$(DEV) exec api python -m scripts.run_eval
 
-baseline: ## 记录镜像 digest、模型、锁文件校验值到 docs/BASELINE.md
-	@bash scripts/record_baseline.sh > docs/BASELINE.md && echo "已写入 docs/BASELINE.md"
+baseline: ## 记录原完整系统的部署基线到 docs/logs/
+	@mkdir -p docs/logs
+	@bash scripts/record_baseline.sh > docs/logs/generated_system_baseline.md && echo "已写入 docs/logs/generated_system_baseline.md"
 
 clean-volumes: ## 危险：删除所有数据卷（图谱、SQLite、模型）
 	@read -p "将删除全部数据卷，输入 yes 确认: " a && [ "$$a" = yes ] && $(DEV) down -v
