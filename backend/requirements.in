@@ -1,17 +1,4 @@
-# 运行时直接依赖（骨架阶段只放轻量依赖）。改动后执行 `make lock`。
-# D2 再加入（ingest 负责人）：pymupdf python-docx jieba
-fastapi>=0.115,<1
+# Complete API-based application. No torch, CUDA, sentence-transformers or local LLM.
+-r requirements-rag.in
+-c requirements-rag.lock
 uvicorn[standard]>=0.32,<1
-pydantic>=2.9,<3
-pydantic-settings>=2.6,<3
-pyyaml>=6,<7
-neo4j>=5.26,<6
-httpx>=0.27,<1
-
-# 向量检索（ADR-015）：CPU 版 torch，从阿里云 PyTorch CPU 镜像获取（官方源国内直连不可用）。
-# 禁止改成不带 +cpu 的 torch：PyPI 版会连带下载数 GB 的 CUDA 运行库。
---find-links https://mirrors.aliyun.com/pytorch-wheels/cpu/
-torch==2.9.1+cpu
-sentence-transformers>=3,<6
-faiss-cpu>=1.8,<2
-numpy>=1.26,<3

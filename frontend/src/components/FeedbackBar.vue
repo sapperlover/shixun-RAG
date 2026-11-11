@@ -15,8 +15,6 @@ const TYPES = [
 async function send(type: (typeof TYPES)[number]['type']) {
   const status = await sendFeedback(props.requestId, type).catch(() => 0)
   if (status === 201) ElMessage.success('已收到反馈')
-  else if (status === 403) ElMessage.warning('登录学生账号后可反馈')
-  else if (status === 501) ElMessage.info('反馈功能将在 D4 实现')
   else ElMessage.error('反馈提交失败')
 }
 </script>

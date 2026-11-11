@@ -27,10 +27,14 @@ class EnvSettings(BaseSettings):
     neo4j_uri: str = "bolt://localhost:7687"
     neo4j_user: str = "neo4j"
     neo4j_password: str = ""
-    ollama_base_url: str = "http://localhost:11434"
-    llm_model: str = "qwen2.5:1.5b"
-    embedding_model: str = "BAAI/bge-small-zh-v1.5"
-    embedding_provider: Literal["local", "api"] = "local"
+    llm_base_url: str = ""
+    llm_api_key: str = Field(default="", repr=False)
+    llm_model: str = ""
+    llm_json_mode: bool = True
+    llm_thinking: Literal["", "enabled", "disabled"] = ""
+    llm_trust_env: bool = True
+    embedding_model: str = "qwen3.7-text-embedding-flash"
+    embedding_provider: Literal["api"] = "api"
     embedding_base_url: str = ""
     embedding_api_key: str = Field(default="", repr=False)
     embedding_dimensions: int | None = Field(default=None, gt=0)
@@ -50,6 +54,8 @@ class EnvSettings(BaseSettings):
     model_cache_dir: str = str(REPO_ROOT / "data" / "model_cache")
     upload_dir: str = str(REPO_ROOT / "data" / "uploads")
     git_commit: str = "unknown"
+    demo_mode: bool = False
+    admin_token: str = Field(default="", repr=False)
 
 
 # ---------- settings.yaml ----------

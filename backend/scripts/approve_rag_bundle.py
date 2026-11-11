@@ -42,7 +42,9 @@ def approve(
     )
     if review_kind == "ai_source_review":
         if (
-            delegated_by != "user" or not delegation_note or not delegation_note.strip()
+            delegated_by != "user"
+            or not delegation_note
+            or not delegation_note.strip()
             or not reviewer.startswith("codex-ai")
         ):
             raise ValueError("AI review requires explicit user delegation and an AI reviewer ID")

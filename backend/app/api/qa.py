@@ -19,6 +19,13 @@ router = APIRouter(tags=["qa"])
 log = logging.getLogger(__name__)
 
 
+@router.get("/qa/scopes")
+def scopes() -> dict:
+    from app.rag import available_scopes
+
+    return available_scopes()
+
+
 @router.post(
     "/qa/ask",
     response_model=QAResponse,

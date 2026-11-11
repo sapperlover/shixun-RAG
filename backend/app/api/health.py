@@ -1,19 +1,14 @@
-"""健康检查（V1.2 附录 D.2）。
-
-/health/live ：进程存活（容器健康检查用）。
-/health/ready：Neo4j、SQLite、active batch、Ollama、FAISS 逐项状态；
-               必需项（neo4j、sqlite、active_batch）全部正常才返回 200，否则 503。
-               Ollama / FAISS 不可用不影响 ready（可降级），但会如实报告。
-"""
+"""健康检查；模型配置检查不发送收费请求，降级能力单独报告。"""
 
 from __future__ import annotations
 
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 
-from app.core.errors import ServiceUnavailable
-from app.llm import ollama_client
-from app.storage import faiss_store, neo4j_client, snapshot, sqlite
+from app.core.config import get_env
+from app.core.errors import ErrorCode, ServiceUnavailable
+from app.llm import chat_api
+from app.storage import document_corpus, faiss_store, neo4j_client, snapshot, sqlite
 
 router = APIRouter(tags=["health"])
 REQUIRED = ("neo4j", "sqlite", "active_batch")
@@ -39,17 +34,29 @@ def ready() -> JSONResponse:
         "neo4j": _probe(neo4j_client.ping),
         "sqlite": _probe(sqlite.ping),
         "active_batch": _probe(snapshot.get_active),
-        "ollama": _probe(ollama_client.ping),
+        "generation_api": _probe(chat_api.ping),
     }
     batch = checks["active_batch"]["detail"] if checks["active_batch"]["ok"] else None
     checks["faiss"] = {
         "ok": faiss_store.status(batch) == "ready",
         "detail": faiss_store.status(batch),
     }
-    is_ready = all(checks[k]["ok"] for k in REQUIRED)
+    if get_env().document_retrieval_enabled:
+        checks["document_corpus"] = _probe(lambda: document_corpus.active() or _no_documents())
+        document_batch = document_corpus.active()
+        checks["document_vectors"] = {
+            "ok": bool(document_batch) and document_corpus.status(document_batch) == "ready",
+            "detail": document_corpus.status(document_batch) if document_batch else "not built",
+        }
+    required = (*REQUIRED, "document_corpus") if get_env().document_retrieval_enabled else REQUIRED
+    is_ready = all(checks[k]["ok"] for k in required)
     body = {
         "ready": is_ready,
         "active_version": batch,
         "checks": checks,
     }
     return JSONResponse(body, status_code=200 if is_ready else 503)
+
+
+def _no_documents():
+    raise ServiceUnavailable(ErrorCode.NO_ACTIVE_BATCH, "Document corpus not initialized")

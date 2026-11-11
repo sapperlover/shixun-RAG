@@ -13,6 +13,7 @@ from app.api import documents, evaluations, evidence, feedback, health, qa
 from app.core.config import get_env, get_patterns, get_settings, get_whitelist
 from app.core.errors import ApiError, ErrorCode
 from app.core.logging import new_request_id, request_id_var, setup_logging
+from app.eval.service import recover_interrupted
 from app.schemas.common import ApiErrorBody, ApiErrorInfo
 from app.schemas.qa import ErrorInfo, QAResponse
 from app.storage import neo4j_client, sqlite
@@ -26,6 +27,7 @@ async def lifespan(app: FastAPI):
     get_settings(), get_whitelist(), get_patterns()  # 配置有误时启动即失败
     try:
         applied = sqlite.migrate()
+        recover_interrupted()
         if applied:
             log.info("SQLite 迁移: %s", applied)
     except Exception as exc:  # 元数据库不可用时仍启动，由 /health/ready 报告

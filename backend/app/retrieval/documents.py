@@ -174,8 +174,8 @@ def retrieve_documents(question: str, scope: Scope | dict | None, request_id: st
         graph = retrieve_graph(
             question, {"major_code": selected.major_code, "entry_year": 2024}, request_id
         )
-        if graph.status == "success":
-            return graph
+        # A broken graph path must not silently become a successful multi-hop answer.
+        return graph.model_copy(update={"resolved_scope": selected.model_dump()})
     batch = None
     try:
         batch = document_corpus.active()

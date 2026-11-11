@@ -8,20 +8,20 @@ services:
       target: dev
       args:
         APP_UID: ${APP_UID:-1000}
-    image: campus-graphrag-api:dev-tools
+    image: campus-graphrag2-api:dev-tools
     environment:
       APP_ENV: dev
       ROOT_PATH: ""
     volumes:
       - .:/app
     ports:
-      - "8000:8000"
-      - "5678:5678"
+      - "127.0.0.1:${API_DEV_PORT:-8001}:8000"
+      - "127.0.0.1:${DEBUG_PORT:-5679}:5678"
 
   web:
     build:
       target: dev
-    image: campus-graphrag-web:dev-tools
+    image: campus-graphrag2-web:dev-tools
     environment:
       VITE_API_TARGET: http://api:8000
     volumes:
@@ -29,9 +29,9 @@ services:
       - ./contracts:/repo/contracts:ro
       - /repo/frontend/node_modules
     ports:
-      - "5173:5173"
+      - "127.0.0.1:${VITE_PORT:-5174}:5173"
 
   neo4j:
     ports:
-      - "7474:7474"
-      - "7687:7687"
+      - "127.0.0.1:${NEO4J_HTTP_PORT:-7475}:7474"
+      - "127.0.0.1:${NEO4J_BOLT_PORT:-7688}:7687"

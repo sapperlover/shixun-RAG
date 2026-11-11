@@ -1,0 +1,1912 @@
+{
+  "run": {
+    "run_id": "run-20261110-161108-d81a81",
+    "status": "finished",
+    "dataset_sha256": "7c35f652b2220669d4e3a4fe7be54c128446fecdcc0fdacda1dac3536e82aa32",
+    "scorer_version": "0.2.0",
+    "git_commit": "unknown",
+    "batch_id": "batch-20261110-160123-481a",
+    "metrics": {
+      "questions": 13,
+      "path_hit_rate": 1.0,
+      "answer_accuracy": 1.0,
+      "citation_coverage": 1.0,
+      "failure_distribution": {},
+      "two_hop_path_hit_rate": 1.0,
+      "three_hop_path_hit_rate": 1.0,
+      "api_answer_rate": 1.0,
+      "average_latency_ms": 1255.1538461538462,
+      "p95_latency_ms": 2245
+    },
+    "created_at": "2026-11-10 08:11:08",
+    "error_detail": null
+  },
+  "items": [
+    {
+      "question_id": "cs2024-reviewed-2-001",
+      "request_id": "req-b522aba6a2c74ff5",
+      "batch_id": "batch-20261110-160123-481a",
+      "status": "success",
+      "predicted_path": [
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "CONTAINS",
+          "to": "category:plan:计算机科学与技术:2024:source:23e31d699a"
+        },
+        {
+          "from": "category:plan:计算机科学与技术:2024:source:23e31d699a",
+          "type": "CITES",
+          "to": "rule:bupt-cs-plan-2024:2024-source:chunk-0ba413819e9269b41223:23e31d699a"
+        }
+      ],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 2,
+      "claims_total": 2,
+      "failure_stage": null,
+      "elapsed_ms": 1295,
+      "question": "2024级培养方案中，通识教育课程必修和最低选修学分分别是多少？",
+      "answer": "2024级计算机科学与技术培养方案中，通识教育课程必修学分为51.5学分。[cit-3cc26ae35626][cit-9611bdf35f49]\n2024级计算机科学与技术培养方案中，通识教育课程最低选修学分为15学分。[cit-3cc26ae35626][cit-9611bdf35f49]",
+      "answer_mode": "llm",
+      "expected_status": "success",
+      "hop_count": 2,
+      "response": {
+        "request_id": "req-b522aba6a2c74ff5",
+        "status": "success",
+        "knowledge_batch": "batch-20261110-160123-481a",
+        "retrieval_mode": "hybrid",
+        "retrieval_type": "graph",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [
+          {
+            "hop": 1,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          },
+          {
+            "hop": 2,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          }
+        ],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": "llm",
+        "answer": "2024级计算机科学与技术培养方案中，通识教育课程必修学分为51.5学分。[cit-3cc26ae35626][cit-9611bdf35f49]\n2024级计算机科学与技术培养方案中，通识教育课程最低选修学分为15学分。[cit-3cc26ae35626][cit-9611bdf35f49]",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "2024级计算机科学与技术培养方案中，通识教育课程必修学分为51.5学分。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-3cc26ae35626",
+              "cit-9611bdf35f49"
+            ]
+          },
+          {
+            "claim_id": "claim-2",
+            "text": "2024级计算机科学与技术培养方案中，通识教育课程最低选修学分为15学分。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-3cc26ae35626",
+              "cit-9611bdf35f49"
+            ]
+          }
+        ],
+        "paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 2,
+            "nodes": [
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:23e31d699a",
+                "label": "CourseCategory",
+                "name": "通识教育课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-0ba413819e9269b41223:23e31d699a",
+                "label": "RuleClause",
+                "name": "通识教育课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-679b1e299d73e3618a3b",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:23e31d699a"
+              },
+              {
+                "relation_id": "rel-09d7f6c53f9becde3e29",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:23e31d699a",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-0ba413819e9269b41223:23e31d699a"
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "cit-3cc26ae35626",
+            "relation_id": "rel-679b1e299d73e3618a3b",
+            "chunk_id": "chunk-0ba413819e9269b41223",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·通识教育课程",
+            "page": 19,
+            "excerpt": "通识教育课程  合计66.5学分，其中必修51.5学分，最低选修15                     学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-9611bdf35f49",
+            "relation_id": "rel-09d7f6c53f9becde3e29",
+            "chunk_id": "chunk-0ba413819e9269b41223",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·通识教育课程",
+            "page": 19,
+            "excerpt": "通识教育课程  合计66.5学分，其中必修51.5学分，最低选修15                     学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          }
+        ],
+        "missing_fields": [],
+        "error": null
+      },
+      "hop_log": [
+        {
+          "hop": 1,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        },
+        {
+          "hop": 2,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        }
+      ]
+    },
+    {
+      "question_id": "cs2024-reviewed-2-002",
+      "request_id": "req-e0c2ad9b818243ab",
+      "batch_id": "batch-20261110-160123-481a",
+      "status": "success",
+      "predicted_path": [
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "CONTAINS",
+          "to": "category:plan:计算机科学与技术:2024:source:b6391fb92d"
+        },
+        {
+          "from": "category:plan:计算机科学与技术:2024:source:b6391fb92d",
+          "type": "CITES",
+          "to": "rule:bupt-cs-plan-2024:2024-source:chunk-6eb7a6efda1bd1f4c3f4:b6391fb92d"
+        }
+      ],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 1,
+      "claims_total": 1,
+      "failure_stage": null,
+      "elapsed_ms": 1270,
+      "question": "2024级培养方案中，学科基础课程必修和最低选修学分分别是多少？",
+      "answer": "学科基础课程必修学分为11学分，最低选修学分为0学分。[cit-a5f1f41e65aa][cit-f6d7a3284116]",
+      "answer_mode": "llm",
+      "expected_status": "success",
+      "hop_count": 2,
+      "response": {
+        "request_id": "req-e0c2ad9b818243ab",
+        "status": "success",
+        "knowledge_batch": "batch-20261110-160123-481a",
+        "retrieval_mode": "hybrid",
+        "retrieval_type": "graph",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [
+          {
+            "hop": 1,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          },
+          {
+            "hop": 2,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          }
+        ],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": "llm",
+        "answer": "学科基础课程必修学分为11学分，最低选修学分为0学分。[cit-a5f1f41e65aa][cit-f6d7a3284116]",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "学科基础课程必修学分为11学分，最低选修学分为0学分。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-a5f1f41e65aa",
+              "cit-f6d7a3284116"
+            ]
+          }
+        ],
+        "paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 2,
+            "nodes": [
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:b6391fb92d",
+                "label": "CourseCategory",
+                "name": "学科基础课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-6eb7a6efda1bd1f4c3f4:b6391fb92d",
+                "label": "RuleClause",
+                "name": "学科基础课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-7c4c747593fa0e42d64f",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:b6391fb92d"
+              },
+              {
+                "relation_id": "rel-83987123ddb7b09a5b74",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:b6391fb92d",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-6eb7a6efda1bd1f4c3f4:b6391fb92d"
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "cit-a5f1f41e65aa",
+            "relation_id": "rel-7c4c747593fa0e42d64f",
+            "chunk_id": "chunk-6eb7a6efda1bd1f4c3f4",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·学科基础课程",
+            "page": 19,
+            "excerpt": "学科基础课程  合计11        学分，其中必修       11学分，最低选修       0学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-f6d7a3284116",
+            "relation_id": "rel-83987123ddb7b09a5b74",
+            "chunk_id": "chunk-6eb7a6efda1bd1f4c3f4",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·学科基础课程",
+            "page": 19,
+            "excerpt": "学科基础课程  合计11        学分，其中必修       11学分，最低选修       0学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          }
+        ],
+        "missing_fields": [],
+        "error": null
+      },
+      "hop_log": [
+        {
+          "hop": 1,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        },
+        {
+          "hop": 2,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        }
+      ]
+    },
+    {
+      "question_id": "cs2024-reviewed-2-003",
+      "request_id": "req-a5b796438fc244eb",
+      "batch_id": "batch-20261110-160123-481a",
+      "status": "success",
+      "predicted_path": [
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "CONTAINS",
+          "to": "category:plan:计算机科学与技术:2024:source:802a264ab1"
+        },
+        {
+          "from": "category:plan:计算机科学与技术:2024:source:802a264ab1",
+          "type": "CITES",
+          "to": "rule:bupt-cs-plan-2024:2024-source:chunk-24e5f3b15ce5cadbb21d:802a264ab1"
+        }
+      ],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 1,
+      "claims_total": 1,
+      "failure_stage": null,
+      "elapsed_ms": 1212,
+      "question": "2024级培养方案中，专业基础课程必修和最低选修学分分别是多少？",
+      "answer": "计算机科学与技术2024级培养方案中，专业基础课程必修学分为35.5学分，最低选修学分为0学分。[cit-31f3d9b74308][cit-66f37235672f]",
+      "answer_mode": "llm",
+      "expected_status": "success",
+      "hop_count": 2,
+      "response": {
+        "request_id": "req-a5b796438fc244eb",
+        "status": "success",
+        "knowledge_batch": "batch-20261110-160123-481a",
+        "retrieval_mode": "hybrid",
+        "retrieval_type": "graph",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [
+          {
+            "hop": 1,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          },
+          {
+            "hop": 2,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          }
+        ],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": "llm",
+        "answer": "计算机科学与技术2024级培养方案中，专业基础课程必修学分为35.5学分，最低选修学分为0学分。[cit-31f3d9b74308][cit-66f37235672f]",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "计算机科学与技术2024级培养方案中，专业基础课程必修学分为35.5学分，最低选修学分为0学分。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-31f3d9b74308",
+              "cit-66f37235672f"
+            ]
+          }
+        ],
+        "paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 2,
+            "nodes": [
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:802a264ab1",
+                "label": "CourseCategory",
+                "name": "专业基础课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-24e5f3b15ce5cadbb21d:802a264ab1",
+                "label": "RuleClause",
+                "name": "专业基础课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-1d48715620f2a0686ca0",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:802a264ab1"
+              },
+              {
+                "relation_id": "rel-89cfa2e61837b1d199b2",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:802a264ab1",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-24e5f3b15ce5cadbb21d:802a264ab1"
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "cit-31f3d9b74308",
+            "relation_id": "rel-1d48715620f2a0686ca0",
+            "chunk_id": "chunk-24e5f3b15ce5cadbb21d",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·专业基础课程",
+            "page": 20,
+            "excerpt": "专业基础课程  合计35.5学分，其中必修35.5学分，最低选修0学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-66f37235672f",
+            "relation_id": "rel-89cfa2e61837b1d199b2",
+            "chunk_id": "chunk-24e5f3b15ce5cadbb21d",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·专业基础课程",
+            "page": 20,
+            "excerpt": "专业基础课程  合计35.5学分，其中必修35.5学分，最低选修0学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          }
+        ],
+        "missing_fields": [],
+        "error": null
+      },
+      "hop_log": [
+        {
+          "hop": 1,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        },
+        {
+          "hop": 2,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        }
+      ]
+    },
+    {
+      "question_id": "cs2024-reviewed-2-004",
+      "request_id": "req-ff7cfaa9923340e4",
+      "batch_id": "batch-20261110-160123-481a",
+      "status": "success",
+      "predicted_path": [
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "CONTAINS",
+          "to": "category:plan:计算机科学与技术:2024:source:2221697565"
+        },
+        {
+          "from": "category:plan:计算机科学与技术:2024:source:2221697565",
+          "type": "CITES",
+          "to": "rule:bupt-cs-plan-2024:2024-source:chunk-d07bdc82dde297bf4983:2221697565"
+        }
+      ],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 1,
+      "claims_total": 1,
+      "failure_stage": null,
+      "elapsed_ms": 1370,
+      "question": "2024级培养方案中，专业课程最多可选修本院其他专业模块课程或本专业研究生课程多少学分？",
+      "answer": "2024级培养方案中，专业课程在满足本专业各模块最低选修要求的基础上，最多可选修4学分本院其他专业的专业模块课程或本专业研究生课程。[cit-c606a6a52586][cit-308dd1a9a08f]",
+      "answer_mode": "llm",
+      "expected_status": "success",
+      "hop_count": 2,
+      "response": {
+        "request_id": "req-ff7cfaa9923340e4",
+        "status": "success",
+        "knowledge_batch": "batch-20261110-160123-481a",
+        "retrieval_mode": "hybrid",
+        "retrieval_type": "graph",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [
+          {
+            "hop": 1,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          },
+          {
+            "hop": 2,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          }
+        ],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": "llm",
+        "answer": "2024级培养方案中，专业课程在满足本专业各模块最低选修要求的基础上，最多可选修4学分本院其他专业的专业模块课程或本专业研究生课程。[cit-c606a6a52586][cit-308dd1a9a08f]",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "2024级培养方案中，专业课程在满足本专业各模块最低选修要求的基础上，最多可选修4学分本院其他专业的专业模块课程或本专业研究生课程。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-c606a6a52586",
+              "cit-308dd1a9a08f"
+            ]
+          }
+        ],
+        "paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 2,
+            "nodes": [
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:2221697565",
+                "label": "CourseCategory",
+                "name": "专业课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-d07bdc82dde297bf4983:2221697565",
+                "label": "RuleClause",
+                "name": "专业课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-6a312d49c1a131da1604",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:2221697565"
+              },
+              {
+                "relation_id": "rel-3ff042be47bbbcb78792",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:2221697565",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-d07bdc82dde297bf4983:2221697565"
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "cit-c606a6a52586",
+            "relation_id": "rel-6a312d49c1a131da1604",
+            "chunk_id": "chunk-d07bdc82dde297bf4983",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·专业课程",
+            "page": 21,
+            "excerpt": "专业课程    合计  12学分，其中必修      0学分，最低选修      12学分。\n说明：在满足本专业各模块最低选修要求的基础上，允许选修最多4                      学分本院其他专业的专业模块课程、或者\n本专业研究生课程。“指选”的课程为本专业必须选修的课程，成绩达标获得相应学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-308dd1a9a08f",
+            "relation_id": "rel-3ff042be47bbbcb78792",
+            "chunk_id": "chunk-d07bdc82dde297bf4983",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·专业课程",
+            "page": 21,
+            "excerpt": "专业课程    合计  12学分，其中必修      0学分，最低选修      12学分。\n说明：在满足本专业各模块最低选修要求的基础上，允许选修最多4                      学分本院其他专业的专业模块课程、或者\n本专业研究生课程。“指选”的课程为本专业必须选修的课程，成绩达标获得相应学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          }
+        ],
+        "missing_fields": [],
+        "error": null
+      },
+      "hop_log": [
+        {
+          "hop": 1,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        },
+        {
+          "hop": 2,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        }
+      ]
+    },
+    {
+      "question_id": "cs2024-reviewed-2-005",
+      "request_id": "req-7240cb87170c49c3",
+      "batch_id": "batch-20261110-160123-481a",
+      "status": "success",
+      "predicted_path": [
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "CONTAINS",
+          "to": "category:plan:计算机科学与技术:2024:source:1799adb67d"
+        },
+        {
+          "from": "category:plan:计算机科学与技术:2024:source:1799adb67d",
+          "type": "CITES",
+          "to": "rule:bupt-cs-plan-2024:2024-source:chunk-600bdfcca90dfa356397:1799adb67d"
+        }
+      ],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 1,
+      "claims_total": 1,
+      "failure_stage": null,
+      "elapsed_ms": 1650,
+      "question": "2024级培养方案中，实践教学课程设置表列出的必修和最低选修学分分别是多少？",
+      "answer": "2024级培养方案实践教学课程设置表列出：必修17学分（804学时），最低选修13学分。[cit-b2e44bf84d61][cit-97525c4fc580]",
+      "answer_mode": "llm",
+      "expected_status": "success",
+      "hop_count": 2,
+      "response": {
+        "request_id": "req-7240cb87170c49c3",
+        "status": "success",
+        "knowledge_batch": "batch-20261110-160123-481a",
+        "retrieval_mode": "hybrid",
+        "retrieval_type": "graph",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [
+          {
+            "hop": 1,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          },
+          {
+            "hop": 2,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          }
+        ],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": "llm",
+        "answer": "2024级培养方案实践教学课程设置表列出：必修17学分（804学时），最低选修13学分。[cit-b2e44bf84d61][cit-97525c4fc580]",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "2024级培养方案实践教学课程设置表列出：必修17学分（804学时），最低选修13学分。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-b2e44bf84d61",
+              "cit-97525c4fc580"
+            ]
+          }
+        ],
+        "paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 2,
+            "nodes": [
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:1799adb67d",
+                "label": "CourseCategory",
+                "name": "实践教学"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-600bdfcca90dfa356397:1799adb67d",
+                "label": "RuleClause",
+                "name": "实践教学修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-eec4f13ea40605a6a60b",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:1799adb67d"
+              },
+              {
+                "relation_id": "rel-afe8c5e5cbf2baea4978",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:1799adb67d",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-600bdfcca90dfa356397:1799adb67d"
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "cit-b2e44bf84d61",
+            "relation_id": "rel-eec4f13ea40605a6a60b",
+            "chunk_id": "chunk-600bdfcca90dfa356397",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·实践教学",
+            "page": 23,
+            "excerpt": "实践教学  合计30    学分，其中必修     17学分（804  学时），最低选修     13学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-97525c4fc580",
+            "relation_id": "rel-afe8c5e5cbf2baea4978",
+            "chunk_id": "chunk-600bdfcca90dfa356397",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·实践教学",
+            "page": 23,
+            "excerpt": "实践教学  合计30    学分，其中必修     17学分（804  学时），最低选修     13学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          }
+        ],
+        "missing_fields": [],
+        "error": null
+      },
+      "hop_log": [
+        {
+          "hop": 1,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        },
+        {
+          "hop": 2,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        }
+      ]
+    },
+    {
+      "question_id": "cs2024-reviewed-3-001",
+      "request_id": "req-98bb88b124944e12",
+      "batch_id": "batch-20261110-160123-481a",
+      "status": "success",
+      "predicted_path": [
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "APPLIES_TO",
+          "to": "major:计算机科学与技术"
+        },
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "CONTAINS",
+          "to": "category:plan:计算机科学与技术:2024:source:23e31d699a"
+        },
+        {
+          "from": "category:plan:计算机科学与技术:2024:source:23e31d699a",
+          "type": "CITES",
+          "to": "rule:bupt-cs-plan-2024:2024-source:chunk-0ba413819e9269b41223:23e31d699a"
+        }
+      ],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 2,
+      "claims_total": 2,
+      "failure_stage": null,
+      "elapsed_ms": 2245,
+      "question": "计算机科学与技术专业2024级学生的通识教育课程必修和最低选修学分分别是多少？",
+      "answer": "计算机科学与技术专业2024级学生的通识教育课程必修学分为51.5学分。[cit-ee3bb5b92d05][cit-3cc26ae35626][cit-9611bdf35f49]\n计算机科学与技术专业2024级学生的通识教育课程最低选修学分为15学分。[cit-ee3bb5b92d05][cit-3cc26ae35626][cit-9611bdf35f49]",
+      "answer_mode": "llm",
+      "expected_status": "success",
+      "hop_count": 3,
+      "response": {
+        "request_id": "req-98bb88b124944e12",
+        "status": "success",
+        "knowledge_batch": "batch-20261110-160123-481a",
+        "retrieval_mode": "hybrid",
+        "retrieval_type": "graph",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [
+          {
+            "hop": 1,
+            "candidates_in": 8,
+            "kept": 8,
+            "pruned": {}
+          },
+          {
+            "hop": 2,
+            "candidates_in": 14,
+            "kept": 14,
+            "pruned": {}
+          },
+          {
+            "hop": 3,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          }
+        ],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": "llm",
+        "answer": "计算机科学与技术专业2024级学生的通识教育课程必修学分为51.5学分。[cit-ee3bb5b92d05][cit-3cc26ae35626][cit-9611bdf35f49]\n计算机科学与技术专业2024级学生的通识教育课程最低选修学分为15学分。[cit-ee3bb5b92d05][cit-3cc26ae35626][cit-9611bdf35f49]",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "计算机科学与技术专业2024级学生的通识教育课程必修学分为51.5学分。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-ee3bb5b92d05",
+              "cit-3cc26ae35626",
+              "cit-9611bdf35f49"
+            ]
+          },
+          {
+            "claim_id": "claim-2",
+            "text": "计算机科学与技术专业2024级学生的通识教育课程最低选修学分为15学分。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-ee3bb5b92d05",
+              "cit-3cc26ae35626",
+              "cit-9611bdf35f49"
+            ]
+          }
+        ],
+        "paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 3,
+            "nodes": [
+              {
+                "node_id": "major:计算机科学与技术",
+                "label": "Professional",
+                "name": "计算机科学与技术"
+              },
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:23e31d699a",
+                "label": "CourseCategory",
+                "name": "通识教育课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-0ba413819e9269b41223:23e31d699a",
+                "label": "RuleClause",
+                "name": "通识教育课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-ddc2e2d87c0947995c9a",
+                "type": "APPLIES_TO",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "major:计算机科学与技术"
+              },
+              {
+                "relation_id": "rel-679b1e299d73e3618a3b",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:23e31d699a"
+              },
+              {
+                "relation_id": "rel-09d7f6c53f9becde3e29",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:23e31d699a",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-0ba413819e9269b41223:23e31d699a"
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "cit-ee3bb5b92d05",
+            "relation_id": "rel-ddc2e2d87c0947995c9a",
+            "chunk_id": "chunk-cb2ec8b25691aecf56f3",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": null,
+            "page": 5,
+            "excerpt": "计算机科学与技术专业培养方案",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-3cc26ae35626",
+            "relation_id": "rel-679b1e299d73e3618a3b",
+            "chunk_id": "chunk-0ba413819e9269b41223",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·通识教育课程",
+            "page": 19,
+            "excerpt": "通识教育课程  合计66.5学分，其中必修51.5学分，最低选修15                     学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-9611bdf35f49",
+            "relation_id": "rel-09d7f6c53f9becde3e29",
+            "chunk_id": "chunk-0ba413819e9269b41223",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·通识教育课程",
+            "page": 19,
+            "excerpt": "通识教育课程  合计66.5学分，其中必修51.5学分，最低选修15                     学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          }
+        ],
+        "missing_fields": [],
+        "error": null
+      },
+      "hop_log": [
+        {
+          "hop": 1,
+          "candidates_in": 8,
+          "kept": 8,
+          "pruned": {}
+        },
+        {
+          "hop": 2,
+          "candidates_in": 14,
+          "kept": 14,
+          "pruned": {}
+        },
+        {
+          "hop": 3,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        }
+      ]
+    },
+    {
+      "question_id": "cs2024-reviewed-3-002",
+      "request_id": "req-29892253ba1c4095",
+      "batch_id": "batch-20261110-160123-481a",
+      "status": "success",
+      "predicted_path": [
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "APPLIES_TO",
+          "to": "major:计算机科学与技术"
+        },
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "CONTAINS",
+          "to": "category:plan:计算机科学与技术:2024:source:b6391fb92d"
+        },
+        {
+          "from": "category:plan:计算机科学与技术:2024:source:b6391fb92d",
+          "type": "CITES",
+          "to": "rule:bupt-cs-plan-2024:2024-source:chunk-6eb7a6efda1bd1f4c3f4:b6391fb92d"
+        }
+      ],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 1,
+      "claims_total": 1,
+      "failure_stage": null,
+      "elapsed_ms": 1614,
+      "question": "计算机科学与技术专业2024级学生的学科基础课程必修和最低选修学分分别是多少？",
+      "answer": "计算机科学与技术专业2024级学生的学科基础课程合计11学分，其中必修11学分，最低选修0学分。[cit-ee3bb5b92d05][cit-a5f1f41e65aa][cit-f6d7a3284116]",
+      "answer_mode": "llm",
+      "expected_status": "success",
+      "hop_count": 3,
+      "response": {
+        "request_id": "req-29892253ba1c4095",
+        "status": "success",
+        "knowledge_batch": "batch-20261110-160123-481a",
+        "retrieval_mode": "hybrid",
+        "retrieval_type": "graph",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [
+          {
+            "hop": 1,
+            "candidates_in": 8,
+            "kept": 8,
+            "pruned": {}
+          },
+          {
+            "hop": 2,
+            "candidates_in": 14,
+            "kept": 14,
+            "pruned": {}
+          },
+          {
+            "hop": 3,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          }
+        ],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": "llm",
+        "answer": "计算机科学与技术专业2024级学生的学科基础课程合计11学分，其中必修11学分，最低选修0学分。[cit-ee3bb5b92d05][cit-a5f1f41e65aa][cit-f6d7a3284116]",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "计算机科学与技术专业2024级学生的学科基础课程合计11学分，其中必修11学分，最低选修0学分。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-ee3bb5b92d05",
+              "cit-a5f1f41e65aa",
+              "cit-f6d7a3284116"
+            ]
+          }
+        ],
+        "paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 3,
+            "nodes": [
+              {
+                "node_id": "major:计算机科学与技术",
+                "label": "Professional",
+                "name": "计算机科学与技术"
+              },
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:b6391fb92d",
+                "label": "CourseCategory",
+                "name": "学科基础课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-6eb7a6efda1bd1f4c3f4:b6391fb92d",
+                "label": "RuleClause",
+                "name": "学科基础课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-ddc2e2d87c0947995c9a",
+                "type": "APPLIES_TO",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "major:计算机科学与技术"
+              },
+              {
+                "relation_id": "rel-7c4c747593fa0e42d64f",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:b6391fb92d"
+              },
+              {
+                "relation_id": "rel-83987123ddb7b09a5b74",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:b6391fb92d",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-6eb7a6efda1bd1f4c3f4:b6391fb92d"
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "cit-ee3bb5b92d05",
+            "relation_id": "rel-ddc2e2d87c0947995c9a",
+            "chunk_id": "chunk-cb2ec8b25691aecf56f3",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": null,
+            "page": 5,
+            "excerpt": "计算机科学与技术专业培养方案",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-a5f1f41e65aa",
+            "relation_id": "rel-7c4c747593fa0e42d64f",
+            "chunk_id": "chunk-6eb7a6efda1bd1f4c3f4",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·学科基础课程",
+            "page": 19,
+            "excerpt": "学科基础课程  合计11        学分，其中必修       11学分，最低选修       0学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-f6d7a3284116",
+            "relation_id": "rel-83987123ddb7b09a5b74",
+            "chunk_id": "chunk-6eb7a6efda1bd1f4c3f4",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·学科基础课程",
+            "page": 19,
+            "excerpt": "学科基础课程  合计11        学分，其中必修       11学分，最低选修       0学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          }
+        ],
+        "missing_fields": [],
+        "error": null
+      },
+      "hop_log": [
+        {
+          "hop": 1,
+          "candidates_in": 8,
+          "kept": 8,
+          "pruned": {}
+        },
+        {
+          "hop": 2,
+          "candidates_in": 14,
+          "kept": 14,
+          "pruned": {}
+        },
+        {
+          "hop": 3,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        }
+      ]
+    },
+    {
+      "question_id": "cs2024-reviewed-3-003",
+      "request_id": "req-4f0e8564e00a4a5f",
+      "batch_id": "batch-20261110-160123-481a",
+      "status": "success",
+      "predicted_path": [
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "APPLIES_TO",
+          "to": "major:计算机科学与技术"
+        },
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "CONTAINS",
+          "to": "category:plan:计算机科学与技术:2024:source:802a264ab1"
+        },
+        {
+          "from": "category:plan:计算机科学与技术:2024:source:802a264ab1",
+          "type": "CITES",
+          "to": "rule:bupt-cs-plan-2024:2024-source:chunk-24e5f3b15ce5cadbb21d:802a264ab1"
+        }
+      ],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 1,
+      "claims_total": 1,
+      "failure_stage": null,
+      "elapsed_ms": 1859,
+      "question": "计算机科学与技术专业2024级学生的专业基础课程必修和最低选修学分分别是多少？",
+      "answer": "计算机科学与技术专业2024级培养方案中，专业基础课程合计35.5学分，其中必修35.5学分，最低选修0学分。[cit-ee3bb5b92d05][cit-31f3d9b74308][cit-66f37235672f]",
+      "answer_mode": "llm",
+      "expected_status": "success",
+      "hop_count": 3,
+      "response": {
+        "request_id": "req-4f0e8564e00a4a5f",
+        "status": "success",
+        "knowledge_batch": "batch-20261110-160123-481a",
+        "retrieval_mode": "hybrid",
+        "retrieval_type": "graph",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [
+          {
+            "hop": 1,
+            "candidates_in": 8,
+            "kept": 8,
+            "pruned": {}
+          },
+          {
+            "hop": 2,
+            "candidates_in": 14,
+            "kept": 14,
+            "pruned": {}
+          },
+          {
+            "hop": 3,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          }
+        ],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": "llm",
+        "answer": "计算机科学与技术专业2024级培养方案中，专业基础课程合计35.5学分，其中必修35.5学分，最低选修0学分。[cit-ee3bb5b92d05][cit-31f3d9b74308][cit-66f37235672f]",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "计算机科学与技术专业2024级培养方案中，专业基础课程合计35.5学分，其中必修35.5学分，最低选修0学分。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-ee3bb5b92d05",
+              "cit-31f3d9b74308",
+              "cit-66f37235672f"
+            ]
+          }
+        ],
+        "paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 3,
+            "nodes": [
+              {
+                "node_id": "major:计算机科学与技术",
+                "label": "Professional",
+                "name": "计算机科学与技术"
+              },
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:802a264ab1",
+                "label": "CourseCategory",
+                "name": "专业基础课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-24e5f3b15ce5cadbb21d:802a264ab1",
+                "label": "RuleClause",
+                "name": "专业基础课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-ddc2e2d87c0947995c9a",
+                "type": "APPLIES_TO",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "major:计算机科学与技术"
+              },
+              {
+                "relation_id": "rel-1d48715620f2a0686ca0",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:802a264ab1"
+              },
+              {
+                "relation_id": "rel-89cfa2e61837b1d199b2",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:802a264ab1",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-24e5f3b15ce5cadbb21d:802a264ab1"
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "cit-ee3bb5b92d05",
+            "relation_id": "rel-ddc2e2d87c0947995c9a",
+            "chunk_id": "chunk-cb2ec8b25691aecf56f3",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": null,
+            "page": 5,
+            "excerpt": "计算机科学与技术专业培养方案",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-31f3d9b74308",
+            "relation_id": "rel-1d48715620f2a0686ca0",
+            "chunk_id": "chunk-24e5f3b15ce5cadbb21d",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·专业基础课程",
+            "page": 20,
+            "excerpt": "专业基础课程  合计35.5学分，其中必修35.5学分，最低选修0学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-66f37235672f",
+            "relation_id": "rel-89cfa2e61837b1d199b2",
+            "chunk_id": "chunk-24e5f3b15ce5cadbb21d",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·专业基础课程",
+            "page": 20,
+            "excerpt": "专业基础课程  合计35.5学分，其中必修35.5学分，最低选修0学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          }
+        ],
+        "missing_fields": [],
+        "error": null
+      },
+      "hop_log": [
+        {
+          "hop": 1,
+          "candidates_in": 8,
+          "kept": 8,
+          "pruned": {}
+        },
+        {
+          "hop": 2,
+          "candidates_in": 14,
+          "kept": 14,
+          "pruned": {}
+        },
+        {
+          "hop": 3,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        }
+      ]
+    },
+    {
+      "question_id": "cs2024-reviewed-3-004",
+      "request_id": "req-cb5f5d0c2137401c",
+      "batch_id": "batch-20261110-160123-481a",
+      "status": "success",
+      "predicted_path": [
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "APPLIES_TO",
+          "to": "major:计算机科学与技术"
+        },
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "CONTAINS",
+          "to": "category:plan:计算机科学与技术:2024:source:2221697565"
+        },
+        {
+          "from": "category:plan:计算机科学与技术:2024:source:2221697565",
+          "type": "CITES",
+          "to": "rule:bupt-cs-plan-2024:2024-source:chunk-d07bdc82dde297bf4983:2221697565"
+        }
+      ],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 1,
+      "claims_total": 1,
+      "failure_stage": null,
+      "elapsed_ms": 1884,
+      "question": "计算机科学与技术专业2024级学生的专业课程最多可选修本院其他专业模块课程或本专业研究生课程多少学分？",
+      "answer": "计算机科学与技术专业2024级学生的专业课程在满足本专业各模块最低选修要求的基础上，最多可选修4学分本院其他专业的专业模块课程或本专业研究生课程。[cit-ee3bb5b92d05][cit-c606a6a52586][cit-308dd1a9a08f]",
+      "answer_mode": "llm",
+      "expected_status": "success",
+      "hop_count": 3,
+      "response": {
+        "request_id": "req-cb5f5d0c2137401c",
+        "status": "success",
+        "knowledge_batch": "batch-20261110-160123-481a",
+        "retrieval_mode": "hybrid",
+        "retrieval_type": "graph",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [
+          {
+            "hop": 1,
+            "candidates_in": 8,
+            "kept": 8,
+            "pruned": {}
+          },
+          {
+            "hop": 2,
+            "candidates_in": 14,
+            "kept": 14,
+            "pruned": {}
+          },
+          {
+            "hop": 3,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          }
+        ],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": "llm",
+        "answer": "计算机科学与技术专业2024级学生的专业课程在满足本专业各模块最低选修要求的基础上，最多可选修4学分本院其他专业的专业模块课程或本专业研究生课程。[cit-ee3bb5b92d05][cit-c606a6a52586][cit-308dd1a9a08f]",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "计算机科学与技术专业2024级学生的专业课程在满足本专业各模块最低选修要求的基础上，最多可选修4学分本院其他专业的专业模块课程或本专业研究生课程。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-ee3bb5b92d05",
+              "cit-c606a6a52586",
+              "cit-308dd1a9a08f"
+            ]
+          }
+        ],
+        "paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 3,
+            "nodes": [
+              {
+                "node_id": "major:计算机科学与技术",
+                "label": "Professional",
+                "name": "计算机科学与技术"
+              },
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:2221697565",
+                "label": "CourseCategory",
+                "name": "专业课程"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-d07bdc82dde297bf4983:2221697565",
+                "label": "RuleClause",
+                "name": "专业课程修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-ddc2e2d87c0947995c9a",
+                "type": "APPLIES_TO",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "major:计算机科学与技术"
+              },
+              {
+                "relation_id": "rel-6a312d49c1a131da1604",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:2221697565"
+              },
+              {
+                "relation_id": "rel-3ff042be47bbbcb78792",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:2221697565",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-d07bdc82dde297bf4983:2221697565"
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "cit-ee3bb5b92d05",
+            "relation_id": "rel-ddc2e2d87c0947995c9a",
+            "chunk_id": "chunk-cb2ec8b25691aecf56f3",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": null,
+            "page": 5,
+            "excerpt": "计算机科学与技术专业培养方案",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-c606a6a52586",
+            "relation_id": "rel-6a312d49c1a131da1604",
+            "chunk_id": "chunk-d07bdc82dde297bf4983",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·专业课程",
+            "page": 21,
+            "excerpt": "专业课程    合计  12学分，其中必修      0学分，最低选修      12学分。\n说明：在满足本专业各模块最低选修要求的基础上，允许选修最多4                      学分本院其他专业的专业模块课程、或者\n本专业研究生课程。“指选”的课程为本专业必须选修的课程，成绩达标获得相应学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-308dd1a9a08f",
+            "relation_id": "rel-3ff042be47bbbcb78792",
+            "chunk_id": "chunk-d07bdc82dde297bf4983",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·专业课程",
+            "page": 21,
+            "excerpt": "专业课程    合计  12学分，其中必修      0学分，最低选修      12学分。\n说明：在满足本专业各模块最低选修要求的基础上，允许选修最多4                      学分本院其他专业的专业模块课程、或者\n本专业研究生课程。“指选”的课程为本专业必须选修的课程，成绩达标获得相应学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          }
+        ],
+        "missing_fields": [],
+        "error": null
+      },
+      "hop_log": [
+        {
+          "hop": 1,
+          "candidates_in": 8,
+          "kept": 8,
+          "pruned": {}
+        },
+        {
+          "hop": 2,
+          "candidates_in": 14,
+          "kept": 14,
+          "pruned": {}
+        },
+        {
+          "hop": 3,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        }
+      ]
+    },
+    {
+      "question_id": "cs2024-reviewed-3-005",
+      "request_id": "req-0931a2835c03416f",
+      "batch_id": "batch-20261110-160123-481a",
+      "status": "success",
+      "predicted_path": [
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "APPLIES_TO",
+          "to": "major:计算机科学与技术"
+        },
+        {
+          "from": "plan:计算机科学与技术:2024:source",
+          "type": "CONTAINS",
+          "to": "category:plan:计算机科学与技术:2024:source:1799adb67d"
+        },
+        {
+          "from": "category:plan:计算机科学与技术:2024:source:1799adb67d",
+          "type": "CITES",
+          "to": "rule:bupt-cs-plan-2024:2024-source:chunk-600bdfcca90dfa356397:1799adb67d"
+        }
+      ],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 1,
+      "claims_total": 1,
+      "failure_stage": null,
+      "elapsed_ms": 1729,
+      "question": "计算机科学与技术专业2024级学生的实践教学课程设置表列出的必修和最低选修学分分别是多少？",
+      "answer": "计算机科学与技术专业2024级培养方案的实践教学合计30学分，其中必修17学分（804学时），最低选修13学分。[cit-ee3bb5b92d05][cit-b2e44bf84d61][cit-97525c4fc580]",
+      "answer_mode": "llm",
+      "expected_status": "success",
+      "hop_count": 3,
+      "response": {
+        "request_id": "req-0931a2835c03416f",
+        "status": "success",
+        "knowledge_batch": "batch-20261110-160123-481a",
+        "retrieval_mode": "hybrid",
+        "retrieval_type": "graph",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [
+          {
+            "hop": 1,
+            "candidates_in": 8,
+            "kept": 8,
+            "pruned": {}
+          },
+          {
+            "hop": 2,
+            "candidates_in": 14,
+            "kept": 14,
+            "pruned": {}
+          },
+          {
+            "hop": 3,
+            "candidates_in": 7,
+            "kept": 7,
+            "pruned": {}
+          }
+        ],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": "llm",
+        "answer": "计算机科学与技术专业2024级培养方案的实践教学合计30学分，其中必修17学分（804学时），最低选修13学分。[cit-ee3bb5b92d05][cit-b2e44bf84d61][cit-97525c4fc580]",
+        "claims": [
+          {
+            "claim_id": "claim-1",
+            "text": "计算机科学与技术专业2024级培养方案的实践教学合计30学分，其中必修17学分（804学时），最低选修13学分。",
+            "path_ids": [
+              "p-1"
+            ],
+            "citation_ids": [
+              "cit-ee3bb5b92d05",
+              "cit-b2e44bf84d61",
+              "cit-97525c4fc580"
+            ]
+          }
+        ],
+        "paths": [
+          {
+            "path_id": "p-1",
+            "hop_count": 3,
+            "nodes": [
+              {
+                "node_id": "major:计算机科学与技术",
+                "label": "Professional",
+                "name": "计算机科学与技术"
+              },
+              {
+                "node_id": "plan:计算机科学与技术:2024:source",
+                "label": "ProgramPlan",
+                "name": "计算机科学与技术2024级培养方案"
+              },
+              {
+                "node_id": "category:plan:计算机科学与技术:2024:source:1799adb67d",
+                "label": "CourseCategory",
+                "name": "实践教学"
+              },
+              {
+                "node_id": "rule:bupt-cs-plan-2024:2024-source:chunk-600bdfcca90dfa356397:1799adb67d",
+                "label": "RuleClause",
+                "name": "实践教学修读规定"
+              }
+            ],
+            "edges": [
+              {
+                "relation_id": "rel-ddc2e2d87c0947995c9a",
+                "type": "APPLIES_TO",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "major:计算机科学与技术"
+              },
+              {
+                "relation_id": "rel-eec4f13ea40605a6a60b",
+                "type": "CONTAINS",
+                "from": "plan:计算机科学与技术:2024:source",
+                "to": "category:plan:计算机科学与技术:2024:source:1799adb67d"
+              },
+              {
+                "relation_id": "rel-afe8c5e5cbf2baea4978",
+                "type": "CITES",
+                "from": "category:plan:计算机科学与技术:2024:source:1799adb67d",
+                "to": "rule:bupt-cs-plan-2024:2024-source:chunk-600bdfcca90dfa356397:1799adb67d"
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "cit-ee3bb5b92d05",
+            "relation_id": "rel-ddc2e2d87c0947995c9a",
+            "chunk_id": "chunk-cb2ec8b25691aecf56f3",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": null,
+            "page": 5,
+            "excerpt": "计算机科学与技术专业培养方案",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-b2e44bf84d61",
+            "relation_id": "rel-eec4f13ea40605a6a60b",
+            "chunk_id": "chunk-600bdfcca90dfa356397",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·实践教学",
+            "page": 23,
+            "excerpt": "实践教学  合计30    学分，其中必修     17学分（804  学时），最低选修     13学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          },
+          {
+            "citation_id": "cit-97525c4fc580",
+            "relation_id": "rel-afe8c5e5cbf2baea4978",
+            "chunk_id": "chunk-600bdfcca90dfa356397",
+            "doc_id": "bupt-cs-plan-2024",
+            "doc_version": "2024-source",
+            "section": "十二、课程设置·实践教学",
+            "page": 23,
+            "excerpt": "实践教学  合计30    学分，其中必修     17学分（804  学时），最低选修     13学分。",
+            "doc_title": "计算机学院（国家示范性软件学院）2024级本科专业培养方案"
+          }
+        ],
+        "missing_fields": [],
+        "error": null
+      },
+      "hop_log": [
+        {
+          "hop": 1,
+          "candidates_in": 8,
+          "kept": 8,
+          "pruned": {}
+        },
+        {
+          "hop": 2,
+          "candidates_in": 14,
+          "kept": 14,
+          "pruned": {}
+        },
+        {
+          "hop": 3,
+          "candidates_in": 7,
+          "kept": 7,
+          "pruned": {}
+        }
+      ]
+    },
+    {
+      "question_id": "negative-missing-year",
+      "request_id": "req-8415593d4c6540f9",
+      "batch_id": null,
+      "status": "needs_context",
+      "predicted_path": [],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 0,
+      "claims_total": 0,
+      "failure_stage": null,
+      "elapsed_ms": 0,
+      "question": "计算机科学与技术专业通识教育课程需要多少学分？",
+      "answer": null,
+      "answer_mode": null,
+      "expected_status": "needs_context",
+      "hop_count": 0,
+      "response": {
+        "request_id": "req-8415593d4c6540f9",
+        "status": "needs_context",
+        "knowledge_batch": null,
+        "retrieval_mode": null,
+        "retrieval_type": "document",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": null,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": null,
+        "answer": null,
+        "claims": [],
+        "paths": [],
+        "citations": [],
+        "missing_fields": [
+          "entry_year"
+        ],
+        "error": null
+      },
+      "hop_log": []
+    },
+    {
+      "question_id": "negative-out-of-domain",
+      "request_id": "req-603639a3fa3743bd",
+      "batch_id": "documents-5d0bc4db29-fc1470",
+      "status": "insufficient",
+      "predicted_path": [],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 0,
+      "claims_total": 0,
+      "failure_stage": null,
+      "elapsed_ms": 189,
+      "question": "火星殖民航天课程的选拔分数是多少？",
+      "answer": null,
+      "answer_mode": null,
+      "expected_status": "insufficient",
+      "hop_count": 0,
+      "response": {
+        "request_id": "req-603639a3fa3743bd",
+        "status": "insufficient",
+        "knowledge_batch": "documents-5d0bc4db29-fc1470",
+        "retrieval_mode": "hybrid",
+        "retrieval_type": "document",
+        "warnings": [
+          "source_retrieval_is_not_confirmation_of_rule_applicability"
+        ],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": "regular",
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": null,
+        "answer": null,
+        "claims": [],
+        "paths": [],
+        "citations": [],
+        "missing_fields": [],
+        "error": {
+          "code": "ANCHOR_NOT_FOUND",
+          "failed_hop": null,
+          "retryable": false
+        }
+      },
+      "hop_log": []
+    },
+    {
+      "question_id": "negative-scope-conflict",
+      "request_id": "req-c18daac4058a49ad",
+      "batch_id": null,
+      "status": "needs_context",
+      "predicted_path": [],
+      "path_hit": true,
+      "answer_correct": true,
+      "citation_covered": 0,
+      "claims_total": 0,
+      "failure_stage": null,
+      "elapsed_ms": 0,
+      "question": "软件工程2025级专业课程学分要求是什么？",
+      "answer": null,
+      "answer_mode": null,
+      "expected_status": "needs_context",
+      "hop_count": 0,
+      "response": {
+        "request_id": "req-c18daac4058a49ad",
+        "status": "needs_context",
+        "knowledge_batch": null,
+        "retrieval_mode": null,
+        "retrieval_type": "document",
+        "warnings": [],
+        "resolved_scope": {
+          "major_code": "计算机科学与技术",
+          "entry_year": 2024,
+          "program_variant": null,
+          "plan_revision": null,
+          "college": null
+        },
+        "hop_log": [],
+        "degraded_mode": false,
+        "degradation_reason": null,
+        "answer_mode": null,
+        "answer": null,
+        "claims": [],
+        "paths": [],
+        "citations": [],
+        "missing_fields": [
+          "entry_year",
+          "major_code"
+        ],
+        "error": null
+      },
+      "hop_log": []
+    }
+  ]
+}

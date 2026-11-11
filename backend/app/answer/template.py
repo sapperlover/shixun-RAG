@@ -20,7 +20,7 @@ _SENTENCE = {
 
 
 def render(facts: list[FactRecord], reason: str = "llm_unavailable") -> Draft:
-    by_path: dict[str, list[FactRecord]] = defaultdict(list)
+    by_path: dict[str | None, list[FactRecord]] = defaultdict(list)
     for f in facts:
         by_path[f.path_id].append(f)
 
@@ -29,12 +29,16 @@ def render(facts: list[FactRecord], reason: str = "llm_unavailable") -> Draft:
         text = "；".join(
             _SENTENCE.get(f.predicate, "{s} {p} {o}").format(s=f.subject, o=f.object, p=f.predicate)
             for f in fs
+            if f.path_id
         )
+        excerpts = list(dict.fromkeys(f.citation.excerpt.strip() for f in fs))
+        source_text = "\n".join(excerpts)
+        text = (text + "。\n" if text else "") + "可核对的原文摘录：\n" + source_text
         claims.append(
             DraftClaim(
                 claim_id=f"claim-{i}",
                 text=text + "。",
-                path_ids=[path_id],
+                path_ids=[path_id] if path_id else [],
                 citation_ids=list(dict.fromkeys(f.citation.citation_id for f in fs)),
             )
         )

@@ -1,23 +1,23 @@
-"""POST /feedback —— 四类反馈，按 request_id 可在后台查到（V1.2 §6.2 D4：请求 ID 与反馈）。
+"""Record feedback against an existing question request."""
 
-TODO(BE, D4)：写入 feedback 表；request_id 必须存在于 qa_logs。
-"""
-
-from __future__ import annotations
-
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
 
 from app.core.errors import ApiError, ErrorCode
-from app.core.security import Role, require_roles
 from app.schemas.resources import FeedbackIn
+from app.storage import sqlite
 
 router = APIRouter(tags=["feedback"])
 
 
-@router.post(
-    "/feedback",
-    status_code=201,
-    dependencies=[Depends(require_roles(Role.STUDENT, Role.KNOWLEDGE_ADMIN, Role.SYSTEM_ADMIN))],
-)
-def create_feedback(body: FeedbackIn) -> None:
-    raise ApiError(501, ErrorCode.NOT_IMPLEMENTED, "反馈写入将在 D4 实现")
+@router.post("/feedback", status_code=201)
+def create_feedback(body: FeedbackIn) -> dict:
+    with sqlite.connect() as conn:
+        if not conn.execute(
+            "SELECT 1 FROM qa_logs WHERE request_id=?", (body.request_id,)
+        ).fetchone():
+            raise ApiError(404, ErrorCode.NOT_FOUND, "Request not found")
+        conn.execute(
+            "INSERT INTO feedback(request_id,type,comment) VALUES (?,?,?)",
+            (body.request_id, body.type, body.comment),
+        )
+    return {"saved": True}

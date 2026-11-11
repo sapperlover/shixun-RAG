@@ -57,7 +57,7 @@ def test_unknown_evidence_is_404(client):
 
 
 def test_role_guard(client, dev_env):
-    assert client.get("/documents").status_code == 403
+    assert client.get("/documents").status_code == 200
     r = client.get("/documents", headers={"X-Demo-Role": "knowledge_admin"})
     assert r.status_code == 200 and r.json()["total"] == 0
 

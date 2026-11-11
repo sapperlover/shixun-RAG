@@ -80,11 +80,9 @@ def graph(tmp_path, monkeypatch):
 
 
 def test_success_returns_full_sources_no_generation(graph, monkeypatch):
-    from app.llm import ollama_client
+    from app.llm import chat_api
 
-    monkeypatch.setattr(
-        ollama_client, "chat_json", lambda *a: pytest.fail("No generation permitted")
-    )
+    monkeypatch.setattr(chat_api, "chat_json", lambda *a: pytest.fail("No generation permitted"))
     result = rag.retrieve(
         "计算机科学与技术专业2024级的专业选修课跨院系怎么认定？",
         Scope(major_code="DEMO01", entry_year=2024),

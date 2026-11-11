@@ -25,5 +25,9 @@ export async function http<T>(
 export const demoRole = { value: '' }
 
 export function roleHeaders(): Record<string, string> {
-  return demoRole.value ? { 'X-Demo-Role': demoRole.value } : {}
+  const headers: Record<string, string> = {}
+  if (demoRole.value) headers['X-Demo-Role'] = demoRole.value
+  const token = sessionStorage.getItem('admin-token')
+  if (token) headers['X-Admin-Token'] = token
+  return headers
 }

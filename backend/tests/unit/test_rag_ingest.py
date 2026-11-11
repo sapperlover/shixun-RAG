@@ -161,9 +161,14 @@ def test_delegated_ai_review_is_distinct_from_human_review(tmp_path):
     decisions = b'{"review_kind":"ai_source_review"}'
     (root / "review_decisions.json").write_bytes(decisions)
     approval = dict(
-        reviewer="codex-ai-source-review", reviewed_at="2026-11-09T00:00:00Z",
-        source_content_reviewed=True, scope_reviewed=True, manifest_sha256=b.manifest_sha,
-        review_kind="ai_source_review", delegated_by="user", delegation_note="那你直接确认",
+        reviewer="codex-ai-source-review",
+        reviewed_at="2026-11-09T00:00:00Z",
+        source_content_reviewed=True,
+        scope_reviewed=True,
+        manifest_sha256=b.manifest_sha,
+        review_kind="ai_source_review",
+        delegated_by="user",
+        delegation_note="那你直接确认",
         decision_report_sha256=hashlib.sha256(decisions).hexdigest(),
     )
 
@@ -203,7 +208,10 @@ def test_source_reviewed_real_bundle_and_development_questions():
     assert sum(q.hop_count == 2 for q in questions) == 5
     assert sum(q.hop_count == 3 for q in questions) == 5
     assert all(q.reviewed_by == "codex-ai-source-review" for q in questions)
-    verified = {(r["from_entity_id"], r["type"], r["to_entity_id"])
-                for r in b.relations if r["verification_status"] == "verified"}
+    verified = {
+        (r["from_entity_id"], r["type"], r["to_entity_id"])
+        for r in b.relations
+        if r["verification_status"] == "verified"
+    }
     for q in questions:
         assert all((e.from_, e.type, e.to) in verified for e in q.gold_relation_path)

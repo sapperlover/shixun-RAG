@@ -20,7 +20,8 @@ def validate(claims: list[DraftClaim], facts: list[FactRecord]) -> Validation:
     by_cit = {f.citation.citation_id: f for f in facts}
     rels_by_path: dict[str, set[str]] = {}
     for f in facts:
-        rels_by_path.setdefault(f.path_id, set()).add(f.relation_id)
+        if f.path_id and f.relation_id:
+            rels_by_path.setdefault(f.path_id, set()).add(f.relation_id)
 
     kept: list[DraftClaim] = []
     dropped: dict[str, str] = {}
@@ -36,11 +37,13 @@ def validate(claims: list[DraftClaim], facts: list[FactRecord]) -> Validation:
 def _check(
     c: DraftClaim, by_cit: dict[str, FactRecord], rels_by_path: dict[str, set[str]]
 ) -> str | None:
-    if not c.citation_ids or not c.path_ids:
-        return "缺少引用或路径"
+    if not c.citation_ids:
+        return "缺少引用"
     unknown = [cid for cid in c.citation_ids if cid not in by_cit]
     if unknown:
         return f"引用不存在: {unknown}"
+    if not c.path_ids and any(by_cit[cid].path_id for cid in c.citation_ids):
+        return "缺少路径"
     unknown_p = [pid for pid in c.path_ids if pid not in rels_by_path]
     if unknown_p:
         return f"路径不存在: {unknown_p}"

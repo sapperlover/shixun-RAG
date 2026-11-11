@@ -12,7 +12,7 @@ from app import fixtures
 from app.core.config import get_env
 from app.core.errors import ApiError, ErrorCode
 from app.schemas.resources import EvidenceOut
-from app.storage import evidence
+from app.storage import document_corpus, evidence
 
 router = APIRouter(tags=["evidence"])
 
@@ -22,6 +22,8 @@ def get_evidence(citation_id: str, knowledge_batch: str = Query(...)) -> Evidenc
     if knowledge_batch == fixtures.STUB_BATCH and get_env().app_env != "prod":
         return _from_mock(citation_id)
     row = evidence.by_citation(knowledge_batch, citation_id)
+    if row is None and citation_id.startswith("doc-cit-"):
+        row = document_corpus.by_citation(knowledge_batch, citation_id)
     if row is None:
         raise ApiError(
             404, ErrorCode.NOT_FOUND, f"{knowledge_batch} 中没有可读回的引用 {citation_id}"

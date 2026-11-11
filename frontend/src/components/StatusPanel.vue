@@ -6,7 +6,11 @@ import { ERROR_ZH, type QAResponse } from '@/types/qa'
 
 const props = defineProps<{ phase: Phase; response: QAResponse | null }>()
 
-const FIELD_ZH: Record<string, string> = { major_code: '专业', entry_year: '入学年级' }
+const FIELD_ZH: Record<string, string> = {
+  major_code: '专业',
+  entry_year: '入学年级',
+  program_variant: '培养类型',
+}
 const errText = computed(() => {
   const e = props.response?.error
   return e ? (ERROR_ZH[e.code] ?? e.code) : ''
@@ -16,7 +20,7 @@ const errText = computed(() => {
 <template>
   <div>
     <el-alert v-if="phase === 'searching'" type="info" :closable="false" show-icon>
-      正在检索图谱，逐跳扩展证据路径…
+      正在检索知识库与相关证据…
     </el-alert>
     <el-alert v-else-if="phase === 'generating'" type="info" :closable="false" show-icon>
       正在依据证据生成回答…
@@ -29,7 +33,7 @@ const errText = computed(() => {
         :closable="false"
         show-icon
         :title="`降级运行：${response.degradation_reason}`"
-        description="检索或生成使用了降级模式，结论仍有完整引用，但表达可能较生硬。"
+        description="部分服务暂不可用，当前展示可核对的原文证据；请结合来源确认具体要求。"
       />
       <el-alert
         v-else-if="response.status === 'needs_context'"

@@ -4,7 +4,7 @@
  */
 
 export type QAStatus = 'success' | 'needs_context' | 'insufficient' | 'error'
-export type ScopeField = 'major_code' | 'entry_year'
+export type ScopeField = 'major_code' | 'entry_year' | 'program_variant'
 export type NodeLabel =
   'College' | 'Professional' | 'ProgramPlan' | 'CourseCategory' | 'Course' | 'RuleClause'
 export type RelationType = 'BELONGS_TO' | 'CONTAINS' | 'APPLIES_TO' | 'CITES' | 'PREREQUISITE_OF'
@@ -12,6 +12,9 @@ export type RelationType = 'BELONGS_TO' | 'CONTAINS' | 'APPLIES_TO' | 'CITES' | 
 export interface Scope {
   major_code: string | null
   entry_year: number | null
+  program_variant?: 'regular' | 'international' | 'second_degree' | 'joint' | null
+  plan_revision?: string | null
+  college?: string | null
 }
 
 export interface QARequest {
@@ -49,13 +52,14 @@ export interface Claim {
 
 export interface Citation {
   citation_id: string
-  relation_id: string
+  relation_id: string | null
   chunk_id: string
   doc_id: string
   doc_version: string
   section: string | null
   page: number | null
   excerpt: string
+  doc_title?: string | null
 }
 
 export interface ErrorInfo {
@@ -68,7 +72,11 @@ export interface QAResponse {
   request_id: string
   status: QAStatus
   knowledge_batch: string | null
-  retrieval_mode: 'hybrid' | 'graph_only' | null
+  retrieval_mode: 'hybrid' | 'graph_only' | 'keyword_only' | null
+  retrieval_type?: 'graph' | 'document'
+  warnings?: string[]
+  resolved_scope?: Scope | null
+  hop_log?: { hop: number; candidates_in: number; kept: number; pruned: Record<string, number> }[]
   degraded_mode: boolean
   degradation_reason: string | null
   answer_mode: 'llm' | 'template' | null
@@ -83,7 +91,7 @@ export interface QAResponse {
 export interface EvidenceOut {
   citation_id: string
   knowledge_batch: string
-  relation_id: string
+  relation_id: string | null
   chunk_id: string
   doc_id: string
   doc_title: string
@@ -92,7 +100,7 @@ export interface EvidenceOut {
   page_start: number | null
   page_end: number | null
   text: string
-  verification_status: 'verified' | 'unverified' | 'rejected'
+  verification_status: string
 }
 
 export interface Page<T> {

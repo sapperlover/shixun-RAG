@@ -15,7 +15,7 @@ MIGRATIONS_DIR = Path(__file__).parent / "migrations"
 
 
 @contextmanager
-def connect(path: str | None = None) -> Iterator[sqlite3.Connection]:
+def connect(path: str | None = None, *, immediate: bool = False) -> Iterator[sqlite3.Connection]:
     """短连接；with 块结束自动提交，异常回滚。"""
     db_path = path or get_env().sqlite_path
     try:
@@ -27,7 +27,7 @@ def connect(path: str | None = None) -> Iterator[sqlite3.Connection]:
     conn.execute("PRAGMA foreign_keys = ON")
     conn.execute("PRAGMA journal_mode = WAL")
     try:
-        conn.execute("BEGIN")
+        conn.execute("BEGIN IMMEDIATE" if immediate else "BEGIN")
         yield conn
         conn.execute("COMMIT")
     except Exception:

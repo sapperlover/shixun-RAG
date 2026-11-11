@@ -18,7 +18,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 from app.core.errors import ErrorCode
 
 Status = Literal["success", "needs_context", "insufficient", "error"]
-ScopeField = Literal["major_code", "entry_year"]
+ScopeField = Literal["major_code", "entry_year", "program_variant"]
 NodeLabel = Literal[
     "College", "Professional", "ProgramPlan", "CourseCategory", "Course", "RuleClause"
 ]
@@ -35,6 +35,9 @@ class _Strict(BaseModel):
 class Scope(_Strict):
     major_code: str | None = Field(default=None, max_length=32)
     entry_year: int | None = Field(default=None, ge=2000, le=2100)
+    program_variant: Literal["regular", "international", "second_degree", "joint"] | None = None
+    plan_revision: str | None = None
+    college: str | None = None
 
 
 class QARequest(_Strict):
@@ -83,19 +86,20 @@ class Path(_Strict):
 class Claim(_Strict):
     claim_id: str
     text: str
-    path_ids: list[str] = Field(min_length=1)
+    path_ids: list[str] = Field(default_factory=list)
     citation_ids: list[str] = Field(min_length=1)
 
 
 class Citation(_Strict):
     citation_id: str
-    relation_id: str
+    relation_id: str | None
     chunk_id: str
     doc_id: str
     doc_version: str
     section: str | None = None
     page: int | None = None
     excerpt: str
+    doc_title: str | None = None
 
 
 class ErrorInfo(_Strict):
@@ -111,7 +115,11 @@ class QAResponse(_Strict):
     request_id: str
     status: Status
     knowledge_batch: str | None
-    retrieval_mode: Literal["hybrid", "graph_only"] | None
+    retrieval_mode: Literal["hybrid", "graph_only", "keyword_only"] | None
+    retrieval_type: Literal["graph", "document"] = "graph"
+    warnings: list[str] = Field(default_factory=list)
+    resolved_scope: Scope | None = None
+    hop_log: list[dict] = Field(default_factory=list)
     degraded_mode: bool
     degradation_reason: str | None
     answer_mode: Literal["llm", "template"] | None
@@ -125,16 +133,20 @@ class QAResponse(_Strict):
     @model_validator(mode="after")
     def _invariants(self) -> QAResponse:
         s = self.status
-        if (self.retrieval_mode == "graph_only" or self.answer_mode == "template") and not (
-            self.degraded_mode
-        ):
+        if (
+            self.retrieval_mode in ("graph_only", "keyword_only") or self.answer_mode == "template"
+        ) and not (self.degraded_mode):
             raise ValueError("graph_only / template 时 degraded_mode 必须为 true")
         if self.degraded_mode and not self.degradation_reason:
             raise ValueError("degraded_mode=true 时必须给出 degradation_reason")
 
         if s == "success":
-            if not (self.paths and self.claims and self.citations):
-                raise ValueError("success 必须同时包含 paths、claims、citations")
+            if not (self.claims and self.citations):
+                raise ValueError("success 必须包含 claims、citations")
+            if self.retrieval_type == "graph" and not self.paths:
+                raise ValueError("多跳回答必须包含真实图路径")
+            if self.retrieval_type == "document" and self.paths:
+                raise ValueError("原文检索不得伪造图路径")
             if self.error is not None or self.missing_fields:
                 raise ValueError("success 不应包含 error / missing_fields")
             if not (self.knowledge_batch and self.retrieval_mode and self.answer_mode):
@@ -165,6 +177,10 @@ class QAResponse(_Strict):
         paths = {p.path_id: p for p in self.paths}
         cits = {c.citation_id: c for c in self.citations}
         for claim in self.claims:
+            if self.retrieval_type == "graph" and not claim.path_ids:
+                raise ValueError("多跳结论必须关联图路径")
+            if self.retrieval_type == "document" and claim.path_ids:
+                raise ValueError("原文回答不得引用不存在的图路径")
             missing_p = [pid for pid in claim.path_ids if pid not in paths]
             missing_c = [cid for cid in claim.citation_ids if cid not in cits]
             if missing_p or missing_c:

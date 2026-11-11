@@ -81,8 +81,8 @@ class FactRecord:
     """可核验事实（V1.2 §4.3）：一条边 = 一条事实 = 一个引用。"""
 
     fact_id: str
-    path_id: str
-    relation_id: str
+    path_id: str | None
+    relation_id: str | None
     subject: str
     predicate: str
     object: str

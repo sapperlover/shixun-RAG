@@ -1,35 +1,15 @@
-"""文本向量化（bge-small-zh-v1.5，ADR-015：CPU 版 torch）。
-
-模型缓存在 MODEL_CACHE_DIR；首次使用时从 HF_ENDPOINT（国内用 hf-mirror.com）下载，
-建议在 make init 阶段预先下载（python -m scripts.download_models）。
-不可用时抛出异常，调用方（构建批次、锚点召回）降级为 graph_only。
-"""
+"""API 文本向量化；索引绑定模型、端点和维度，避免混用不同向量空间。"""
 
 from __future__ import annotations
-
-from functools import lru_cache
 
 from app.core.config import get_env
 
 
-@lru_cache(maxsize=1)
-def _model():
-    from sentence_transformers import SentenceTransformer
-
-    env = get_env()
-    return SentenceTransformer(env.embedding_model, device="cpu", cache_folder=env.model_cache_dir)
-
-
 def embed(texts: list[str]):
     """返回 float32、L2 归一化的 numpy 矩阵（内积即余弦相似度）。"""
-    import numpy as np
+    from app.llm.embedding_api import embed as api_embed
 
-    if get_env().embedding_provider == "api":
-        from app.llm.embedding_api import embed as api_embed
-
-        return api_embed(texts)
-    vecs = _model().encode(texts, normalize_embeddings=True, convert_to_numpy=True)
-    return np.asarray(vecs, dtype="float32")
+    return api_embed(texts)
 
 
 def identity() -> dict:

@@ -1,14 +1,14 @@
 """角色与权限（V1.2 §4.4 访问权限检查；角色划分为本项目约定，见 ADR-002：
 游客 / 学生 / 教务知识管理员 / 系统管理员）。
 
-TODO(BE, D4)：实现 POST /login 与 token 校验。在那之前：
-- prod：所有请求一律视为 guest（安全默认值，越权接口返回 403）；
-- dev：可用请求头 X-Demo-Role 模拟角色，便于前端联调。
+公开资料允许阅读与关联问答的反馈。管理操作使用ADMIN_TOKEN或本机DEMO_MODE；
+开发环境另支持X-Demo-Role联调。当前不实现账号登录系统。
 """
 
 from __future__ import annotations
 
 from enum import StrEnum
+from secrets import compare_digest
 
 from fastapi import Header
 
@@ -32,7 +32,15 @@ def current_role(x_demo_role: str | None = Header(default=None)) -> Role:
 def require_roles(*allowed: Role):
     """FastAPI 依赖：`dependencies=[Depends(require_roles(Role.KNOWLEDGE_ADMIN))]`。"""
 
-    def _check(x_demo_role: str | None = Header(default=None)) -> Role:
+    def _check(
+        x_demo_role: str | None = Header(default=None),
+        x_admin_token: str | None = Header(default=None),
+    ) -> Role:
+        env = get_env()
+        if env.demo_mode or (
+            env.admin_token and compare_digest(x_admin_token or "", env.admin_token)
+        ):
+            return allowed[0]
         role = current_role(x_demo_role)
         if role not in allowed:
             raise ApiError(403, ErrorCode.FORBIDDEN, f"需要角色 {[r.value for r in allowed]}")

@@ -15,5 +15,9 @@
     "code": "GRAPH_UNAVAILABLE",
     "failed_hop": null,
     "retryable": true
-  }
+  },
+  "retrieval_type": "graph",
+  "warnings": [],
+  "resolved_scope": null,
+  "hop_log": []
 }

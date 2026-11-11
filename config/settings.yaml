@@ -14,12 +14,12 @@ retrieval:
   min_surface_chars: 2           # 实体名/别名参与字面匹配的最短长度
 
 evidence:
-  token_budget: 3000      # 送入模型的原文总长度上限（按字符近似 token）
-  excerpt_chars: 300      # 单条引用摘录的最大长度
+  token_budget: 12000      # 送入模型的原文总长度上限（按字符近似 token）
+  excerpt_chars: 2000      # 单条引用摘录的最大长度
 
 generation:
   temperature: 0.1
-  max_tokens: 512
+  max_tokens: 1500
   timeout_s: 60
   max_retries: 1       # 校验不过最多重试 1 次
   fallback: template   # 模型不可用时的降级方式：template | none
@@ -30,7 +30,7 @@ ingest:
   relation_min_confidence: 0.8   # 低于此值的候选关系不进入预核验清单的“建议通过”
 
 eval:
-  scorer_version: "0.1.0"
+  scorer_version: "0.2.0"
   dataset_file: data/eval/questions_v1.jsonl
   dataset_sha256_file: data/eval/questions_v1.sha256
   runs_dir: data/eval/runs

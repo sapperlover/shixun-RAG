@@ -5,11 +5,10 @@ SHELL := /bin/bash
 export APP_UID := $(shell id -u)
 export GIT_COMMIT := $(shell git rev-parse --short HEAD 2>/dev/null || echo unknown)
 
-BASE    := docker compose -f docker-compose.yml $(if $(GPU),-f docker-compose.gpu.yml)
-DEV     := docker compose -f docker-compose.yml -f docker-compose.dev.yml $(if $(GPU),-f docker-compose.gpu.yml)
+BASE    := docker compose -f docker-compose.yml
+DEV     := docker compose -f docker-compose.yml -f docker-compose.dev.yml
 RUN_API := $(DEV) run --rm --no-deps api
 RUN_WEB := $(DEV) run --rm --no-deps web
-LLM_MODEL ?= qwen2.5:1.5b
 
 .PHONY: help env up down dev init health test test-int lint fmt typecheck check shell logs ps lock kb kb-demo eval eval-demo schema baseline clean-volumes
 
@@ -19,7 +18,7 @@ help: ## 列出命令
 env: ## 首次使用：生成 .env
 	@test -f .env || (cp .env.example .env && echo "已生成 .env，请修改 NEO4J_PASSWORD")
 
-up: env ## 交付基线启动（GPU=1 启用 GPU 叠加）
+up: env ## 启动 API 版本（配置完整后自动初始化知识库）
 	$(BASE) up -d --build
 
 down: ## 停止所有容器（保留数据卷）
@@ -28,19 +27,16 @@ down: ## 停止所有容器（保留数据卷）
 dev: env ## 开发模式：热重载 api(:8000) + Vite(:5173)
 	$(DEV) up --build
 
-init: ## 首次启动后：建 Neo4j 约束、迁移 SQLite、拉取生成模型与 embedding 模型
-	$(BASE) exec api python -m scripts.init_sqlite
-	$(BASE) exec api python -m scripts.init_neo4j
-	$(BASE) exec ollama ollama pull $(LLM_MODEL)
-	$(BASE) exec api python -m scripts.download_models
+init: ## 验证原文并初始化图谱和向量（自动复用相同配置的索引）
+	$(BASE) run --rm initialize
 
 health: ## 查看 /health/ready
-	@curl -s http://localhost:$(or $(WEB_PORT),8080)/api/health/ready | python3 -m json.tool
+	@curl -s http://localhost:$(or $(WEB_PORT),8081)/api/health/ready | python3 -m json.tool
 
 test: ## 后端单元/接口/契约测试（不依赖外部服务）
 	$(RUN_API) pytest -m "not integration"
 
-test-int: ## 集成测试：真实 Neo4j（+ Ollama 可选），需先 make up 或 make dev
+test-int: ## 集成测试：真实 Neo4j（API 使用桩，避免测试产生费用）
 	$(DEV) run --rm --no-deps -e INTEGRATION=1 api pytest -m integration
 
 lint: ## 后端 ruff + 前端 eslint/prettier
@@ -85,12 +81,12 @@ kb-demo: ## 用【模拟】演示知识包构建并发布批次（仅用于演�
 eval-demo: ## 用演示题集跑一遍评测（不做冻结校验）
 	$(BASE) exec api python -m scripts.run_eval /app/data/demo/questions_demo.jsonl --no-freeze-check
 
-eval: ## 用冻结题集运行评测（与线上同一条 pipeline）
-	$(DEV) exec api python -m scripts.run_eval
+eval: ## 冻结题集评测（10 正例 + 3 负例，调用真实 API 并持久化结果）
+	$(BASE) exec api python -m scripts.run_eval
 
 baseline: ## 记录原完整系统的部署基线到 docs/logs/
 	@mkdir -p docs/logs
 	@bash scripts/record_baseline.sh > docs/logs/generated_system_baseline.md && echo "已写入 docs/logs/generated_system_baseline.md"
 
-clean-volumes: ## 危险：删除所有数据卷（图谱、SQLite、模型）
+clean-volumes: ## 危险：删除本项目数据卷（图谱、SQLite、索引）
 	@read -p "将删除全部数据卷，输入 yes 确认: " a && [ "$$a" = yes ] && $(DEV) down -v

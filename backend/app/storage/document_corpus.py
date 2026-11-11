@@ -144,7 +144,7 @@ def status(batch: str) -> str:
         return "not built"
 
 
-def build(source: Path) -> dict:
+def build(source: Path, *, reuse_portable: bool = True) -> dict:
     """Build immutable staging data; publish after both keyword and vector data exist."""
     import faiss
     import numpy as np
@@ -181,7 +181,8 @@ def build(source: Path) -> dict:
                     for i, cid in enumerate(old_order)
                 }
     vector_rows = [r for r in rows if not r.get("needs_review") and not r.get("is_toc")]
-    previous_vectors.update(portable_vectors(source, manifest, vector_rows))
+    if reuse_portable:
+        previous_vectors.update(portable_vectors(source, manifest, vector_rows))
     batch = "documents-" + sha[:10] + "-" + uuid.uuid4().hex[:6]
     directory = index_dir(batch)
     directory.mkdir(parents=True, exist_ok=True)
@@ -285,6 +286,29 @@ def _rows(db: str, batch: str) -> list[dict]:
 
 def rows(batch: str) -> list[dict]:
     return _rows(get_env().sqlite_path, batch)
+
+
+def by_citation(batch: str, citation_id: str) -> dict | None:
+    for row in rows(batch):
+        expected = (
+            "doc-cit-" + hashlib.sha256(f"{batch}|{row['chunk_id']}".encode()).hexdigest()[:16]
+        )
+        if expected != citation_id or row.get("needs_review") or row.get("is_toc"):
+            continue
+        return {
+            "citation_id": citation_id,
+            "relation_id": None,
+            "chunk_id": row["chunk_id"],
+            "doc_id": row["doc_id"],
+            "doc_title": row["title"],
+            "doc_version": row["doc_version"],
+            "section": row.get("section"),
+            "page_start": row["page_start"],
+            "page_end": row["page_end"],
+            "text": row["text"],
+            "verification_status": row["verification_status"],
+        }
+    return None
 
 
 def keyword(batch: str, question: str) -> list[str]:

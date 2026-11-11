@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile:1
 # 构建上下文为仓库根目录（见 docker-compose.yml）。
 FROM python:3.11-slim AS base
 ARG APP_UID=1000
@@ -12,7 +11,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     REPO_ROOT=/app
 WORKDIR /app
 RUN useradd -m -u ${APP_UID} app \
- && mkdir -p /data/app /data/faiss /data/model_cache /data/uploads \
+ && mkdir -p /data/app /data/faiss /data/model_cache /data/uploads /data/document_indexes /data/embedding_requests \
  && chown -R app:app /data /app
 COPY backend/requirements.lock backend/requirements.lock
 RUN pip install -r backend/requirements.lock

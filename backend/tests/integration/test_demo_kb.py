@@ -1,6 +1,6 @@
 """集成测试：在真实 Neo4j 上构建【模拟】演示知识包，跑通完整问答链路。
 
-运行：make test-int（需要 Neo4j 在线；Ollama 可选，不可用时验证模板降级）。
+运行：make test-int（需要 Neo4j 在线；模型 API 被替代为不可用桩以验证安全降级）。
 测试使用独立的临时 SQLite，并在结束时删除自己构建的图谱批次，不影响正在运行的服务。
 """
 
@@ -12,13 +12,24 @@ from app import pipeline
 from app.core.errors import ErrorCode, ServiceUnavailable
 from app.eval import dataset, runner
 from app.graph import build, dictionary, publish, validate
-from app.llm import ollama_client
+from app.llm import chat_api, embedder
 from app.schemas.qa import QARequest
 from app.storage import sqlite
 
 pytestmark = pytest.mark.integration
 DEMO = Path(__file__).parents[3] / "data" / "demo"
 QUESTIONS = {q.question_id: q for q in dataset.load(DEMO / "questions_demo.jsonl")}
+
+
+@pytest.fixture(scope="module", autouse=True)
+def offline_models():
+    def down(*args):
+        raise ServiceUnavailable(ErrorCode.LLM_UNAVAILABLE)
+
+    with pytest.MonkeyPatch.context() as patch:
+        patch.setattr(chat_api, "chat_json", down)
+        patch.setattr(embedder, "embed", down)
+        yield
 
 
 @pytest.fixture(scope="module")
@@ -85,7 +96,7 @@ def test_llm_down_falls_back_to_template(batch, monkeypatch):
     def down(*a, **k):
         raise ServiceUnavailable(ErrorCode.LLM_UNAVAILABLE)
 
-    monkeypatch.setattr(ollama_client, "chat_json", down)
+    monkeypatch.setattr(chat_api, "chat_json", down)
     r = ask("demo-t2-001").response
     assert r.status == "success" and r.answer_mode == "template" and r.degraded_mode
     assert "llm_unavailable" in r.degradation_reason
@@ -107,7 +118,7 @@ def test_eval_runner_on_demo(batch, tmp_path, monkeypatch):
     def down(*a, **k):
         raise ServiceUnavailable(ErrorCode.LLM_UNAVAILABLE)
 
-    monkeypatch.setattr(ollama_client, "chat_json", down)
+    monkeypatch.setattr(chat_api, "chat_json", down)
     _, m = runner.run(list(QUESTIONS.values()), tmp_path)
     assert m.path_hit_rate == 1.0 and m.answer_accuracy == 1.0
     assert m.citation_coverage == 1.0

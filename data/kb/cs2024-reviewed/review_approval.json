@@ -6,6 +6,15 @@
   "delegation_note": "那你直接确认",
   "source_content_reviewed": true,
   "scope_reviewed": true,
-  "manifest_sha256": "31971e49a41adb69aaf73022968ef4ff38b38c89b056761db23413686a387eda",
-  "decision_report_sha256": "13d63afc17391d6ebf7864f65e4c0069c78e5f4fed7524c28ffbe9d75d5cfeee"
+  "manifest_sha256": "dfa4bb08135a84bf469b67bf7fec809dc2a0953bab0cc70469d6fb6ea7827a51",
+  "decision_report_sha256": "1f169b902b5616a9024ed7a507a3cc039d69bc9591c4d426d4e863f422389b60",
+  "portability_transformation": {
+    "original_manifest_sha256": "31971e49a41adb69aaf73022968ef4ff38b38c89b056761db23413686a387eda",
+    "portable_manifest_sha256": "dfa4bb08135a84bf469b67bf7fec809dc2a0953bab0cc70469d6fb6ea7827a51",
+    "changed_fields": [
+      "documents.csv:source_uri"
+    ],
+    "source_content_unchanged": true,
+    "reviewer_and_original_decisions_preserved": true
+  }
 }

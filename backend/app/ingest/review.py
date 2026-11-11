@@ -12,8 +12,7 @@ SOURCE_REVIEW_MARKER = "requires_source_review"
 
 def check(bundle: Bundle) -> None:
     if not any(
-        REVIEW_MARKER in d["notes"] or SOURCE_REVIEW_MARKER in d["notes"]
-        for d in bundle.documents
+        REVIEW_MARKER in d["notes"] or SOURCE_REVIEW_MARKER in d["notes"] for d in bundle.documents
     ):
         return
     if not bundle.relations or any(

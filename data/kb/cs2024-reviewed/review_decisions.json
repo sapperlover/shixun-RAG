@@ -337,5 +337,14 @@
         135
       ]
     }
-  ]
+  ],
+  "portability_transformation": {
+    "original_manifest_sha256": "31971e49a41adb69aaf73022968ef4ff38b38c89b056761db23413686a387eda",
+    "portable_manifest_sha256": "dfa4bb08135a84bf469b67bf7fec809dc2a0953bab0cc70469d6fb6ea7827a51",
+    "changed_fields": [
+      "documents.csv:source_uri"
+    ],
+    "source_content_unchanged": true,
+    "reviewer_and_original_decisions_preserved": true
+  }
 }

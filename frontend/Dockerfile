@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile:1
 # 构建上下文为仓库根目录（见 docker-compose.yml）。
 
 # 开发镜像：依赖装在镜像里；源码由 docker-compose.dev.yml 挂载

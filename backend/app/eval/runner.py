@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import time
 import uuid
 from pathlib import Path
@@ -13,6 +14,7 @@ from app.core.logging import new_request_id
 from app.eval import attribution, metrics
 from app.schemas.qa import QARequest, QAResponse
 from app.schemas.resources import EvalMetrics, EvalQuestion, EvalRecord, GoldEdge
+from app.storage import document_corpus, evidence
 
 
 def predicted_edges(resp: QAResponse) -> list[list[GoldEdge]]:
@@ -33,11 +35,31 @@ def is_answer_correct(q: EvalQuestion, resp: QAResponse) -> bool:
         return False
     if resp.status != "success":
         return True
-    return all(kp in (resp.answer or "") for kp in q.key_points)
+    answer = re.sub(r"\s+", "", resp.answer or "")
+    return bool(q.key_points) and all(
+        bool(re.search(r"(?<![\d.])" + re.escape(kp) + r"(?![\d.])", answer))
+        if re.fullmatch(r"\d+(?:\.\d+)?", kp)
+        else kp in answer
+        for kp in q.key_points
+    )
 
 
-def run(questions: list[EvalQuestion], out_dir: Path) -> tuple[str, EvalMetrics]:
-    run_id = f"run-{time.strftime('%Y%m%d-%H%M%S')}-{uuid.uuid4().hex[:6]}"
+def covered_claims(resp: QAResponse) -> int:
+    """Independently read citations from the response batch, rather than assume coverage."""
+    readable = set()
+    for citation in resp.citations:
+        row = evidence.by_citation(resp.knowledge_batch, citation.citation_id)
+        if row is None and resp.retrieval_type == "document":
+            row = document_corpus.by_citation(resp.knowledge_batch, citation.citation_id)
+        if row and row["text"].strip():
+            readable.add(citation.citation_id)
+    return sum(bool(c.citation_ids) and set(c.citation_ids) <= readable for c in resp.claims)
+
+
+def run(
+    questions: list[EvalQuestion], out_dir: Path, *, run_id: str | None = None
+) -> tuple[str, EvalMetrics]:
+    run_id = run_id or f"run-{time.strftime('%Y%m%d-%H%M%S')}-{uuid.uuid4().hex[:6]}"
     run_dir = out_dir / run_id
     run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -45,7 +67,8 @@ def run(questions: list[EvalQuestion], out_dir: Path) -> tuple[str, EvalMetrics]
     for q in questions:
         rid = new_request_id()
         t0 = time.perf_counter()
-        resp = pipeline.answer_question(QARequest(question=q.question, scope=q.scope), rid).response
+        result = pipeline.answer_question(QARequest(question=q.question, scope=q.scope), rid)
+        resp = result.response
         elapsed = int((time.perf_counter() - t0) * 1000)
         hit = is_path_hit(q, resp)
         correct = is_answer_correct(q, resp)
@@ -59,10 +82,17 @@ def run(questions: list[EvalQuestion], out_dir: Path) -> tuple[str, EvalMetrics]
                 predicted_path=paths[0] if paths else [],
                 path_hit=hit,
                 answer_correct=correct,
-                citation_covered=len(resp.claims),  # 经过 validate_claims 的断言都有可读回引用
+                citation_covered=covered_claims(resp),
                 claims_total=len(resp.claims),
                 failure_stage=attribution.attribute(q, resp, hit, correct),
                 elapsed_ms=elapsed,
+                question=q.question,
+                answer=resp.answer,
+                answer_mode=resp.answer_mode,
+                expected_status=q.expected_status,
+                hop_count=q.hop_count,
+                response=resp.model_dump(mode="json", by_alias=True),
+                hop_log=[vars(h) for h in result.hop_log],
             )
         )
 

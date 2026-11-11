@@ -15,5 +15,9 @@
     "code": "PATH_INCOMPLETE",
     "failed_hop": 2,
     "retryable": false
-  }
+  },
+  "retrieval_type": "graph",
+  "warnings": [],
+  "resolved_scope": null,
+  "hop_log": []
 }

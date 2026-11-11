@@ -18,4 +18,4 @@ max-line-length = 120  # 中文按双宽计算，注释/文档字符串放宽；
 testpaths = ["tests"]
 addopts = "-q"
 cache_dir = "/tmp/.pytest_cache"  # 不写进源码目录（见 Dockerfile 中 RUFF_CACHE_DIR 的说明）
-markers = ["integration: 需要 Neo4j/Ollama 等外部服务，默认不运行"]
+markers = ["integration: 需要真实 Neo4j，默认不运行"]

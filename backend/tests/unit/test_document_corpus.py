@@ -97,6 +97,20 @@ def test_direct_retrieval_keeps_years_separate(corpus):
     assert all(e.relation_id is None and not e.scope_verified for e in result.evidence)
 
 
+def test_document_citation_readback_is_batch_scoped(corpus, client):
+    result = retrieve_documents("软件工程2025级专业课程最低选修学分？", {}, "source-query")
+    citation_id = result.evidence[0].citation_id
+    response = client.get(
+        f"/evidence/{citation_id}", params={"knowledge_batch": result.knowledge_batch}
+    )
+    assert response.status_code == 200
+    assert "14学分" in response.json()["text"] and response.json()["relation_id"] is None
+    assert (
+        client.get(f"/evidence/{citation_id}", params={"knowledge_batch": "other"}).status_code
+        == 404
+    )
+
+
 def test_rules_do_not_require_major_and_unreviewed_ocr_is_not_returned(corpus):
     result = retrieve_documents("缓考须如何提出申请？", {}, "rule-query")
     assert result.status == "success" and all(

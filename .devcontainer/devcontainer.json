@@ -2,7 +2,7 @@
   "name": "campus-graphrag · api",
   "dockerComposeFile": ["../docker-compose.yml", "../docker-compose.dev.yml"],
   "service": "api",
-  "runServices": ["api", "neo4j", "ollama"],
+  "runServices": ["api", "neo4j"],
   "workspaceFolder": "/app",
   "shutdownAction": "none",
   "customizations": {

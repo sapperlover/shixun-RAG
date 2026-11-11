@@ -102,5 +102,9 @@
     }
   ],
   "missing_fields": [],
-  "error": null
+  "error": null,
+  "retrieval_type": "graph",
+  "warnings": [],
+  "resolved_scope": null,
+  "hop_log": []
 }

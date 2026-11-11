@@ -9,3 +9,8 @@ data
 docs
 .devcontainer
 .github
+
+.venv
+.cache
+.env.*
+**/.mypy_cache

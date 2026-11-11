@@ -31,6 +31,48 @@
             ],
             "default": null,
             "title": "Entry Year"
+          },
+          "program_variant": {
+            "anyOf": [
+              {
+                "enum": [
+                  "regular",
+                  "international",
+                  "second_degree",
+                  "joint"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Program Variant"
+          },
+          "plan_revision": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Plan Revision"
+          },
+          "college": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "College"
           }
         },
         "title": "Scope",
@@ -79,8 +121,15 @@
             "type": "string"
           },
           "relation_id": {
-            "title": "Relation Id",
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Relation Id"
           },
           "chunk_id": {
             "title": "Chunk Id",
@@ -121,6 +170,18 @@
           "excerpt": {
             "title": "Excerpt",
             "type": "string"
+          },
+          "doc_title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Doc Title"
           }
         },
         "required": [
@@ -149,7 +210,6 @@
             "items": {
               "type": "string"
             },
-            "minItems": 1,
             "title": "Path Ids",
             "type": "array"
           },
@@ -165,7 +225,6 @@
         "required": [
           "claim_id",
           "text",
-          "path_ids",
           "citation_ids"
         ],
         "title": "Claim",
@@ -330,6 +389,82 @@
         ],
         "title": "PathNode",
         "type": "object"
+      },
+      "Scope": {
+        "additionalProperties": false,
+        "properties": {
+          "major_code": {
+            "anyOf": [
+              {
+                "maxLength": 32,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Major Code"
+          },
+          "entry_year": {
+            "anyOf": [
+              {
+                "maximum": 2100,
+                "minimum": 2000,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Entry Year"
+          },
+          "program_variant": {
+            "anyOf": [
+              {
+                "enum": [
+                  "regular",
+                  "international",
+                  "second_degree",
+                  "joint"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Program Variant"
+          },
+          "plan_revision": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Plan Revision"
+          },
+          "college": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "College"
+          }
+        },
+        "title": "Scope",
+        "type": "object"
       }
     },
     "additionalProperties": false,
@@ -364,7 +499,8 @@
           {
             "enum": [
               "hybrid",
-              "graph_only"
+              "graph_only",
+              "keyword_only"
             ],
             "type": "string"
           },
@@ -373,6 +509,41 @@
           }
         ],
         "title": "Retrieval Mode"
+      },
+      "retrieval_type": {
+        "default": "graph",
+        "enum": [
+          "graph",
+          "document"
+        ],
+        "title": "Retrieval Type",
+        "type": "string"
+      },
+      "warnings": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Warnings",
+        "type": "array"
+      },
+      "resolved_scope": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/Scope"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null
+      },
+      "hop_log": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Hop Log",
+        "type": "array"
       },
       "degraded_mode": {
         "title": "Degraded Mode",
@@ -440,7 +611,8 @@
         "items": {
           "enum": [
             "major_code",
-            "entry_year"
+            "entry_year",
+            "program_variant"
           ],
           "type": "string"
         },

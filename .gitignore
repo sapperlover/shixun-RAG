@@ -1,6 +1,8 @@
 # 环境与密钥
 .env
 .env.rag
+.env.*
+!.env.example
 *.local
 
 # Python

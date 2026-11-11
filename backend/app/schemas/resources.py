@@ -23,6 +23,7 @@ class DocumentOut(BaseModel):
     publish_state: PublishState
     scope: Scope
     created_at: str
+    knowledge_batch: str | None = None
 
 
 # ---------- 证据读回 ----------
@@ -33,7 +34,7 @@ class EvidenceOut(BaseModel):
 
     citation_id: str
     knowledge_batch: str
-    relation_id: str
+    relation_id: str | None
     chunk_id: str
     doc_id: str
     doc_title: str
@@ -42,7 +43,7 @@ class EvidenceOut(BaseModel):
     page_start: int | None
     page_end: int | None
     text: str
-    verification_status: Literal["verified", "unverified", "rejected"]
+    verification_status: str
 
 
 # ---------- 反馈 ----------
@@ -106,6 +107,13 @@ class EvalRecord(BaseModel):
     claims_total: int  # 关键断言总数
     failure_stage: FailureStage | None
     elapsed_ms: int
+    question: str = ""
+    answer: str | None = None
+    answer_mode: str | None = None
+    expected_status: str = "success"
+    hop_count: int = 0
+    response: dict = Field(default_factory=dict)
+    hop_log: list[dict] = Field(default_factory=list)
 
 
 class EvalMetrics(BaseModel):
@@ -114,6 +122,11 @@ class EvalMetrics(BaseModel):
     answer_accuracy: float | None
     citation_coverage: float | None  # 无断言时为 None（N/A）
     failure_distribution: dict[str, int]
+    two_hop_path_hit_rate: float | None = None
+    three_hop_path_hit_rate: float | None = None
+    api_answer_rate: float | None = None
+    average_latency_ms: float | None = None
+    p95_latency_ms: int | None = None
 
 
 class EvalRunIn(BaseModel):
@@ -129,3 +142,4 @@ class EvalRunOut(BaseModel):
     batch_id: str | None
     metrics: EvalMetrics | None
     created_at: str
+    error_detail: str | None = None
